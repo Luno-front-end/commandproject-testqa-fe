@@ -10,7 +10,7 @@ const Navigation = () => {
   const isAuthenticatedUser = useSelector(isAuthenticated);
 
   return (
-    <div className="header">
+    <header>
       <div className='nav-menu'>
         <NavLink
           exact
@@ -73,7 +73,7 @@ const Navigation = () => {
           </NavLink>
         </div>
       )}
-    </div>
+    </header>
   );
 };
 
