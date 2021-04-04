@@ -1,21 +1,22 @@
-.header {
-  @include for-size(desktop) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header {
+  // @include for-size(desktop) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    height: 70px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-bottom: 1px solid #e2e3e5;
+  height: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #e2e3e5;
 
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: right;
-    letter-spacing: 0.02em;
-  }
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.02em;
+  // }
 }
 
 .nav-menu {
