@@ -30,11 +30,11 @@ header {
 }
 
 .user-greeting {
-  color: var(--main-text-color);
+  color: $main-text-color;
 }
 
 .navLink {
-  color: var(--main-text-color);
+  color: $main-text-color;
   // margin-right: 16px;
 }
 
@@ -43,5 +43,5 @@ header {
 }
 
 .navLink--active {
-  color: var(--decor-color);
+  color: $decor-color;
 }
