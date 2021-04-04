@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
-import { isAuthenticated } from '../redux/auth/auth-selectors';
-import routes from '../routes';
+import { isAuthenticated } from '../../redux/auth/auth-selectors';
+import routes from '../../routes';
 import UserMenu from '../UserMenu';
 
 const Navigation = () => {

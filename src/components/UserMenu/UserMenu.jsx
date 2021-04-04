@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useCallback } from 'react';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Button from '@material-ui/core/Button';
-import { name, loading } from '../redux/auth/auth-selectors';
-import { logoutUser } from '../redux/auth/auth-operations';
+import { name, loading } from '../../redux/auth/auth-selectors';
+import { logoutUser } from '../../redux/auth/auth-operations';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
