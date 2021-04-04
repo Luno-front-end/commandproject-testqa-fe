@@ -1,54 +1,46 @@
 .header {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  @include for-size(desktop) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  height: 70px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-bottom: 1px solid #e2e3e5;
+    height: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px solid #e2e3e5;
 
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  display: flex;
-  align-items: center;
-  text-align: right;
-  letter-spacing: 0.02em;
-  //   @include for-size(mobile) {
-  //     justify-content: space-between;
-  //     flex-direction: row;
-  //     align-items: stretch;
-  //   }
-}
-
-.nav-menu {
-  @media screen and (max-width: 767px) {
-    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: right;
+    letter-spacing: 0.02em;
   }
 }
 
+.nav-menu {
+  // @media screen and (max-width: 767px) {
+  //   margin-bottom: 16px;
+  // }
+}
+
 .container-menu {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  // display: flex;
+  // justify-content: flex-end;
+  // align-items: center;
 }
 
 .user-greeting {
-  font-size: 20px;
-  margin-right: 40px;
   color: var(--main-text-color);
 }
 
 .navLink {
-  font-size: 26px;
   color: var(--main-text-color);
-  margin-right: 16px;
+  // margin-right: 16px;
 }
 
 .navLink:not(:last-child) {
-  margin-right: 16px;
+  // margin-right: 16px;
 }
 
 .navLink--active {
