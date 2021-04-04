@@ -1,0 +1,108 @@
+// @include for-size(mobile-sm) {
+//     max-width: 280px;
+//   }
+
+.title {
+  font-family: 'MontserratBold';
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #000000;
+
+  @include for-size(mobile) {
+    color: green;
+    width: 280px;
+    height: 76px;
+    left: 20px;
+    top: 100px;
+    font-size: 12px;
+    line-height: 1.67;
+  }
+  @include for-size(tablet) {
+    color: yellow;
+    width: 650px;
+    height: 88px;
+    left: 59px;
+    top: 149px;
+    font-size: 22px;
+    line-height: 1.36;
+  }
+  @include for-size(desktop) {
+    color: red;
+    width: 650px;
+    height: 88px;
+    left: 315px;
+    top: 192px;
+    font-size: 22px;
+    line-height: 1.36;
+  }
+}
+
+.titleAuthor {
+  font-family: 'MontserratMedium';
+  //   position: absolute;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #000000;
+
+  @include for-size(mobile) {
+    width: 280px;
+    height: 14px;
+    left: 20px;
+    top: 216px;
+    font-size: 12px;
+    line-height: 1.17;
+  }
+  @include for-size(tablet) {
+    width: 400px;
+    height: 31px;
+    left: 184px;
+    top: 280px;
+    font-size: 18px;
+    line-height: 2;
+  }
+  @include for-size(desktop) {
+    width: 400px;
+    height: 31px;
+    left: 440px;
+    top: 322px;
+    font-size: 18px;
+    line-height: 2;
+  }
+}
+
+.titleAuthorDetails {
+  font-family: 'MontserratMedium';
+  //   position: absolute;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #555555;
+
+  @include for-size(mobile) {
+    width: 280px;
+    height: 12px;
+    left: 20px;
+    top: 234px;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+  @include for-size(tablet) {
+    width: 400px;
+    height: 31px;
+    left: 184px;
+    top: 311px;
+    font-size: 14px;
+    line-height: 2.57;
+  }
+  @include for-size(desktop) {
+    width: 400px;
+    height: 31px;
+    left: 440px;
+    top: 353px;
+    font-size: 14px;
+    line-height: 2.57;
+  }
+}
+
+.bgcolor {
+  background: #e5e5e5;
+}

@@ -5,8 +5,8 @@ function App() {
   return (
     <div className="App">
       <MainPage />
-      <TestPage />
-      <p>привіт світ</p>
+      {/* <TestPage />
+      <p>привіт світ</p> */}
     </div>
   );
 }
