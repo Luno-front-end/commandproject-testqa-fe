@@ -1,8 +1,10 @@
+import AppBar from './AppBar';
+
 function App() {
   return (
-    <div className="App">
-      <p>привіт світ</p>
-    </div>
+    <>
+      <AppBar />
+    </>
   );
 }
 
