@@ -1,9 +1,8 @@
 /* baseStyles */
-
-@import 'base';
-@import 'fonts';
-@import 'mixin';
-@import 'styles';
+@import './styles/mixin';
+@import './styles/base';
+@import './styles/fonts';
+@import './styles/styles';
 
 /* Components */
 
