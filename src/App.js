@@ -1,7 +1,9 @@
+import Awd from './components/TestSpriteSVG.jsx';
+
 function App() {
   return (
     <div className="App">
-      <p>привіт світ</p>
+      <Awd />
     </div>
   );
 }
