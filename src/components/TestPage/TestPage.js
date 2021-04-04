@@ -1,7 +1,7 @@
 function Test() {
   return (
     <>
-      <h1>TIS IS TEST PAGE</h1>
+      <h1>THIS IS TEST PAGE!!!!!</h1>
       <p>[ Testing theory_]</p>
       <button>Finish test</button>
       <form>
