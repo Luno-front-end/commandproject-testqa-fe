@@ -8,7 +8,7 @@ header {
   padding-left: 20px;
   padding-right: 20px;
 
-  border-bottom: 1px solid tomato;
+  border-bottom: 1px solid #e2e3e5;
 
   display: flex;
   justify-content: space-between;
@@ -50,5 +50,26 @@ header {
 }
 
 .navLink--active {
-  color: $decor-color;
+  border-bottom: 1px solid $decor-color;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: $text-collor;
+  box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
 }
