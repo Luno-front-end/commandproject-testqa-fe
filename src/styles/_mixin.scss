@@ -1,9 +1,5 @@
 @mixin for-size($size) {
-  @if $size == mobile-sm {
-    @media screen and (max-width: 320px) {
-      @content;
-    }
-  } @else if $size == mobile {
+  @if $size == mobile {
     @media screen and (max-width: 767px) {
       @content;
     }
@@ -12,11 +8,7 @@
       @content;
     }
   } @else if $size == desktop {
-    @media screen and (min-width: 1280px) and (min-width: 1679px) {
-      @content;
-    }
-  } @else if $size == desktop-hd {
-    @media screen and (min-width: 1680px) {
+    @media screen and (min-width: 1280px) {
       @content;
     }
   }

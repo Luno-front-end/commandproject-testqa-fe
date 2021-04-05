@@ -1,11 +1,11 @@
 /* baseStyles */
 @import './styles/mixin';
-@import './styles/base';
-@import './styles/fonts';
 @import './styles/styles';
-@import './styles/components/footer';
+@import './styles/fonts';
+@import './styles/base';
 
 /* Components */
+@import './styles/components/footer';
 
 /* body {
   margin: 0;
