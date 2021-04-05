@@ -12,7 +12,7 @@
       @content;
     }
   } @else if $size == desktop {
-    @media screen and (min-width: 1280px) and (min-width: 1679px) {
+    @media screen and (min-width: 1280px) and (max-width: 1679px) {
       @content;
     }
   } @else if $size == desktop-hd {

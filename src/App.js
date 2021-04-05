@@ -4,9 +4,9 @@ import TestPage from './components/TestPage/TestPage';
 function App() {
   return (
     <div className="App">
-      <MainPage />
-      {/* <TestPage />
-      <p>привіт світ</p> */}
+      {/* <MainPage /> */}
+      <TestPage />
+      {/* <p>привіт світ</p> */}
     </div>
   );
 }

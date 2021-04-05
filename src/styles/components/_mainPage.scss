@@ -1,15 +1,11 @@
-// @include for-size(mobile-sm) {
-//     max-width: 280px;
-//   }
-
-.title {
+.titleMain {
+  position: absolute;
   font-family: 'MontserratBold';
   text-align: center;
   letter-spacing: 0.02em;
   color: #000000;
 
   @include for-size(mobile) {
-    color: green;
     width: 280px;
     height: 76px;
     left: 20px;
@@ -18,7 +14,6 @@
     line-height: 1.67;
   }
   @include for-size(tablet) {
-    color: yellow;
     width: 650px;
     height: 88px;
     left: 59px;
@@ -27,7 +22,6 @@
     line-height: 1.36;
   }
   @include for-size(desktop) {
-    color: red;
     width: 650px;
     height: 88px;
     left: 315px;
@@ -37,9 +31,9 @@
   }
 }
 
-.titleAuthor {
+.titleAuthorMain {
   font-family: 'MontserratMedium';
-  //   position: absolute;
+  position: absolute;
   text-align: center;
   letter-spacing: 0.02em;
   color: #000000;
@@ -70,9 +64,9 @@
   }
 }
 
-.titleAuthorDetails {
+.titleAuthorDetailsMain {
   font-family: 'MontserratMedium';
-  //   position: absolute;
+  position: absolute;
   text-align: center;
   letter-spacing: 0.02em;
   color: #555555;
@@ -103,6 +97,140 @@
   }
 }
 
-.bgcolor {
+.bgColorMain {
   background: #e5e5e5;
+}
+
+.btnPrimaryMain {
+  position: absolute;
+  height: 212px;
+  background: var(--footer-bg-color);
+
+  @include for-size(mobile) {
+    width: 280px;
+    left: 20px;
+    top: 286px;
+    filter: drop-shadow(0px 4px 15px rgba (18,  29,  46,  0.15));
+  }
+  @include for-size(tablet) {
+    width: 400px;
+    left: 184px;
+    top: 402px;
+  }
+  @include for-size(desktop) {
+    width: 400px;
+    left: 230px;
+    top: 468px;
+  }
+}
+
+.btnSecondaryMain {
+  position: absolute;
+  height: 212px;
+  background: #ff6b01;
+
+  @include for-size(mobile) {
+    width: 280px;
+    left: 20px;
+    top: 518px;
+  }
+  @include for-size(tablet) {
+    width: 400px;
+    left: 184px;
+    top: 644px;
+  }
+  @include for-size(desktop) {
+    width: 400px;
+    left: 650px;
+    top: 468px;
+  }
+}
+
+.markerMain {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  fill: var(--text-collor);
+
+  @include for-size(mobile) {
+    left: 128px;
+    top: 146px;
+  }
+  @include for-size(tablet) {
+    left: 188px;
+    top: 146px;
+  }
+  @include for-size(desktop) {
+    left: 188px;
+    top: 146px;
+  }
+}
+
+.textPrimaryBtnMain {
+  position: absolute;
+  top: 60px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  font-family: 'MontserratRegular';
+  font-style: normal;
+  font-weight: 800;
+
+  @include for-size(mobile) {
+    width: 177px;
+    height: 58px;
+    left: 52px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 29px;
+  }
+  @include for-size(tablet) {
+    width: 376px;
+    height: 78px;
+    // left: 40px;
+    font-size: 32px;
+    line-height: 39px;
+  }
+  @include for-size(desktop) {
+    width: 374px;
+    height: 78px;
+    // left: 50px;
+    font-size: 32px;
+    line-height: 39px;
+  }
+}
+
+.textSecondaryBtnMain {
+  position: absolute;
+  font-family: 'MontserratRegular';
+  font-style: normal;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+
+  @include for-size(mobile) {
+    width: 105px;
+    height: 58px;
+    left: 87px;
+    top: 63px;
+    font-size: 24px;
+    line-height: 29px;
+  }
+  @include for-size(tablet) {
+    width: 132px;
+    height: 74px;
+    left: 134px;
+    top: 60px;
+    font-size: 30px;
+    line-height: 37px;
+  }
+  @include for-size(desktop) {
+    width: 132px;
+    height: 74px;
+    left: 134px;
+    top: 60px;
+    font-size: 30px;
+    line-height: 37px;
+  }
 }
