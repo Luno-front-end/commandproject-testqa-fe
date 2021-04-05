@@ -15,7 +15,9 @@ const UserMenu = () => {
   return (
     <div className="container-user">
       <div className="user-greeting">
-            <div className='avatar'>{userName.match(/[A-Z]/g).join('')}</div> {userName}</div>
+        <div className="avatar">{userName.match(/[A-Z]/g).join('')}</div>
+        {userName}
+      </div>
       {loadingAuth ? (
         'Loading...'
       ) : (
