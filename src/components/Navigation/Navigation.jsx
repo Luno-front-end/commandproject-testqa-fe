@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import sprite from '../../images/sprite.svg'
+// import Avatar from '@material-ui/core/Avatar';
 
 
 import { isAuthenticated } from '../../redux/auth/auth-selectors';
@@ -17,7 +18,6 @@ const Navigation = () => {
           exact
           to={routes.home}
           className="navLink"
-          activeClassName="navLink--active"
         >
         <svg width="129" height="28">
         <use href={sprite + '#logo'}></use>
@@ -54,7 +54,7 @@ const Navigation = () => {
       {isAuthenticatedUser ? (
         <UserMenu /> 
       ) : (
-        <div>
+          <div>
           <NavLink
             to={routes.contactsPage}
             className="navLink"
