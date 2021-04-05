@@ -1,9 +1,14 @@
-import Awd from './components/TestSpriteSVG.jsx';
+import MainPage from './components/MainPage/MainPage.jsx';
+import TestPage from './components/TestPage/TestPage.jsx';
+
+import TestSpriteSVG from './components/TestSpriteSVG.jsx';
 
 function App() {
   return (
     <div className="App">
-      <Awd />
+      <MainPage />
+      {/* <TestPage /> */}
+      {/* <TestSpriteSVG /> */}
     </div>
   );
 }
