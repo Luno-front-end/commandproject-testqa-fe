@@ -1,18 +1,15 @@
+import { useDispatch } from 'react-redux';
+
+import { getAllTest } from '../../redux/tetstOperaion';
 import { useState, useEffect } from 'react';
 
 import sprite from '../../images/sprite.svg';
 
 function Test() {
-  // const [questions, setQuestions] = useState(null);
-
-  // useEffect(()=>{API.fetchQuestions().then(setQuestions)})
-
   return (
     <div className="container bgColorTest">
       <div className="flexContainer">
-        <p className="nameOfTest">
-          [ Testing theory_]
-        </p>
+        <p className="nameOfTest">[ Testing theory_]</p>
         <button className="btnThirdTest">Finish test</button>
       </div>
       <form className="formOfQuestionTest">
@@ -24,23 +21,20 @@ function Test() {
             question.SOMETEXT
           </li>
         </ul>))} */}
-
       </form>
       <div className="btnsBlockTest">
-              <button className="btnPrimaryTest">
-                    <svg className="markerPrimaryTest">
-          <use href={sprite + '#arrowLeft'}></use>
-        </svg>
-        <p className="textPrimaryBtnTest">Previous question</p>
-
-      </button>
-      <button className="btnSecondaryTest">
-        <p className="textSecondaryBtnTest">Next question</p>
-        <svg className="markerSecondaryTest">
-          <use href={sprite + '#arrowLeft'}></use>
-        </svg>
-      </button>
-
+        <button className="btnPrimaryTest">
+          <svg className="markerPrimaryTest">
+            <use href={sprite + '#arrowLeft'}></use>
+          </svg>
+          <p className="textPrimaryBtnTest">Previous question</p>
+        </button>
+        <button className="btnSecondaryTest">
+          <p className="textSecondaryBtnTest">Next question</p>
+          <svg className="markerSecondaryTest">
+            <use href={sprite + '#arrowLeft'}></use>
+          </svg>
+        </button>
       </div>
     </div>
   );
