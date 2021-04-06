@@ -9,6 +9,8 @@ html {
 }
 
 body {
+  background-color: $main-bg-color;
+
   padding: 0;
   margin: 0;
 }
@@ -110,22 +112,23 @@ input[type='radio'].visually-hidden {
 }
 
 .container {
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
   padding: 0 20px 0 20px;
 
   @include for-size(mobile-sm) {
-    max-width: 320px;
+    max-width: 280px;
   }
   @include for-size(mobile) {
-    max-width: 767px;
+    max-width: 723px;
   }
   @include for-size(tablet) {
-    width: 768px;
+    width: 724px;
+    padding: 0 22px 0 22px;
   }
   @include for-size(desktop) {
-    width: 1280px;
+    width: 1240px;
   }
   @include for-size(desktop-hd) {
-    width: 1680px;
+    width: 1640px;
   }
 }

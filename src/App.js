@@ -1,10 +1,18 @@
 import TeamSection from './components/teamSection';
+import MainPage from './components/MainPage/MainPage.jsx';
+import TestPage from './components/TestPage/TestPage.jsx';
+import AppBar from './components/AppBar';
+// import TestSpriteSVG from './components/TestSpriteSVG.jsx';
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <AppBar />
+      <MainPage />
+      <TestPage />
       <TeamSection />
-    </div>
+      {/* <TestSpriteSVG /> */}
+    </>
   );
 }
 

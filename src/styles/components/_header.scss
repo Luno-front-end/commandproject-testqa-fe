@@ -1,0 +1,75 @@
+header {
+  font-family: 'MontserratMedium';
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+
+  height: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  border-bottom: 1px solid #e2e3e5;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include for-size(mobile) {
+  }
+  @include for-size(tablet) {
+    text-align: right;
+  }
+  @include for-size(desktop) {
+    text-align: right;
+  }
+}
+
+.nav-menu {
+  // @media screen and (max-width: 767px) {
+  //   margin-bottom: 16px;
+  // }
+}
+
+.container-menu {
+  // display: flex;
+  // justify-content: flex-end;
+  // align-items: center;
+}
+
+.user-greeting {
+  color: $main-text-color;
+}
+
+.navLink {
+  color: $main-text-color;
+  // margin-right: 16px;
+}
+
+.navLink:not(:last-child) {
+  // margin-right: 16px;
+}
+
+.navLink--active {
+  border-bottom: 1px solid $decor-color;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: $text-collor;
+  box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
