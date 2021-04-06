@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import sprite from '../../images/sprite.svg'
-// import Avatar from '@material-ui/core/Avatar';
 
 
 import { isAuthenticated } from '../../redux/auth/auth-selectors';
@@ -16,14 +15,13 @@ const Navigation = () => {
       <NavLink
         exact
         to={routes.home}
-        // className="navLink"
       >
         <svg width="129" height="28">
         <use href={sprite + '#logo'}></use>
         </svg>
       </NavLink>
       <div className='nav-menu'>
-        {/* {isAuthenticatedUser && ( */}
+        {isAuthenticatedUser && (
          <>
           <NavLink
             to={routes.homePage}
@@ -40,7 +38,7 @@ const Navigation = () => {
           Materials
           </NavLink>
         </>
-        {/*   )} */}
+         )}
            <NavLink
             to={routes.contactsPage}
             className="navLink"
@@ -49,15 +47,19 @@ const Navigation = () => {
           Contacts
           </NavLink>
         
-        {/* {isAuthenticatedUser && ( */}
+        {isAuthenticatedUser && (
         <UserMenu />
         
-        {/*   )} */}
+         )}
       </div>
       <div className='menu-btn'>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2.5 15H17.5V13.3333H2.5V15ZM2.5 10.8333H17.5V9.16667H2.5V10.8333ZM2.5 5V6.66667H17.5V5H2.5Z" fill="black"/>
         </svg>
+        
+        {/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.5832 1.94417L14.0557 0.416672L7.99984 6.47251L1.944 0.416672L0.416504 1.94417L6.47234 8.00001L0.416504 14.0558L1.944 15.5833L7.99984 9.52751L14.0557 15.5833L15.5832 14.0558L9.52733 8.00001L15.5832 1.94417Z" fill="black"/>
+        </svg> */}
         </div>
     </header>
   );
