@@ -1,7 +1,9 @@
+import TeamSection from './components/teamSection';
+
 function App() {
   return (
     <div className="App">
-      <p>привіт світ</p>
+      <TeamSection />
     </div>
   );
 }
