@@ -2,10 +2,20 @@ import { useDispatch } from 'react-redux';
 
 import { getAllTest } from '../../redux/tetstOperaion';
 import { useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import sprite from '../../images/sprite.svg';
 
 function Test() {
+  const history = useHistory();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search).get('name');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllTest(query));
+  }, [dispatch]);
+
   return (
     <div className="container bgColorTest">
       <div className="flexContainer">

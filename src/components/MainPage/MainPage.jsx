@@ -22,14 +22,14 @@ function MainPage() {
       </p>
 
       <div className="btnsBlockMain">
-        <Link to="/test" className="btnPrimaryMain" exact>
+        <Link to="/test?name=qa" className="btnPrimaryMain" exact>
           <p className="textPrimaryBtnMain">QA technical training</p>
           <svg className="markerMain">
             <use href={sprite + '#arrowLeft'}></use>
           </svg>
         </Link>
 
-        <Link to="/test" className="btnSecondaryMain" exact>
+        <Link to="/test?name=testTheory" className="btnSecondaryMain" exact>
           <p className="textSecondaryBtnMain">Testing theory</p>
           <svg className="markerMain">
             <use href={sprite + '#arrowLeft'}></use>
