@@ -129,8 +129,14 @@ header {
   }
   @include for-size(tablet) {
     margin-right: 71px;
+    &:last-child {
+      margin-right: 0px;
+    }
   }
   @include for-size(desktop) {
     margin-right: 85px;
+    &:last-child {
+      margin-right: 0px;
+    }
   }
 }
