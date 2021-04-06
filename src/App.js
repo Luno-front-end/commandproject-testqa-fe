@@ -9,7 +9,7 @@ function App() {
     <>
       <AppBar />
       <MainPage />
-      <TestPage />
+      {/* <TestPage /> */}
       {/* <TestSpriteSVG /> */}
     </>
   );
