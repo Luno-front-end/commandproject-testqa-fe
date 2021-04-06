@@ -2,16 +2,16 @@
   background-color: #02172a;
   color: rgba(255, 255, 255, 0.4);
   align-items: center;
-  display: flex;
   height: 56px;
+  width: 100%;
+  text-align: center;
+  display: block;
 
-  @include for-size(mobile-sm) {
-    font-size: 10px;
-    line-height: 12px;
+  @include for-size(tablet) {
+    text-align: center;
+    align-items: center;
   }
-  @include for-size(mobile) {
-    font-size: 12px;
-    line-height: 15px;
+  @include for-size(desktop) {
   }
 }
 
@@ -37,11 +37,13 @@
   line-height: 12.19px;
   text-align: center;
   align-items: center;
-  @include for-size(mobile-sm) {
-    text-align: center;
-  }
-  @include for-size(mobile) {
-    text-align: center;
+  padding-top: 10px;
+
+  @include for-size(tablet) {
+    font-size: 12px;
+    line-height: 15px;
+    padding-top: 19px;
+    padding-bottom: 19px;
   }
 }
 
