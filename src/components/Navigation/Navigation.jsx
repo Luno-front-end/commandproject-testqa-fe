@@ -25,7 +25,8 @@ const Navigation = () => {
       <div className='nav-menu'>
         {isAuthenticatedUser && (
          <>
-          <NavLink
+            <NavLink
+            exact
             to={routes.homePage}
             className="navLink"
             activeClassName="navLink--active"
