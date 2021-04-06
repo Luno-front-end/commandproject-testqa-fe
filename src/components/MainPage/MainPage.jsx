@@ -1,6 +1,13 @@
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { getAllTest } from '../../redux/tetstOperaion';
+
 import sprite from '../../images/sprite.svg';
 
 function MainPage() {
+  const dispatch = useDispatch();
+
   return (
     <div className="container bgColorMain">
       <div>THIS IS MAIN PAGE</div>
@@ -15,20 +22,33 @@ function MainPage() {
       <p className="titleAuthorDetailsMain">
         Linux kernel creator, hacker, 1969
       </p>
-      <button className="btnPrimaryMain">
+
+      <Link
+        to="/test"
+        className="btnPrimaryMain"
+        onClick={() => {
+          dispatch(getAllTest('qa'));
+        }}
+      >
         <p className="textPrimaryBtnMain">
           QA technical <br /> training
         </p>
         <svg className="markerMain">
           <use href={sprite + '#arrowLeft'}></use>
         </svg>
-      </button>
-      <button className="btnSecondaryMain">
+      </Link>
+      <Link
+        to="/test"
+        className="btnSecondaryMain"
+        onClick={() => {
+          dispatch(getAllTest('testTheory'));
+        }}
+      >
         <p className="textSecondaryBtnMain">Testing theory</p>
         <svg className="markerMain">
           <use href={sprite + '#arrowLeft'}></use>
         </svg>
-      </button>
+      </Link>
     </div>
   );
 }

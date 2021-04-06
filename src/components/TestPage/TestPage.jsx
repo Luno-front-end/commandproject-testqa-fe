@@ -1,6 +1,17 @@
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+import { getAllTest } from '../../redux/tetstOperaion';
+
 import sprite from '../../images/sprite.svg';
 
 function Test() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllTest('qa'));
+  }, [dispatch]);
+
   return (
     <div className="container bgColorTest">
       <h1>THIS IS TEST PAGE!!!!!</h1>
