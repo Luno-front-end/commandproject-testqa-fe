@@ -1,3 +1,5 @@
+import { Route } from 'react-router-dom';
+
 import MainPage from './components/MainPage/MainPage.jsx';
 import TestPage from './components/TestPage/TestPage.jsx';
 import AppBar from './components/AppBar';
@@ -7,9 +9,16 @@ import AppBar from './components/AppBar';
 function App() {
   return (
     <>
-      <AppBar />
-      {/* <MainPage /> */}
-      <TestPage />
+      {/* <AppBar /> */}
+
+      <Route path="/" exact>
+        <MainPage />
+      </Route>
+
+      <Route path="/test">
+        <TestPage />
+      </Route>
+
       {/* <TestSpriteSVG /> */}
     </>
   );

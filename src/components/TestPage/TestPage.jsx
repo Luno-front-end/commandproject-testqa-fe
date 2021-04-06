@@ -1,6 +1,12 @@
+import { useState, useEffect } from 'react';
+
 import sprite from '../../images/sprite.svg';
 
 function Test() {
+  // const [questions, setQuestions] = useState(null);
+
+  // useEffect(()=>{API.fetchQuestions().then(setQuestions)})
+
   return (
     <div className="container bgColorTest">
       <div className="flexContainer">
@@ -12,21 +18,13 @@ function Test() {
       <form className="formOfQuestionTest">
         <p>Question 3 / 12 </p>
         <p>What is regression testing?</p>
-        <label>
-          <input type="radio" name="answer"></input> answer 1
-        </label>
-        <label>
-          <input type="radio" name="answer"></input> answer 2
-        </label>
-        <label>
-          <input type="radio" name="answer"></input> answer 3
-        </label>
-        <label>
-          <input type="radio" name="answer"></input> answer 4
-        </label>
-        <label>
-          <input type="radio" name="answer"></input> answer 5
-        </label>
+
+        {/* {questions && questions.map(question => (<ul key={question.id}>
+          <li>
+            question.SOMETEXT
+          </li>
+        </ul>))} */}
+
       </form>
       <div className="btnsBlockTest">
               <button className="btnPrimaryTest">

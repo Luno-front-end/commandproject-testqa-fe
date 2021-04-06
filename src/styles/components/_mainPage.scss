@@ -125,6 +125,10 @@
 }
 
 .btnPrimaryMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 212px;
   background: $footer-bg-color;
 
@@ -151,6 +155,11 @@
 }
 
 .btnSecondaryMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   height: 212px;
   background: #ff6b01;
 
@@ -190,7 +199,9 @@
     margin-bottom: 112px;
   }
   @include for-size(desktop) {
+    display: flex;
     margin-bottom: 114px;
+    flex-direction: row;
   }
 }
 
