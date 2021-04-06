@@ -13,19 +13,18 @@ const Navigation = () => {
 
   return (
     <header>
-      <div className='nav-menu'>
-        <NavLink
-          exact
-          to={routes.home}
-          className="navLink"
-        >
+      <NavLink
+        exact
+        to={routes.home}
+        // className="navLink"
+      >
         <svg width="129" height="28">
         <use href={sprite + '#logo'}></use>
         </svg>
-        </NavLink>
-
-        {isAuthenticatedUser && (
-          <div>
+      </NavLink>
+      <div className='nav-menu'>
+        {/* {isAuthenticatedUser && ( */}
+         <>
           <NavLink
             to={routes.homePage}
             className="navLink"
@@ -40,30 +39,21 @@ const Navigation = () => {
           >
           Materials
           </NavLink>
+        </>
+        {/*   )} */}
            <NavLink
             to={routes.contactsPage}
             className="navLink"
             activeClassName="navLink--active"
           >
-              Contacts
+          Contacts
           </NavLink>
-          </div>
-        )} 
+        
+        {/* {isAuthenticatedUser && ( */}
+        <UserMenu />
+        
+        {/*   )} */}
       </div>
-
-      {isAuthenticatedUser ? (
-        <UserMenu /> 
-      ) : (
-          <div>
-          <NavLink
-            to={routes.contactsPage}
-            className="navLink"
-            activeClassName="navLink--active"
-          >
-            Contacts
-          </NavLink>
-        </div>
-      )}
     </header>
   );
 };
