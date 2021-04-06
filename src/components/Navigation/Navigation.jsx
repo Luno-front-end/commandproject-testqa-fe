@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import sprite from '../../images/sprite.svg'
 
 
-import { isAuthenticated } from '../../redux/auth/auth-selectors';
+// import { isAuthenticated } from '../../redux/auth/auth-selectors';
 import routes from '../../routes';
 import UserMenu from '../UserMenu';
 
