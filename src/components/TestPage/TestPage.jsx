@@ -3,10 +3,9 @@ import sprite from '../../images/sprite.svg';
 function Test() {
   return (
     <div className="container bgColorTest">
-      <h1>THIS IS TEST PAGE!!!!!</h1>
       <div className="flexContainer">
         <p className="nameOfTest">
-          [ Testing <br /> theory_]
+          [ Testing theory_]
         </p>
         <button className="btnThirdTest">Finish test</button>
       </div>
@@ -29,11 +28,13 @@ function Test() {
           <input type="radio" name="answer"></input> answer 5
         </label>
       </form>
-      <button className="btnPrimaryTest">
-        <p className="textPrimaryBtnTest">Previous question</p>
-        <svg className="markerPrimaryTest">
+      <div className="btnsBlockTest">
+              <button className="btnPrimaryTest">
+                    <svg className="markerPrimaryTest">
           <use href={sprite + '#arrowLeft'}></use>
         </svg>
+        <p className="textPrimaryBtnTest">Previous question</p>
+
       </button>
       <button className="btnSecondaryTest">
         <p className="textSecondaryBtnTest">Next question</p>
@@ -41,6 +42,8 @@ function Test() {
           <use href={sprite + '#arrowLeft'}></use>
         </svg>
       </button>
+
+      </div>
     </div>
   );
 }

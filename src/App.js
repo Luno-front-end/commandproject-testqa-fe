@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <AppBar />
-      <MainPage />
-      {/* <TestPage /> */}
+      {/* <MainPage /> */}
+      <TestPage />
       {/* <TestSpriteSVG /> */}
     </>
   );
