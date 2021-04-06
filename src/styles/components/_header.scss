@@ -25,28 +25,41 @@ header {
 }
 
 .nav-menu {
-  // @media screen and (max-width: 767px) {
-  //   margin-bottom: 16px;
-  // }
+  font-family: 'MontserratMedium';
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.container-menu {
-  // display: flex;
-  // justify-content: flex-end;
-  // align-items: center;
+.container-user {
+  display: flex;
+  align-items: center;
 }
 
 .user-greeting {
-  color: $main-text-color;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.sing-out {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding-left: 20px;
+  border-left: 1px solid #e2e3e5;
 }
 
 .navLink {
   color: $main-text-color;
-  // margin-right: 16px;
-}
-
-.navLink:not(:last-child) {
-  // margin-right: 16px;
+  margin-right: 85px;
+  &--active {
+    border-bottom: 1px solid $decor-color;
+  }
 }
 
 .navLink--active {
@@ -57,6 +70,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  margin-right: 30px;
   border-radius: 50%;
   width: 30px;
   height: 30px;
