@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
 
-import phonebookReducer from './phonebook/phonebook-reducer';
 import authUsersReducer from './auth/auth-reducer';
 
 const authPersistConfig = {
@@ -14,7 +13,6 @@ const authPersistConfig = {
 };
 
 const rootReducer = combineReducers({
-  contacts: phonebookReducer,
   auth: persistReducer(authPersistConfig, authUsersReducer),
 });
 
