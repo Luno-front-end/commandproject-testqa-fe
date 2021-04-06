@@ -1,7 +1,12 @@
 .btnPrimaryTest {
-  position: absolute;
+  // position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
   height: 34px;
-  background: var(--decor-color);
+  background: $decor-color;
 
   @include for-size(mobile) {
     width: 55px;
@@ -21,9 +26,14 @@
 }
 
 .btnSecondaryTest {
-  position: absolute;
+  // position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
   height: 34px;
-  background: var(--text-collor);
+  background: $text-collor;
 
   @include for-size(mobile) {
     width: 55px;
@@ -42,10 +52,26 @@
   }
 }
 
+.btnsBlockTest {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  @include for-size(mobile) {
+    margin-bottom: 20px;
+  }
+  @include for-size(tablet) {
+  }
+  @include for-size(desktop) {
+  }
+}
+
 .btnThirdTest {
-  position: absolute;
+  // position: absolute;
   height: 48px;
-  background: var(--decor-color);
+  background: $decor-color;
 
   @include for-size(mobile) {
     width: 130px;
@@ -66,24 +92,26 @@
 
 .bgColorTest {
   background: #e5e5e5;
+  padding-top: 40px;
+  padding-bottom: 20px;
 }
 
 .markerPrimaryTest {
-  position: absolute;
+  // position: absolute;
   width: 24px;
   height: 24px;
   left: 15px;
   top: 5px;
   transform: rotate(-180deg);
-  fill: #ffffff;
+  fill: $text-collor;
 }
 
 .markerSecondaryTest {
-  position: absolute;
+  // position: absolute;
   width: 24px;
   height: 24px;
   top: 5px;
-  fill: #000000;
+  fill: $main-text-color;
 
   @include for-size(mobile) {
     left: 16px;
@@ -97,8 +125,8 @@
 }
 
 .textPrimaryBtnTest {
-  position: absolute;
-  width: 140px;
+  // position: absolute;
+  // width: 140px;
   height: 10px;
   left: 50px;
   top: 12px;
@@ -110,7 +138,7 @@
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
-  color: var(--text-collor);
+  color: $text-collor;
 
   @include for-size(mobile) {
     display: none;
@@ -122,8 +150,8 @@
 }
 
 .textSecondaryBtnTest {
-  position: absolute;
-  width: 140px;
+  // position: absolute;
+  // width: 140px;
   height: 10px;
   left: 50px;
   top: 12px;
@@ -135,7 +163,7 @@
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
-  color: var(--main-text-color);
+  color: $main-text-color;
 
   @include for-size(mobile) {
     display: none;
@@ -147,24 +175,23 @@
 }
 
 .formOfQuestionTest {
-  position: absolute;
+  // position: absolute;
   height: 456px;
-  background: var(--text-collor);
+  background: $text-collor;
   box-shadow: 0px 4px 15px rgba (2,  23,  42,  0.1);
-  outline: 2px solid red;
 
   @include for-size(mobile) {
-    width: 280px;
+    // width: 280px;
     left: 20px;
     top: 162px;
   }
   @include for-size(tablet) {
-    width: 652px;
+    // width: 652px;
     left: 58px;
     top: 187px;
   }
   @include for-size(desktop) {
-    width: 820px;
+    // width: 820px;
     left: 230px;
     top: 187px;
   }
@@ -173,16 +200,18 @@
 .flexContainer {
   display: flex;
   justify-content: space-between;
+  // margin-top: 40px;
+  margin-bottom: 28px;
 }
 
 .nameOfTest {
-  position: absolute;
+  // position: absolute;
   top: 100px;
   font-family: 'MontserratMedium';
   font-style: normal;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: var(--main-text-color);
+  color: $main-text-color;
 
   @include for-size(mobile) {
     width: 130px;

@@ -1,39 +1,38 @@
+import { useState, useEffect } from 'react';
+
 import sprite from '../../images/sprite.svg';
 
 function Test() {
+  // const [questions, setQuestions] = useState(null);
+
+  // useEffect(()=>{API.fetchQuestions().then(setQuestions)})
+
   return (
     <div className="container bgColorTest">
-      <h1>THIS IS TEST PAGE!!!!!</h1>
       <div className="flexContainer">
         <p className="nameOfTest">
-          [ Testing <br /> theory_]
+          [ Testing theory_]
         </p>
         <button className="btnThirdTest">Finish test</button>
       </div>
       <form className="formOfQuestionTest">
         <p>Question 3 / 12 </p>
         <p>What is regression testing?</p>
-        <label>
-          <input type="radio" name="answer"></input> answer 1
-        </label>
-        <label>
-          <input type="radio" name="answer"></input> answer 2
-        </label>
-        <label>
-          <input type="radio" name="answer"></input> answer 3
-        </label>
-        <label>
-          <input type="radio" name="answer"></input> answer 4
-        </label>
-        <label>
-          <input type="radio" name="answer"></input> answer 5
-        </label>
+
+        {/* {questions && questions.map(question => (<ul key={question.id}>
+          <li>
+            question.SOMETEXT
+          </li>
+        </ul>))} */}
+
       </form>
-      <button className="btnPrimaryTest">
-        <p className="textPrimaryBtnTest">Previous question</p>
-        <svg className="markerPrimaryTest">
+      <div className="btnsBlockTest">
+              <button className="btnPrimaryTest">
+                    <svg className="markerPrimaryTest">
           <use href={sprite + '#arrowLeft'}></use>
         </svg>
+        <p className="textPrimaryBtnTest">Previous question</p>
+
       </button>
       <button className="btnSecondaryTest">
         <p className="textSecondaryBtnTest">Next question</p>
@@ -41,6 +40,8 @@ function Test() {
           <use href={sprite + '#arrowLeft'}></use>
         </svg>
       </button>
+
+      </div>
     </div>
   );
 }
