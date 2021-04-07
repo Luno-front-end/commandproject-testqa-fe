@@ -7,7 +7,6 @@ import {useState} from 'react'
 // import { isAuthenticated } from '../../redux/auth/auth-selectors';
 import routes from '../../routes';
 import UserMenu from '../UserMenu';
-// import ReactFocusLock from 'react-focus-lock';
 
 const Navigation = () => {
   // const isAuthenticatedUser = useSelector(isAuthenticated);
@@ -17,7 +16,7 @@ const Navigation = () => {
   const isAuthenticatedUser = true
 
   return (
-    <header>
+    <header className='container'>
       <NavLink exact to={routes.home}>
         <svg width="129" height="28">
           <use href={sprite + '#logo'}></use>
@@ -52,7 +51,7 @@ const Navigation = () => {
           Contacts
         </NavLink>
 
-        {/* {isAuthenticatedUser && <UserMenu />} */}
+        {isAuthenticatedUser && <UserMenu />}
       </div>
       
       <div className='menu-btn' onClick={() => setMenuActive(!menuActive)}>
@@ -91,14 +90,12 @@ const Navigation = () => {
           >
           Contacts
           </NavLink>
-        
-        {isAuthenticatedUser && (
+        {/* {isAuthenticatedUser && (
         <UserMenu />
-        
-            )}
-            </nav>
-
-        </div></div>
+            )} */}
+          </nav>
+        </div>
+      </div>
 
     </header>
   );
