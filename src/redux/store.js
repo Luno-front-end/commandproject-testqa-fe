@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import testReducer from './testSlice';
 
 export const store = configureStore({
-  reducer: { allTests: testReducer },
+  reducer: { allTestsR: testReducer },
   devTools: process.env.NODE_ENV !== 'production',
 });
 
