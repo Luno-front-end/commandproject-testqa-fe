@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authActions from './auth-action';
 
-axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com/';
+axios.defaults.baseURL = 'https://team-project-be.herokuapp.com/';
 
 const userToken = {
   set(token) {
@@ -16,7 +16,7 @@ const registrationUser = ({ name, email, password }) => dispatch => {
   dispatch(authActions.registrationUserRequest());
 
   axios
-    .post('/users/signup', { name, email, password })
+    .post('/users/registration', { name, email, password })
     .then(({ data: { user, token } }) => {
       userToken.set(token);
       dispatch(authActions.registrationUserSuccess({ user, token }));
