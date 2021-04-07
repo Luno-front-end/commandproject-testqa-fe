@@ -9,25 +9,26 @@ header {
   padding-right: 20px;
 
   border-bottom: 1px solid #e2e3e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  @include for-size(mobile) {
-    display: flex;
+  // @include for-size(mobile) {
+  //   display: flex;
 
-    justify-content: space-between;
-    align-items: center;
-  }
-  @include for-size(tablet) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: right;
-  }
-  @include for-size(desktop) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: right;
-  }
+  //   justify-content: space-between;
+  //   align-items: center;
+  // }
+  // @include for-size(tablet) {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   text-align: right;
+  // }
+  // @include for-size(desktop) {
+
+  //   text-align: right;
+  // }
 }
 .nav-and-burger {
   @include for-size(mobile) {
