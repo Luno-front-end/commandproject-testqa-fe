@@ -23,6 +23,7 @@ function Test() {
 
   useEffect(() => {
     dispatch(getAllTest(query));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   function nextQuestion() {
