@@ -49,19 +49,43 @@ function Test() {
         <p className="nameOfTest">
           {query === 'qa' ? '[ QA technical training_]' : '[ Testing theory_]'}
         </p>
-        <Link to={`/`} className="btnThirdTest">
+
+        <Link to={`/`} className="btnThirdTest textThirdBtnTest">
           Finish test
         </Link>
       </div>
       <form className="formOfQuestionTest">
-        <p>{`Question ${indexQuestion + 1} / 12 `}</p>
-        <p>{allTests[indexQuestion]?.question}</p>
+        <p className="numberOfQuestionTest">{`Question ${
+          indexQuestion + 1
+        } / 12 `}</p>
+        <p className="nameOfQuestionTest">{allTests[indexQuestion]?.question}</p>
+        {/* <p>Some question1</p>
+        <p className="nameOfQuestionTest">Some question2</p> */}
 
-        <ul>
+        {/* <ul className="groupOfAnswersTest">
+          
+            <li className="flexInputAndTextTest">
+              <input type="radio" name="answer" />
+              <p className="textOfAnswersTest">text 1</p>
+          </li>
+                      <li className="flexInputAndTextTest">
+              <input type="radio" name="answer"/>
+              <p className="textOfAnswersTest">text 2</p>
+            </li>
+            <li >
+              <input type="radio" name="answer"/>
+              <p>text 3</p>
+            </li>
+
+        </ul> */}
+
+        
+
+        <ul className="groupOfAnswersTest">
           {allTests[indexQuestion]?.answers.map(arrAnswers => (
-            <li key={Math.random()}>
-              <input type="checkbox" />
-              <p>{arrAnswers}</p>
+            <li className="flexInputAndTextTest" key={Math.random()}>
+              <input type="radio" name="answer"/>
+              <p className="textOfAnswersTest">{arrAnswers}</p>
             </li>
           ))}
         </ul>
