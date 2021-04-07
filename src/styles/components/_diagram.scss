@@ -1,26 +1,28 @@
 .div-diagram {
     position: relative;
     display: flex;
+    width: 285px;
+    height: 285px;
+    margin: 0px auto;
+    margin-bottom: 30px;
+    color: $main-text-color;
+
+    @include for-size(mobile) {
+        width: 156px;
+        height: 156px;
+        margin-bottom: 20px;
+    }
 }
 
 .svg-diagram {
     width: 285px;
     height: 285px;
-    margin-right: 17px;
     border-radius: 50%;
     transform: rotate(-15deg);
 
     @include for-size(mobile) {
         width: 156px;
         height: 156px;
-    }
-
-    @include for-size(tablet) {
-       margin-right: 89px;
-    }
-
-    @include for-size(desktop) {
-        margin-right: 113px;
     }
 }
 
@@ -34,6 +36,20 @@
     fill: $decor-color;
 }
 
+.list-diagram {
+    position: absolute;
+    top: 0px;
+    left: 173px;
+
+    @include for-size(tablet) {
+        left: 374px;
+    }
+
+    @include for-size(desktop) {
+        left: 398px;
+    }
+}
+
 .textN-diagram,
 .textR-diagram {
     position: relative;
@@ -42,6 +58,7 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.02em;
+    white-space: nowrap;
 
     &::before {
         content: "";
@@ -58,6 +75,7 @@
         width: 55px;
         font-size: 10px;
         line-height: 12px;
+        white-space: normal;
 
         &::before {
             width: 14px;

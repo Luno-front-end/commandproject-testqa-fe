@@ -1,9 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useCallback } from 'react';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Button from '@material-ui/core/Button';
 import { name, loading } from '../../redux/auth/auth-selectors';
 import { logoutUser } from '../../redux/auth/auth-operations';
+import sprite from '../../images/sprite.svg'
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -15,15 +14,20 @@ const UserMenu = () => {
   return (
     <div className="container-user">
       <div className="user-greeting">
-        <div className="avatar">{userName.match(/[A-Z]/g).join('')}</div>
-        {userName}
+        <div className="avatar">D
+        {/* {userName.match(/[A-Z]/g).join('')}*/}</div>
+        {/* {userName} */}
+        Dmitri
       </div>
       {loadingAuth ? (
-        'Loading...'
+        '...'
       ) : (
-        <Button variant="outlined" color="action" onClick={logout}>
-          <ExitToAppIcon />
-        </Button>
+          <div className="sing-out">
+            <svg width="16" height="16" onClick={logout}>
+              signOut
+                 <use href={sprite + '#signOut'}></use>
+            </svg>
+          </div>
       )}
     </div>
   );

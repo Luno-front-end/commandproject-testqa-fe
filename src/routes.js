@@ -1,9 +1,8 @@
 const routes = {
-  home: '/',
-  homePage: '/home',
-  materialsPage: '/materials',
+  home: '/auth',
+  homePage: '/',
+  materialsPage: '/useful-info',
   contactsPage: '/contacts',
-  // register_loginPage: '/register_login',
 };
 
 export default routes;
