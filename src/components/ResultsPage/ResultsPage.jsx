@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation, Link, useHistory } from 'react-router-dom';
 import Diagram from '../Diagram/Diagram';
 
@@ -22,14 +21,15 @@ function Results() {
           Total questions - <span>12</span>
         </p>
       </div>
+      {console.log((<div>kl</div>).offsetWidth)}
       <div className="results_img" />
       <h2 className="results_appraisal">Not bad!</h2>
       <p className="results_message">
         Dut you still need to learn some materials
       </p>
-      <button className="results_button">
+      <Link to={`/test?name=${query}`} className="results_button">
         <p className="results_text">Try again</p>
-      </button>
+      </Link>
     </div>
   );
 }

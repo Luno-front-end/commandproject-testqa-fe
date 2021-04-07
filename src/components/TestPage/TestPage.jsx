@@ -14,6 +14,8 @@ function Test() {
   const query = new URLSearchParams(location.search).get('name');
 
   const [indexQuestion, setindexQuestion] = useState(0);
+  console.log(indexQuestion);
+  // console.log(allTests);
 
   useEffect(() => {
     if (!query || (query !== 'qa' && query !== 'testTheory')) {
@@ -23,7 +25,7 @@ function Test() {
 
   useEffect(() => {
     dispatch(getAllTest(query));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   function nextQuestion() {
@@ -43,6 +45,7 @@ function Test() {
   function redirectResultsPage() {
     history.push(`/results?name=${query}`);
   }
+  // console.log(allTests.length);
 
   return (
     <div className="container bgColorTest">
