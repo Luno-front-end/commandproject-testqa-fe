@@ -1,0 +1,142 @@
+header {
+  font-family: 'MontserratMedium';
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+
+  height: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  border-bottom: 1px solid #e2e3e5;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include for-size(mobile) {
+  }
+  @include for-size(tablet) {
+    text-align: right;
+  }
+  @include for-size(desktop) {
+    text-align: right;
+  }
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 30px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: $text-collor;
+  box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  @include for-size(mobile) {
+  }
+  @include for-size(tablet) {
+    margin-right: 10px;
+  }
+  @include for-size(desktop) {
+    margin-right: 30px;
+  }
+}
+
+.nav-menu {
+  font-family: 'MontserratMedium';
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  @include for-size(mobile) {
+  }
+  @include for-size(tablet) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @include for-size(desktop) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.container-user {
+  display: flex;
+  align-items: center;
+}
+
+.user-greeting {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  @include for-size(mobile) {
+    display: none;
+  }
+  @include for-size(tablet) {
+  }
+  @include for-size(desktop) {
+  }
+}
+
+.sing-out {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding-left: 20px;
+  border-left: 1px solid #e2e3e5;
+  @include for-size(mobile) {
+    display: none;
+  }
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding-left: 20px;
+  border-left: 1px solid #e2e3e5;
+  @include for-size(tablet) {
+    display: none;
+  }
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+
+.navLink {
+  color: $main-text-color;
+  &--active {
+    border-bottom: 1px solid $decor-color;
+  }
+  @include for-size(mobile) {
+    display: none;
+  }
+  @include for-size(tablet) {
+    margin-right: 71px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+  @include for-size(desktop) {
+    margin-right: 85px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}

@@ -1,22 +1,10 @@
-/* baseStyles */
 @import './styles/mixin';
 @import './styles/styles';
 @import './styles/fonts';
 @import './styles/base';
-
-/* Components */
+@import './styles/components/header';
+@import './styles/components/mainPage';
+@import './styles/components/testPage';
+@import './styles/components/diagram';
+@import './styles/components/results';
 @import './styles/components/footer';
-
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */

@@ -1,0 +1,155 @@
+.div-diagram {
+    position: relative;
+    display: flex;
+    width: 285px;
+    height: 285px;
+    margin: 0px auto;
+    margin-bottom: 30px;
+    color: $main-text-color;
+
+    @include for-size(mobile) {
+        width: 156px;
+        height: 156px;
+        margin-bottom: 20px;
+    }
+}
+
+.svg-diagram {
+    width: 285px;
+    height: 285px;
+    border-radius: 50%;
+    transform: rotate(-15deg);
+
+    @include for-size(mobile) {
+        width: 156px;
+        height: 156px;
+    }
+}
+
+.circle-diagram {
+    fill: $decor-color;
+    stroke: #D7D7D7;
+    stroke-width: 32;
+}
+
+.orangeCircle-diagram {
+    fill: $decor-color;
+}
+
+.list-diagram {
+    position: absolute;
+    top: 0px;
+    left: 173px;
+
+    @include for-size(tablet) {
+        left: 374px;
+    }
+
+    @include for-size(desktop) {
+        left: 398px;
+    }
+}
+
+.textN-diagram,
+.textR-diagram {
+    position: relative;
+    display: inline-block;
+    font-family: 'MontserratMedium';
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: -2px;
+        left: -35px;
+        background-color: $decor-color;
+    }
+    
+    @include for-size(mobile) {
+        width: 55px;
+        font-size: 10px;
+        line-height: 12px;
+        white-space: normal;
+
+        &::before {
+            width: 14px;
+            height: 14px;
+            left: 0px;
+        }
+
+        .text-diagram {
+            font-size: 8px;
+            line-height: 10px;
+        }
+
+        .span-diagram {
+            margin-left: 20px;
+        }
+    }
+    
+}
+
+.textR-diagram {
+    margin-top: 55px;
+
+    @include for-size(mobile) {
+        margin-top: 18px;
+    }
+}
+
+.textN-diagram {
+    margin-top: 37px;
+
+    &::before {
+        background-color: #D7D7D7;
+    }
+
+    @include for-size(mobile) {
+        margin-top: 14px;
+    }
+}
+
+.vectorR-diagram,
+.vectorN-diagram,
+.vector-diagram {
+    position: absolute;
+}
+
+.vectorR-diagram {
+    top: 63px;
+    left: 225px;
+
+    @include for-size(mobile) {
+        top: 23px;
+        left: 102px;
+    }
+
+    @include for-size(tablet) {
+        left: 227px;
+    }
+}
+
+.vectorN-diagram {
+    top: 120px;
+    left: 225px;
+
+    @include for-size(mobile) {
+        top: 61px;
+        left: 123px;
+    }
+
+    @include for-size(tablet) {
+        left: 227px;
+    }
+}
+
+.vector-diagram {
+    top: 23px;
+    left: 123px;
+}

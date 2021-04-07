@@ -1,0 +1,237 @@
+.btnPrimaryTest {
+  // position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 34px;
+  background: $decor-color;
+
+  @include for-size(mobile) {
+    width: 55px;
+    left: 20px;
+    top: 638px;
+  }
+  @include for-size(tablet) {
+    width: 210px;
+    left: 58px;
+    top: 663px;
+  }
+  @include for-size(desktop) {
+    width: 210px;
+    left: 230px;
+    top: 663px;
+  }
+}
+
+.btnSecondaryTest {
+  // position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 34px;
+  background: $text-collor;
+
+  @include for-size(mobile) {
+    width: 55px;
+    left: 245px;
+    top: 638px;
+  }
+  @include for-size(tablet) {
+    width: 210px;
+    left: 500px;
+    top: 663px;
+  }
+  @include for-size(desktop) {
+    width: 210px;
+    left: 840px;
+    top: 663px;
+  }
+}
+
+.btnsBlockTest {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  @include for-size(mobile) {
+    margin-bottom: 20px;
+  }
+  @include for-size(tablet) {
+  }
+  @include for-size(desktop) {
+  }
+}
+
+.btnThirdTest {
+  // position: absolute;
+  height: 48px;
+  background: $decor-color;
+
+  @include for-size(mobile) {
+    width: 130px;
+    left: 170px;
+    top: 94px;
+  }
+  @include for-size(tablet) {
+    width: 190px;
+    left: 520px;
+    top: 111px;
+  }
+  @include for-size(desktop) {
+    width: 190px;
+    left: 860px;
+    top: 111px;
+  }
+}
+
+.bgColorTest {
+  background: #e5e5e5;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.markerPrimaryTest {
+  // position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 15px;
+  top: 5px;
+  transform: rotate(-180deg);
+  fill: $text-collor;
+}
+
+.markerSecondaryTest {
+  // position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 5px;
+  fill: $main-text-color;
+
+  @include for-size(mobile) {
+    left: 16px;
+  }
+  @include for-size(tablet) {
+    left: 171px;
+  }
+  @include for-size(desktop) {
+    left: 171px;
+  }
+}
+
+.textPrimaryBtnTest {
+  // position: absolute;
+  // width: 140px;
+  height: 10px;
+  left: 50px;
+  top: 12px;
+  font-family: 'MontserratMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: $text-collor;
+
+  @include for-size(mobile) {
+    display: none;
+  }
+  @include for-size(tablet) {
+  }
+  @include for-size(desktop) {
+  }
+}
+
+.textSecondaryBtnTest {
+  // position: absolute;
+  // width: 140px;
+  height: 10px;
+  left: 50px;
+  top: 12px;
+  font-family: 'MontserratMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: $main-text-color;
+
+  @include for-size(mobile) {
+    display: none;
+  }
+  @include for-size(tablet) {
+  }
+  @include for-size(desktop) {
+  }
+}
+
+.formOfQuestionTest {
+  // position: absolute;
+  height: 456px;
+  background: $text-collor;
+  box-shadow: 0px 4px 15px rgba (2,  23,  42,  0.1);
+
+  @include for-size(mobile) {
+    // width: 280px;
+    left: 20px;
+    top: 162px;
+  }
+  @include for-size(tablet) {
+    // width: 652px;
+    left: 58px;
+    top: 187px;
+  }
+  @include for-size(desktop) {
+    // width: 820px;
+    left: 230px;
+    top: 187px;
+  }
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  // margin-top: 40px;
+  margin-bottom: 28px;
+}
+
+.nameOfTest {
+  // position: absolute;
+  top: 100px;
+  font-family: 'MontserratMedium';
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: $main-text-color;
+
+  @include for-size(mobile) {
+    width: 130px;
+    height: 36px;
+    left: 20px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  @include for-size(tablet) {
+    width: 105px;
+    height: 54px;
+    left: 58px;
+    font-size: 22px;
+    line-height: 27px;
+  }
+  @include for-size(desktop) {
+    width: 210px;
+    height: 50px;
+    left: 230px;
+    font-size: 22px;
+    line-height: 27px;
+  }
+}
