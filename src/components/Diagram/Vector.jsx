@@ -1,8 +1,29 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-function Vector({ type = "R", correctAnswers=0 }) {
+function Vector({ type = "R", correctAnswers= 0 }) {
     const [width, setWidth] = useState(null)
+    const [widthQ, setWidthQ] = useState(null)
+
+    const onWidth = (e) => {
+        if (e.target.innerWidth === widthQ) {
+            return
+        }
+        setWidthQ(e.target.innerWidth)
+    }
+
+    useEffect(() => {
+        window.addEventListener(`resize`, onWidth, false);
+        return () => {
+            window.removeEventListener('resize', onWidth)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [widthQ])
+
+    useEffect(() => {
+        
+    
+  }, [widthQ])
 
     useEffect(() => {
         if (window.innerWidth < 768) {
@@ -12,7 +33,7 @@ function Vector({ type = "R", correctAnswers=0 }) {
         } else {
            return setWidth('D')
         }
-    }, [])
+    }, [widthQ])
 
     if (correctAnswers === 1 && width === "M") {
         return (<svg className={`vector-diagram`} width="45" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M45 1H23L5.5 12.5" stroke="#000" /><circle cx="3" cy="13.5" r="3" fill="#fff" /></svg>)

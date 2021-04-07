@@ -9,19 +9,37 @@ header {
   padding-right: 20px;
 
   border-bottom: 1px solid #e2e3e5;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  // @include for-size(mobile) {
+  //   display: flex;
+
+  //   justify-content: space-between;
+  //   align-items: center;
+  // }
+  // @include for-size(tablet) {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   text-align: right;
+  // }
+  // @include for-size(desktop) {
+
+  //   text-align: right;
+  // }
+}
+.nav-and-burger {
   @include for-size(mobile) {
+    display: flex;
+    align-items: center;
   }
-  @include for-size(tablet) {
-    text-align: right;
-  }
-  @include for-size(desktop) {
-    text-align: right;
-  }
+}
+
+.container-user {
+  display: flex;
+  align-items: center;
 }
 
 .avatar {
@@ -36,22 +54,29 @@ header {
   background: $text-collor;
   box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
 
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 600;
+  font-family: 'MontserratSemiBold';
   font-size: 12px;
   line-height: 16px;
-  display: flex;
-  align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
+
   @include for-size(mobile) {
+    margin-right: 20px;
   }
   @include for-size(tablet) {
     margin-right: 10px;
   }
   @include for-size(desktop) {
     margin-right: 30px;
+  }
+}
+
+.userName {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  @include for-size(mobile) {
+    display: none;
   }
 }
 
@@ -76,24 +101,6 @@ header {
   }
 }
 
-.container-user {
-  display: flex;
-  align-items: center;
-}
-
-.user-greeting {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-  @include for-size(mobile) {
-    display: none;
-  }
-  @include for-size(tablet) {
-  }
-  @include for-size(desktop) {
-  }
-}
-
 .sing-out {
   display: flex;
   align-items: center;
@@ -106,6 +113,7 @@ header {
 }
 
 .menu-btn {
+  position: relative;
   display: flex;
   align-items: center;
   height: 70px;
@@ -124,6 +132,24 @@ header {
   &--active {
     border-bottom: 1px solid $decor-color;
   }
+  &-burger {
+    color: $main-text-color;
+    font-family: 'MontserratMedium';
+    font-size: 14px;
+    line-height: 16px;
+    height: 70px;
+    border-bottom: 1px solid #e2e3e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include for-size(tablet) {
+      display: none;
+    }
+    @include for-size(desktop) {
+      display: none;
+    }
+  }
+
   @include for-size(mobile) {
     display: none;
   }
@@ -138,5 +164,22 @@ header {
     &:last-child {
       margin-right: 0px;
     }
+  }
+}
+
+.nav-burger {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $main-bg-color;
+  z-index: 50;
+  transform: translate(-100%);
+
+  &.active {
+    transform: translate(0);
+    position: fixed;
+    overflow: hidden;
   }
 }
