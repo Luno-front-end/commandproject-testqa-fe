@@ -2,10 +2,12 @@
 
 // import testReducer from './testSlice';
 
+///////////////////////////////////////////////////
 // export const store = configureStore({
 //   reducer: { allTests: testReducer },
 //   devTools: process.env.NODE_ENV !== 'production',
 // });
+// ///////////////////////////////////////////////
 
 // import { configureStore } from '@reduxjs/toolkit'
 // const reducer = {

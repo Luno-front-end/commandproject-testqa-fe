@@ -18,47 +18,41 @@ const Navigation = () => {
 
   return (
     <header>
-      <NavLink
-        exact
-        to={routes.home}
-      >
+      <NavLink exact to={routes.home}>
         <svg width="129" height="28">
-        <use href={sprite + '#logo'}></use>
+          <use href={sprite + '#logo'}></use>
         </svg>
       </NavLink>
       <div className='nav-and-burger'>
         <div className='nav-menu'>
         {isAuthenticatedUser && (
-         <>
+          <>
             <NavLink
-            exact
-            to={routes.homePage}
-            className="navLink"
-            activeClassName="navLink--active"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to={routes.materialsPage}
-            className="navLink"
-            activeClassName="navLink--active"
-          >
-          Materials
-          </NavLink>
-        </>
-         )}
-           <NavLink
-            to={routes.contactsPage}
-            className="navLink"
-            activeClassName="navLink--active"
-          >
+              exact
+              to={routes.homePage}
+              className="navLink"
+              activeClassName="navLink--active"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to={routes.materialsPage}
+              className="navLink"
+              activeClassName="navLink--active"
+            >
+              Materials
+            </NavLink>
+          </>
+        )}
+        <NavLink
+          to={routes.contactsPage}
+          className="navLink"
+          activeClassName="navLink--active"
+        >
           Contacts
-          </NavLink>
-        
-        {isAuthenticatedUser && (
-        <UserMenu />
-        
-         )}
+        </NavLink>
+
+        {/* {isAuthenticatedUser && <UserMenu />} */}
       </div>
       
       <div className='menu-btn' onClick={() => setMenuActive(!menuActive)}>
