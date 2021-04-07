@@ -7,7 +7,7 @@ import {useState} from 'react'
 // import { isAuthenticated } from '../../redux/auth/auth-selectors';
 import routes from '../../routes';
 import UserMenu from '../UserMenu';
-import ReactFocusLock from 'react-focus-lock';
+// import ReactFocusLock from 'react-focus-lock';
 
 const Navigation = () => {
   // const isAuthenticatedUser = useSelector(isAuthenticated);
@@ -26,7 +26,8 @@ const Navigation = () => {
         <use href={sprite + '#logo'}></use>
         </svg>
       </NavLink>
-      <div className='nav-menu'>
+      <div className='nav-and-burger'>
+        <div className='nav-menu'>
         {isAuthenticatedUser && (
          <>
             <NavLink
@@ -59,16 +60,14 @@ const Navigation = () => {
         
          )}
       </div>
-
-      <ReactFocusLock>
-        <div className='menu-btn' onClick={()=>setMenuActive(!menuActive)}>
-        <svg width="20" height="20" >
+      
+      <div className='menu-btn' onClick={() => setMenuActive(!menuActive)}>
+        {!menuActive ? <svg width="20" height="20" >
           <use href={sprite + '#burgerMenu'}></use>
-        </svg>
-        
-        {/* <svg width="16" height="16" >
-        <use href={sprite + '#signOut'}></use>
-        </svg> */}
+        </svg>:
+        <svg width="20" height="20" >
+        <use href={sprite + '#close'}></use>
+        </svg>}
           <nav
             className={menuActive ? 'nav-burger active' : 'nav-burger'}
           >
@@ -105,8 +104,8 @@ const Navigation = () => {
             )}
             </nav>
 
-        </div>
-      </ReactFocusLock>
+        </div></div>
+
     </header>
   );
 };
