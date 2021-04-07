@@ -84,7 +84,7 @@ header {
   align-items: center;
   margin-right: 20px;
   @include for-size(mobile) {
-    display: none;
+    // display: none;
   }
   @include for-size(tablet) {
   }
@@ -104,6 +104,7 @@ header {
 }
 
 .menu-btn {
+  position: relative;
   display: flex;
   align-items: center;
   height: 70px;
@@ -122,6 +123,24 @@ header {
   &--active {
     border-bottom: 1px solid $decor-color;
   }
+  &-burger {
+    color: $main-text-color;
+    font-family: 'MontserratMedium';
+    font-size: 14px;
+    line-height: 16px;
+    height: 70px;
+    border-bottom: 1px solid #e2e3e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include for-size(tablet) {
+      display: none;
+    }
+    @include for-size(desktop) {
+      display: none;
+    }
+  }
+
   @include for-size(mobile) {
     display: none;
   }
@@ -136,5 +155,19 @@ header {
     &:last-child {
       margin-right: 0px;
     }
+  }
+}
+
+.nav-burger {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $main-bg-color;
+  z-index: 50;
+  transform: translate(-100%);
+  &.active {
+    transform: translate(0);
   }
 }
