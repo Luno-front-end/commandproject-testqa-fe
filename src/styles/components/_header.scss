@@ -109,6 +109,13 @@ header {
   border-left: 1px solid #e2e3e5;
   @include for-size(mobile) {
     display: none;
+    &-burger {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 70px;
+    }
   }
 }
 
