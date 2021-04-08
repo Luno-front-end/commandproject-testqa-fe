@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
+// import ScrollLock, { TouchScrollable } from 'react-scrolllock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 // import { isAuthenticated } from '../../redux/auth/auth-selectors';
 import routes from '../../routes';
@@ -15,14 +17,14 @@ const Navigation = () => {
   const isAuthenticatedUser = true; //// заглушка
   const logout = true; //// заглушка
 
-   const noScroll= () => window.scrollTo(0, 0);
-  
+    const onBurgerClick = () => {
+    const el = document.querySelector('body');
+    if (!menuActive) {
+      disableBodyScroll(el);
+    } else {
+      enableBodyScroll(el);
+    }
 
-  const remuveEvent = () => window.remuveEventListener('scroll', noScroll);
-  const addEvent = () => window.addEventListener('scroll', noScroll);
-
-  const onBurgerClick = () => {
-    addEvent() ? remuveEvent() : addEvent();
     setMenuActive(!menuActive);
   };
 
@@ -65,7 +67,6 @@ const Navigation = () => {
 
             {isAuthenticatedUser && <UserMenu />}
           </div>
-
           <div className="menu-btn" onClick={onBurgerClick}>
             {!menuActive ? (
               <svg width="20" height="20">
@@ -117,11 +118,11 @@ const Navigation = () => {
                   </svg>
                 </div>
               )}
-            </nav>
+              </nav>
           </div>
         </div>
       </div>
-    </header>
+        </header>
   );
 };
 
