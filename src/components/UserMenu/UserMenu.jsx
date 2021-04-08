@@ -11,8 +11,8 @@ const UserMenu = () => {
 
   // const logout = useCallback(() => dispatch(logoutUser()), [dispatch]);
 
-  const logout = true
-  const loadingAuth = false
+  const logout = true  //// заглушка
+  const loadingAuth = false  //// заглушка
 
   return (
     <div className="container-user">
@@ -35,7 +35,6 @@ const UserMenu = () => {
       ) : (
           <div className="sing-out">
             <svg width="16" height="16" onClick={logout}>
-              signOut
                  <use href={sprite + '#signOut'}></use>
             </svg>
           </div>
