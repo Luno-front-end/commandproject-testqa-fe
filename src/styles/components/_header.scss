@@ -12,23 +12,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  // @include for-size(mobile) {
-  //   display: flex;
-
-  //   justify-content: space-between;
-  //   align-items: center;
-  // }
-  // @include for-size(tablet) {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   align-items: center;
-  //   text-align: right;
-  // }
-  // @include for-size(desktop) {
-
-  //   text-align: right;
-  // }
 }
 .nav-and-burger {
   @include for-size(mobile) {
@@ -136,6 +119,13 @@ header {
 
 .navLink {
   color: $main-text-color;
+  &-menu {
+    height: 70px;
+    border-bottom: 1px solid #e2e3e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &--active {
     border-bottom: 1px solid $decor-color;
   }
@@ -144,11 +134,7 @@ header {
     font-family: 'MontserratMedium';
     font-size: 14px;
     line-height: 16px;
-    height: 70px;
-    border-bottom: 1px solid #e2e3e5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
     @include for-size(tablet) {
       display: none;
     }
