@@ -13,7 +13,8 @@ const Navigation = () => {
 
   const [menuActive, setMenuActive]= useState(false)
 
-  const isAuthenticatedUser = true
+  const isAuthenticatedUser = true //// заглушка
+   const logout = true //// заглушка
 
   return (
     <header className='container'>
@@ -90,9 +91,13 @@ const Navigation = () => {
           >
           Contacts
           </NavLink>
-        {/* {isAuthenticatedUser && (
-        <UserMenu />
-            )} */}
+        {isAuthenticatedUser && (
+              <div className="sing-out-burger">
+            <svg width="16" height="16" onClick={logout}>
+                 <use href={sprite + '#signOut'}></use>
+            </svg>
+          </div>
+            )}
           </nav>
         </div>
       </div>
