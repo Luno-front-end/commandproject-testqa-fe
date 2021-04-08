@@ -7,7 +7,7 @@ import MainPage from './components/MainPage/MainPage.jsx';
 import TestPage from './components/TestPage/TestPage.jsx';
 import ResultsPage from './components/ResultsPage/ResultsPage';
 import Footer from './components/Footer/Footer';
-import proTestUsefulInfo from './components/proTestUsefulInfo/proTestUsefulInfo';
+import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
 
 import NotFount from './components/NotFount/NotFound';
 
@@ -33,6 +33,9 @@ function App() {
         </Route>
         <Route path="/team">
           <TeamSection />
+        </Route>
+        <Route path="/usefulInfo">
+          <ProTestUsefulInfo />
         </Route>
         <Route>
           <NotFount />
