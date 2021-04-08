@@ -6,8 +6,12 @@ import AuthPage from './components/AuthPage/AuthPage';
 import MainPage from './components/MainPage/MainPage.jsx';
 import TestPage from './components/TestPage/TestPage.jsx';
 import ResultsPage from './components/ResultsPage/ResultsPage';
-import Footer from './components/Footer/Footer';
 import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
+import Footer from './components/Footer/Footer';
+
+import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
+
+
 
 import NotFount from './components/NotFount/NotFound';
 

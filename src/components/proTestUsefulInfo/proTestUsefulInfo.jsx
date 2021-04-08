@@ -1,6 +1,7 @@
 
 
-export default function proTestUsefulInfo() {
+
+export default function ProTestUsefulInfo() {
   return (
     <section className="container proTestUsefulInfo">
       <h2 className="listNameH">Useful <br />literature</h2>
