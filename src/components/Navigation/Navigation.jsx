@@ -67,41 +67,47 @@ const Navigation = () => {
           >
           {isAuthenticatedUser && (
          <>
-            <NavLink
-            exact
-            to={routes.homePage}
-            className="navLink-burger"
-            activeClassName="navLink--active"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to={routes.materialsPage}
-            className="navLink-burger"
-            activeClassName="navLink--active"
-          >
-          Materials
-          </NavLink>
+                <div className='navLink-menu'>
+                  <NavLink
+                    exact
+                    to={routes.homePage}
+                    className="navLink-burger"
+                    activeClassName="navLink--active "
+                  >
+                    Home
+                            </NavLink>
+                </div>
+                <div className='navLink-menu'>
+                  <NavLink
+                    to={routes.materialsPage}
+                    className="navLink-burger"
+                    activeClassName="navLink--active"
+                  >
+                    Materials
+                              </NavLink>
+                </div>
         </>
-         )}
-           <NavLink
+            )}
+            <div className='navLink-menu'>
+              <NavLink
             to={routes.contactsPage}
             className="navLink-burger"
             activeClassName="navLink--active"
-          >
-          Contacts
-          </NavLink>
+              >
+                Contacts
+                          </NavLink>
+            </div>
+
         {isAuthenticatedUser && (
               <div className="sing-out-burger">
-            <svg width="16" height="16" onClick={logout}>
-                 <use href={sprite + '#signOut'}></use>
-            </svg>
-          </div>
+                <svg width="16" height="16" onClick={logout}>
+                  <use href={sprite + '#signOut'}></use>
+                </svg>
+              </div>
             )}
           </nav>
         </div>
       </div>
-
     </header>
   );
 };
