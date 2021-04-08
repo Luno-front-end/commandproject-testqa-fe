@@ -3,7 +3,7 @@ import sprite from '../../images/footer/sprite.svg';
 export default function Footer() {
   return (
     <footer className="containerFooter">
-      <div className="container containerFooter">
+      <div className="container">
         <p className="footerText"><span className='copyright'>&copy;</span>
         {`${new Date().toISOString().slice(0, 4)}`}<span className='decor'>All Rights Reserved</span>
        Developed with<svg className='heartSvg'>
