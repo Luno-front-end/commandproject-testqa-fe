@@ -15,6 +15,10 @@ function Test() {
 
   const [indexQuestion, setindexQuestion] = useState(0);
   console.log(indexQuestion);
+         console.log("!!!allTests", allTests)
+                  console.log("!!!useState", useState)
+
+
   // console.log(allTests);
 
   useEffect(() => {
@@ -59,10 +63,18 @@ function Test() {
         </Link>
       </div>
       <form className="formOfQuestionTest">
-        <p className="numberOfQuestionTest">{`Question ${
+        {/* <p className="textOfQuestionTest">{`Question ${
           indexQuestion + 1
-        } / 12 `}</p>
+          } / 12 `}</p> */}
+        
+        <p className="textOfQuestionTest">Question <span className="numberOfQuestionTest">
+        {
+          indexQuestion + 1
+        }</span> / 12 </p>
+
         <p className="nameOfQuestionTest">{allTests[indexQuestion]?.question}</p>
+        
+        
         {/* <p>Some question1</p>
         <p className="nameOfQuestionTest">Some question2</p> */}
 
