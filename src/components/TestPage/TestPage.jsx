@@ -67,6 +67,7 @@ function Test() {
           indexQuestion + 1
           } / 12 `}</p> */}
         
+        
         <p className="textOfQuestionTest">Question <span className="numberOfQuestionTest">
         {
           indexQuestion + 1
