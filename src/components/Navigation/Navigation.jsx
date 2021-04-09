@@ -19,12 +19,7 @@ const Navigation = () => {
 
     const onBurgerClick = () => {
     const el = document.querySelector('body');
-    if (!menuActive) {
-      disableBodyScroll(el);
-    } else {
-      enableBodyScroll(el);
-    }
-
+   !menuActive ? disableBodyScroll(el) : enableBodyScroll(el);
     setMenuActive(!menuActive);
   };
 
