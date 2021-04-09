@@ -12,7 +12,7 @@ axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 // },
 // };
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsImlhdCI6MTYxNzgyOTQ5MCwiZXhwIjoxNjE3ODM2NjkwfQ.TD_HB5rXHInFpow2ypKAoufwZZ2kxdlu6EouB6adMWc';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsImlhdCI6MTYxNzk3NTM1OSwiZXhwIjoxNjE3OTgyNTU5fQ.8P3i4ZhxG1zTcUoGhEgMbtJ2gjXuZ3SX0a00me165h0';
 axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 export const getAllTest = createAsyncThunk(
