@@ -169,7 +169,6 @@ header {
 
 .nav-burger {
   position: fixed;
-  // overflow: hidden;
   top: 70px;
   right: 0;
   height: 100%;
@@ -180,8 +179,6 @@ header {
   transition: transform 0.5s ease;
   transform: translate(100%);
   &.active {
-    // position: fixed;
-    overflow: hidden;
     transition: transform 0.5s ease;
     transform: translate(0);
   }
