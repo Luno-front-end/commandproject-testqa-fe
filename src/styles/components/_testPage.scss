@@ -294,6 +294,7 @@
     font-size: 12px;
     line-height: 1.5;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
   @include for-size(tablet) {
     // width: 650px;
@@ -303,6 +304,7 @@
     font-size: 22px;
     line-height: 1.36;
     margin-top: 5px;
+    margin-bottom: 30px;
   }
   @include for-size(desktop) {
     // width: 650px;
@@ -312,12 +314,17 @@
     font-size: 22px;
     line-height: 1.36;
     margin-top: 5px;
+    margin-bottom: 30px;
   }
 }
 
 .flexContainer {
   display: flex;
   justify-content: space-between;
+
+  flex-direction: row;
+  align-items: center;
+
   // margin-top: 40px;
   margin-bottom: 28px;
 }
@@ -329,17 +336,19 @@
     left: 40px;
     top: 316px;
 
-    padding-top: 48px;
+    // padding-top: 48px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 28px;
   }
   @include for-size(tablet) {
     // width: 558px;
     // height: 235px;
     left: 115px;
     top: 350px;
+    padding-top: 30px;
 
-    padding-top: 60px;
+    // padding-top: 60px;
     padding-left: 57px;
     padding-right: 37px;
   }
@@ -349,9 +358,10 @@
     left: 315px;
     top: 350px;
 
-    padding-top: 60px;
+    // padding-top: 60px;
     padding-left: 85px;
     padding-right: 87px;
+    padding-top: 30px;
   }
 }
 
@@ -372,7 +382,7 @@
     line-height: 17px;
   }
   @include for-size(tablet) {
-    width: 105px;
+    width: 210px;
     height: 54px;
     left: 58px;
     font-size: 22px;
@@ -422,4 +432,34 @@
   @include for-size(desktop) {
     padding-bottom: 15px;
   }
+}
+
+.hrLineTest {
+  height: 0px;
+  opacity: 0.15;
+  border: 1px solid #00122F;
+  margin: 0px;
+  // text-align: center;
+  margin: auto;
+
+  @include for-size(mobile) {
+    width: 130px;
+    // padding-top: 20px;
+    // padding-bottom: 28px;
+  }
+  @include for-size(tablet) {
+    width: 321.5px;
+    // padding-top: 30px;
+    // padding-bottom: 30px;
+  }
+  @include for-size(desktop) {
+    width: 321.5px;
+    // padding-top: 30px;
+    // padding-bottom: 30px;
+  }
+}
+
+.inputBtn {
+  width: 18px;
+  height: 18px;
 }
