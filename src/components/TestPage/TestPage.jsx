@@ -46,6 +46,19 @@ function Test() {
     history.push(`/results?name=${query}`);
   }
 
+      console.log('!!!allTests', allTests);
+
+  // console.log('!!!allTests[indexQuestion]?', allTests[indexQuestion]?);
+  console.log('!!!allTests[indexQuestion]?.answers', allTests[indexQuestion]?.answers);
+    console.log('!!!allTests[indexQuestion]?.answers.array', allTests[indexQuestion]?.answers.array);
+
+    console.log('!!!allTests[indexQuestion]?._id', allTests[indexQuestion]?._id);
+  // console.log('!!!allTests.answers', allTests.answers);
+
+  // console.log('!!!arrAnswers', arrAnswers);
+  //         allTests[indexQuestion]?.answers.map(arrAnswers => (
+  //         ))
+
   return (
     <div className="container bgColorTest">
       <div className="flexContainer">
@@ -59,7 +72,7 @@ function Test() {
       </div>
       <form className="formOfQuestionTest">
         <p className="textOfQuestionTest">
-          Question
+          `Question `
           <span className="numberOfQuestionTest">{indexQuestion + 1}</span> / 12
         </p>
 
@@ -72,8 +85,10 @@ function Test() {
         <ul className="groupOfAnswersTest">
           {allTests[indexQuestion]?.answers.map(arrAnswers => (
             <li className="flexInputAndTextTest" key={Math.random()}>
-              <input type="radio" name="answer" className="inputBtn" />
-              <label className="textOfAnswersTest">{arrAnswers}</label>
+              
+              <label className="textOfAnswersTest" >
+                <input type="radio" name="answer" className="inputBtn" />
+                {arrAnswers}</label>
             </li>
           ))}
         </ul>
