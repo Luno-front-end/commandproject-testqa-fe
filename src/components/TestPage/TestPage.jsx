@@ -59,8 +59,8 @@ function Test() {
       </div>
       <form className="formOfQuestionTest">
         <p className="textOfQuestionTest">
-          Question{' '}
-          <span className="numberOfQuestionTest">{indexQuestion + 1}</span> / 12{' '}
+          Question
+          <span className="numberOfQuestionTest">{indexQuestion + 1}</span> / 12
         </p>
 
         <p className="nameOfQuestionTest">
@@ -73,7 +73,7 @@ function Test() {
           {allTests[indexQuestion]?.answers.map(arrAnswers => (
             <li className="flexInputAndTextTest" key={Math.random()}>
               <input type="radio" name="answer" className="inputBtn" />
-              <label className="textOfAnswersTest" >{arrAnswers}</label>
+              <label className="textOfAnswersTest">{arrAnswers}</label>
             </li>
           ))}
         </ul>
