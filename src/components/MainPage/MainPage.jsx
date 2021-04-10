@@ -10,11 +10,13 @@ function MainPage() {
 
   return (
     <div className="container bgColorMain">
-      <div className="titleMain">
-        <h2>
+      <div>
+        <h2 className="titleMain">
           “Regression testing. What is it? If the system compiles, that's good,
           if it boots, that's great!”
         </h2>
+        <hr className="hrLineMain"></hr>
+
       </div>
       <p className="titleAuthorMain">Linus Torvalds</p>
       <p className="titleAuthorDetailsMain">

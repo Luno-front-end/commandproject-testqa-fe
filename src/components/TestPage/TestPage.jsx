@@ -47,7 +47,6 @@ function Test() {
   function redirectResultsPage() {
     history.push(`/results?name=${query}`);
   }
-  // console.log(allTests.length);
 
   return (
     <div className="container bgColorTest">
@@ -60,14 +59,31 @@ function Test() {
         </Link>
       </div>
       <form className="formOfQuestionTest">
-        {loadind ?? <p>loading</p>}
-        <p>{`Question ${indexQuestion + 1} / 12 `}</p>
-        <p>{allTests[indexQuestion]?.question}</p>
-        <ul>
+        {/* {loadind ?? <p>loading</p>}
+         <p>{`Question ${indexQuestion + 1} / 12 `}</p>
+         <p>{allTests[indexQuestion]?.question}</p>
+         <ul>
+           {allTests[indexQuestion]?.answers.map(arrAnswers => (
+             <li key={Math.random()}>
+               <input type="checkbox" />
+               <p>{arrAnswers}</p> */}
+
+        <p className="textOfQuestionTest">
+          Question
+          <span className="numberOfQuestionTest">{indexQuestion + 1}</span> / 12
+        </p>
+
+        <p className="nameOfQuestionTest">
+          {allTests[indexQuestion]?.question}
+        </p>
+
+        <hr className="hrLineTest"></hr>
+
+        <ul className="groupOfAnswersTest">
           {allTests[indexQuestion]?.answers.map(arrAnswers => (
-            <li key={Math.random()}>
-              <input type="checkbox" />
-              <p>{arrAnswers}</p>
+            <li className="flexInputAndTextTest" key={Math.random()}>
+              <input type="radio" name="answer" className="inputBtn" />
+              <label className="textOfAnswersTest">{arrAnswers}</label>
             </li>
           ))}
         </ul>
