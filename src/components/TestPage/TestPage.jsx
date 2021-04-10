@@ -15,10 +15,6 @@ function Test() {
 
   const [indexQuestion, setindexQuestion] = useState(0);
   console.log(indexQuestion);
-         console.log("!!!allTests", allTests)
-                  console.log("!!!useState", useState)
-
-
   // console.log(allTests);
 
   useEffect(() => {
@@ -49,7 +45,6 @@ function Test() {
   function redirectResultsPage() {
     history.push(`/results?name=${query}`);
   }
-  // console.log(allTests.length);
 
   return (
     <div className="container bgColorTest">
@@ -63,46 +58,22 @@ function Test() {
         </Link>
       </div>
       <form className="formOfQuestionTest">
-        {/* <p className="textOfQuestionTest">{`Question ${
-          indexQuestion + 1
-          } / 12 `}</p> */}
-        
-        
-        <p className="textOfQuestionTest">Question <span className="numberOfQuestionTest">
-        {
-          indexQuestion + 1
-        }</span> / 12 </p>
+        <p className="textOfQuestionTest">
+          Question
+          <span className="numberOfQuestionTest">{indexQuestion + 1}</span> / 12
+        </p>
 
-        <p className="nameOfQuestionTest">{allTests[indexQuestion]?.question}</p>
-        
-        
-        {/* <p>Some question1</p>
-        <p className="nameOfQuestionTest">Some question2</p> */}
+        <p className="nameOfQuestionTest">
+          {allTests[indexQuestion]?.question}
+        </p>
 
-        {/* <ul className="groupOfAnswersTest">
-          
-            <li className="flexInputAndTextTest">
-              <input type="radio" name="answer" />
-              <p className="textOfAnswersTest">text 1</p>
-          </li>
-                      <li className="flexInputAndTextTest">
-              <input type="radio" name="answer"/>
-              <p className="textOfAnswersTest">text 2</p>
-            </li>
-            <li >
-              <input type="radio" name="answer"/>
-              <p>text 3</p>
-            </li>
-
-        </ul> */}
-
-        
+        <hr className="hrLineTest"></hr>
 
         <ul className="groupOfAnswersTest">
           {allTests[indexQuestion]?.answers.map(arrAnswers => (
             <li className="flexInputAndTextTest" key={Math.random()}>
-              <input type="radio" name="answer"/>
-              <p className="textOfAnswersTest">{arrAnswers}</p>
+              <input type="radio" name="answer" className="inputBtn" />
+              <label className="textOfAnswersTest">{arrAnswers}</label>
             </li>
           ))}
         </ul>
