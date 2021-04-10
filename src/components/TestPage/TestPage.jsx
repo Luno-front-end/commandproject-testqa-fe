@@ -14,12 +14,7 @@ function Test() {
   const query = new URLSearchParams(location.search).get('name');
 
   const [indexQuestion, setindexQuestion] = useState(0);
-  console.log(indexQuestion);
-         console.log("!!!allTests", allTests)
-                  console.log("!!!useState", useState)
-
-
-  // console.log(allTests);
+  const [loadind, setLoadind] = useState(false);
 
   useEffect(() => {
     if (!query || (query !== 'qa' && query !== 'testTheory')) {
@@ -28,13 +23,16 @@ function Test() {
   }, [history, query]);
 
   useEffect(() => {
+    setLoadind(true);
     dispatch(getAllTest(query));
+    setLoadind(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   function nextQuestion() {
     if (indexQuestion >= 11) {
       redirectResultsPage();
+      dispatch(getAllTest([]));
     }
     setindexQuestion(prevState => prevState + 1);
   }
@@ -57,52 +55,19 @@ function Test() {
         <p className="nameOfTest">
           {query === 'qa' ? '[ QA technical training_]' : '[ Testing theory_]'}
         </p>
-
-        <Link to={`/`} className="btnThirdTest textThirdBtnTest">
+        <Link to={`/`} className="btnThirdTest">
           Finish test
         </Link>
       </div>
       <form className="formOfQuestionTest">
-        {/* <p className="textOfQuestionTest">{`Question ${
-          indexQuestion + 1
-          } / 12 `}</p> */}
-        
-        
-        <p className="textOfQuestionTest">Question <span className="numberOfQuestionTest">
-        {
-          indexQuestion + 1
-        }</span> / 12 </p>
-
-        <p className="nameOfQuestionTest">{allTests[indexQuestion]?.question}</p>
-        
-        
-        {/* <p>Some question1</p>
-        <p className="nameOfQuestionTest">Some question2</p> */}
-
-        {/* <ul className="groupOfAnswersTest">
-          
-            <li className="flexInputAndTextTest">
-              <input type="radio" name="answer" />
-              <p className="textOfAnswersTest">text 1</p>
-          </li>
-                      <li className="flexInputAndTextTest">
-              <input type="radio" name="answer"/>
-              <p className="textOfAnswersTest">text 2</p>
-            </li>
-            <li >
-              <input type="radio" name="answer"/>
-              <p>text 3</p>
-            </li>
-
-        </ul> */}
-
-        
-
-        <ul className="groupOfAnswersTest">
+        {loadind ?? <p>loading</p>}
+        <p>{`Question ${indexQuestion + 1} / 12 `}</p>
+        <p>{allTests[indexQuestion]?.question}</p>
+        <ul>
           {allTests[indexQuestion]?.answers.map(arrAnswers => (
-            <li className="flexInputAndTextTest" key={Math.random()}>
-              <input type="radio" name="answer"/>
-              <p className="textOfAnswersTest">{arrAnswers}</p>
+            <li key={Math.random()}>
+              <input type="checkbox" />
+              <p>{arrAnswers}</p>
             </li>
           ))}
         </ul>
