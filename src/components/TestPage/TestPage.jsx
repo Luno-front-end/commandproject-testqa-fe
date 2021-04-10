@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { getAllTest } from '../../redux/tetstOperaion';
 import sprite from '../../images/sprite.svg';
 
+import { v4 as uuidv4 } from 'uuid';
+
 function Test() {
   const location = useLocation();
   const history = useHistory();
@@ -15,6 +17,10 @@ function Test() {
 
   const [indexQuestion, setindexQuestion] = useState(0);
   const [loadind, setLoadind] = useState(false);
+  const [value, setValue] = useState({
+    type: `${query}`,
+    answers: [{}],
+  });
 
   useEffect(() => {
     if (!query || (query !== 'qa' && query !== 'testTheory')) {
@@ -48,6 +54,12 @@ function Test() {
     history.push(`/results?name=${query}`);
   }
 
+  function inputTestValue(e) {
+    setValue({ answers: e.target.nextSibling });
+
+    console.log(value);
+    console.log(e.target.nextSibling);
+  }
   return (
     <div className="container bgColorTest">
       <div className="flexContainer">
@@ -82,8 +94,15 @@ function Test() {
         <ul className="groupOfAnswersTest">
           {allTests[indexQuestion]?.answers.map(arrAnswers => (
             <li className="flexInputAndTextTest" key={Math.random()}>
-              <input type="radio" name="answer" className="inputBtn" />
-              <label className="textOfAnswersTest">{arrAnswers}</label>
+              <label className="textOfAnswersTest">
+                <input
+                  type="radio"
+                  name="answer"
+                  className="inputBtn"
+                  onChange={inputTestValue}
+                />
+                {arrAnswers}
+              </label>
             </li>
           ))}
         </ul>

@@ -12,7 +12,7 @@ axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 // },
 // };
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsImlhdCI6MTYxODA0NTQ1MSwiZXhwIjoxNjE4MDQ5MDUxfQ.8iJ_WfWnrvJ7vyWRwDl7WWn6bGK21yVaS6B4KMG3ro8';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsImlhdCI6MTYxODA3NjQ1NiwiZXhwIjoxNjE4MDgwMDU2fQ.9_v0D9rQFe5hK0Xo6_IFUmmyaFXwc_7we6MEPR7gEjQ';
 axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 export const getAllTest = createAsyncThunk(
@@ -26,17 +26,17 @@ export const getAllTest = createAsyncThunk(
     }
   },
 );
-// export const getPullResultsTest = createAsyncThunk(
-//   'getPullResultsTest',
-//   async (arrayResults, { rejectWithValue }) => {
-//     try {
-//       const { data } = await axios.get(`/test/answers`);
-//       return data.data;
-//     } catch (err) {
-//       return rejectWithValue(err);
-//     }
-//   },
-// );
+export const getResults = createAsyncThunk(
+  'getResults',
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get('/test/answers');
+      return data;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  },
+);
 
 // export const getAllHotdogs = createAsyncThunk(
 //   'getAllHotdogs',
@@ -61,3 +61,9 @@ export const getAllTest = createAsyncThunk(
 //     }
 //   }
 // );
+
+// [
+//   type: qa
+//   ans: 'eXPerience'
+
+// ]
