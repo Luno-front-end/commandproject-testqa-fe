@@ -18,7 +18,6 @@ const testSlice = createSlice({
       });
   },
 });
-
 export default testSlice.reducer;
 
 // const hotdogSlice = createSlice({

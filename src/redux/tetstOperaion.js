@@ -12,7 +12,7 @@ axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 // },
 // };
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsImlhdCI6MTYxODA2ODk4MywiZXhwIjoxNjE4MDcyNTgzfQ.r5SKrVBXrPK89IXeAIr3l9q_A_PaA2i-hpuOzJJ7p5w';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsImlhdCI6MTYxODA3NjQ1NiwiZXhwIjoxNjE4MDgwMDU2fQ.9_v0D9rQFe5hK0Xo6_IFUmmyaFXwc_7we6MEPR7gEjQ';
 axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 export const getAllTest = createAsyncThunk(
@@ -21,6 +21,17 @@ export const getAllTest = createAsyncThunk(
     try {
       const { data } = await axios.get(`/test/?test=${value}`);
       return data.data;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  },
+);
+export const getResults = createAsyncThunk(
+  'getResults',
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get('/test/answers');
+      return data;
     } catch (err) {
       return rejectWithValue(err);
     }
@@ -50,3 +61,9 @@ export const getAllTest = createAsyncThunk(
 //     }
 //   }
 // );
+
+// [
+//   type: qa
+//   ans: 'eXPerience'
+
+// ]

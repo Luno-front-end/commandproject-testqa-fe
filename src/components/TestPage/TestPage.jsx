@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { getAllTest } from '../../redux/tetstOperaion';
 import sprite from '../../images/sprite.svg';
 
+import { v4 as uuidv4 } from 'uuid';
+
 function Test() {
   const location = useLocation();
   const history = useHistory();
@@ -14,8 +16,11 @@ function Test() {
   const query = new URLSearchParams(location.search).get('name');
 
   const [indexQuestion, setindexQuestion] = useState(0);
-  console.log(indexQuestion);
-  // console.log(allTests);
+  const [loadind, setLoadind] = useState(false);
+  const [value, setValue] = useState({
+    type: `${query}`,
+    answers: [{}],
+  });
 
   useEffect(() => {
     if (!query || (query !== 'qa' && query !== 'testTheory')) {
@@ -24,13 +29,16 @@ function Test() {
   }, [history, query]);
 
   useEffect(() => {
+    setLoadind(true);
     dispatch(getAllTest(query));
+    setLoadind(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   function nextQuestion() {
     if (indexQuestion >= 11) {
       redirectResultsPage();
+      dispatch(getAllTest([]));
     }
     setindexQuestion(prevState => prevState + 1);
   }
@@ -46,27 +54,19 @@ function Test() {
     history.push(`/results?name=${query}`);
   }
 
-      console.log('!!!allTests', allTests);
+  function inputTestValue(e) {
+    setValue({ answers: e.target.nextSibling });
 
-  // console.log('!!!allTests[indexQuestion]?', allTests[indexQuestion]?);
-  console.log('!!!allTests[indexQuestion]?.answers', allTests[indexQuestion]?.answers);
-    console.log('!!!allTests[indexQuestion]?.answers.array', allTests[indexQuestion]?.answers.array);
-
-    console.log('!!!allTests[indexQuestion]?._id', allTests[indexQuestion]?._id);
-  // console.log('!!!allTests.answers', allTests.answers);
-
-  // console.log('!!!arrAnswers', arrAnswers);
-  //         allTests[indexQuestion]?.answers.map(arrAnswers => (
-  //         ))
-
+    console.log(value);
+    console.log(e.target.nextSibling);
+  }
   return (
     <div className="container bgColorTest">
       <div className="flexContainer">
         <p className="nameOfTest">
           {query === 'qa' ? '[ QA technical training_]' : '[ Testing theory_]'}
         </p>
-
-        <Link to={`/`} className="btnThirdTest textThirdBtnTest">
+        <Link to={`/`} className="btnThirdTest">
           Finish test
         </Link>
       </div>
@@ -85,10 +85,15 @@ function Test() {
         <ul className="groupOfAnswersTest">
           {allTests[indexQuestion]?.answers.map(arrAnswers => (
             <li className="flexInputAndTextTest" key={Math.random()}>
-              
-              <label className="textOfAnswersTest" >
-                <input type="radio" name="answer" className="inputBtn" />
-                {arrAnswers}</label>
+              <label className="textOfAnswersTest">
+                <input
+                  type="radio"
+                  name="answer"
+                  className="inputBtn"
+                  onChange={inputTestValue}
+                />
+                {arrAnswers}
+              </label>
             </li>
           ))}
         </ul>
