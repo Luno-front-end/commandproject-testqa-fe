@@ -1,26 +1,26 @@
 import { NavLink } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { authSelectors, authOperations } from '../../redux/auth';
 
-// import { isAuthenticated } from '../../redux/auth/auth-selectors';
 import routes from '../../routes';
 import UserMenu from '../UserMenu';
 
 const Navigation = () => {
-  // const isAuthenticatedUser = useSelector(isAuthenticated);
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   const [menuActive, setMenuActive] = useState(false);
 
-  const isAuthenticatedUser = true; //// заглушка
-  const logout = true; //// заглушка
+  // const isLoggedIn = true; //// заглушка
+  // const logout = true; //// заглушка
 
-    const onBurgerClick = () => {
+  const onBurgerClick = () => {
     const el = document.querySelector('body');
-   !menuActive ? disableBodyScroll(el) : enableBodyScroll(el);
-      setMenuActive(!menuActive);
-      
+    !menuActive ? disableBodyScroll(el) : enableBodyScroll(el);
+    setMenuActive(!menuActive);
   };
 
   return (
@@ -33,7 +33,7 @@ const Navigation = () => {
         </NavLink>
         <div className="nav-and-burger">
           <div className="nav-menu">
-            {isAuthenticatedUser && (
+            {isLoggedIn && (
               <>
                 <NavLink
                   exact
@@ -60,7 +60,7 @@ const Navigation = () => {
               Contacts
             </NavLink>
 
-            {isAuthenticatedUser && <UserMenu />}
+            {isLoggedIn && <UserMenu />}
           </div>
           <div className="menu-btn" onClick={onBurgerClick}>
             {!menuActive ? (
@@ -73,7 +73,7 @@ const Navigation = () => {
               </svg>
             )}
             <nav className={menuActive ? 'nav-burger active' : 'nav-burger'}>
-              {isAuthenticatedUser && (
+              {isLoggedIn && (
                 <>
                   <div className="navLink-menu">
                     <NavLink
@@ -106,18 +106,22 @@ const Navigation = () => {
                 </NavLink>
               </div>
 
-              {isAuthenticatedUser && (
+              {isLoggedIn && (
                 <div className="sing-out-burger">
-                  <svg width="16" height="16" onClick={logout}>
+                  <svg
+                    width="16"
+                    height="16"
+                    onClick={() => dispatch(authOperations.logOut())}
+                  >
                     <use href={sprite + '#signOut'}></use>
                   </svg>
                 </div>
               )}
-              </nav>
+            </nav>
           </div>
         </div>
       </div>
-        </header>
+    </header>
   );
 };
 
