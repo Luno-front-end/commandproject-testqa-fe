@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
-// import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 // import { isAuthenticated } from '../../redux/auth/auth-selectors';
@@ -20,7 +19,8 @@ const Navigation = () => {
     const onBurgerClick = () => {
     const el = document.querySelector('body');
    !menuActive ? disableBodyScroll(el) : enableBodyScroll(el);
-    setMenuActive(!menuActive);
+      setMenuActive(!menuActive);
+      
   };
 
   return (
