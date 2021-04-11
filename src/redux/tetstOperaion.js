@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
+import authOperations from './auth/auth-operations';
 
 axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 
@@ -11,15 +12,15 @@ axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 //     axios.defaults.headers.common.Authorization = '';
 // },
 // };
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsImlhdCI6MTYxODA3NjQ1NiwiZXhwIjoxNjE4MDgwMDU2fQ.9_v0D9rQFe5hK0Xo6_IFUmmyaFXwc_7we6MEPR7gEjQ';
-axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsImlhdCI6MTYxODA3NjQ1NiwiZXhwIjoxNjE4MDgwMDU2fQ.9_v0D9rQFe5hK0Xo6_IFUmmyaFXwc_7we6MEPR7gEjQ';
+// axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 export const getAllTest = createAsyncThunk(
   'getAllTest',
   async (value, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/test/?test=${value}`);
+      authOperations.token.set(data.token);
       return data.data;
     } catch (err) {
       return rejectWithValue(err);
