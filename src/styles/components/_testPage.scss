@@ -181,11 +181,12 @@
 
 .textThirdBtnTest {
   // height: 14px;
-  display: block;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 17px;
+  // padding-top: 17px;
 
   font-family: 'MontserratMedium';
   font-style: normal;
@@ -367,6 +368,9 @@
 
 .nameOfTest {
   // position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   top: 100px;
   font-family: 'MontserratMedium';
   font-style: normal;
