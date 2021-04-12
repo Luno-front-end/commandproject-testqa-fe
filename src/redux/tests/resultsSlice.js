@@ -1,19 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getResults } from './tetstOperaion';
+import { getResults } from './testOperation';
 
-const resultsTest = createSlice({
+const results = createSlice({
   name: 'results',
-  initialState: {
-    type: 'qa',
-    answers: [],
-  },
+  initialState: {},
   extraReducers: builder => {
     builder
       .addCase(getResults.pending, (state, { payload }) => {
         return state;
       })
       .addCase(getResults.fulfilled, (state, { payload }) => {
+        console.log('payload');
         return (state = payload);
       })
       .addCase(getResults.rejected, (state, { payload }) => {
@@ -21,5 +19,4 @@ const resultsTest = createSlice({
       });
   },
 });
-
-export default resultsTest.reducer;
+export default results.reducer;
