@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
+import authOperations from './auth/auth-operations';
 
 axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 
@@ -20,6 +21,7 @@ export const getAllTest = createAsyncThunk(
   async (value, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/test/?test=${value}`);
+      authOperations.token.set(data.token);
       return data.data;
     } catch (err) {
       return rejectWithValue(err);

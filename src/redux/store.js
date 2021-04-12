@@ -1,42 +1,53 @@
-import { configureStore } from '@reduxjs/toolkit';
+// import { configureStore } from '@reduxjs/toolkit';
 
-import testSlice from './testSlice';
-import resultsTest from './testSlice';
+// import testSlice from './testSlice';
+// import resultsTest from './testSlice';
 
-export const store = configureStore({
-  reducer: { allTestsR: testSlice, results: resultsTest },
-  devTools: process.env.NODE_ENV !== 'production',
-});
-
-// ///////////////////////////////////////////////
-
-// import { createStore, combineReducers, applyMiddleware } from 'redux';
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import thunk from 'redux-thunk';
-// import storage from 'redux-persist/lib/storage';
-// import { persistStore, persistReducer } from 'redux-persist';
-
-// import authUsersReducer from './auth/auth-reducer';
-
-// import testReducer from './testSlice';
-
-// const authPersistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
-
-// const rootReducer = combineReducers({
-//   auth: persistReducer(authPersistConfig, authUsersReducer),
-//   reducer: { allTests: testReducer },
+// export const store = configureStore({
+//   reducer: { allTestsR: testSlice, results: resultsTest },
 //   devTools: process.env.NODE_ENV !== 'production',
 // });
 
-// const store = createStore(
-//   rootReducer,
-//   composeWithDevTools(applyMiddleware(thunk)),
-// );
+// ///////////////////////////////////////////////
 
-// export const persistor = persistStore(store);
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { authReducer } from './auth';
+import testSlice from './testSlice';
+import resultsTest from './testSlice';
 
-// export default store;
+const middleware = [
+  ...getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+];
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
+export const store = configureStore({
+  reducer: {
+    allTestsR: testSlice,
+    results: resultsTest,
+    auth: persistReducer(authPersistConfig, authReducer),
+  },
+  middleware,
+  devTools: process.env.NODE_ENV !== 'production',
+});
+
+export const persistor = persistStore(store);

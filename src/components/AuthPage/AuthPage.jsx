@@ -1,10 +1,47 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { authOperations } from '../../redux/auth';
 import sprite from '../../images/sprite.svg';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 export default function AuthPage() {
-  function name(e) {
-    console.log(e);
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [login, setLogin] = useState('');
+
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'email':
+        return setEmail(value);
+      case 'password':
+        return setPassword(value);
+      default:
+        return;
+    }
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
-  }
+    console.log(e);
+    login === 'login'
+      ? dispatch(authOperations.logIn({ email, password }))
+      : dispatch(authOperations.register({ email, password }));
+
+    setEmail('');
+    setPassword('');
+  };
+
+  const loginBTN = () => {
+    setLogin('login');
+  };
+  //   const handleSubmit = e => {
+  //   e.preventDefault();
+  //   dispatch(authOperations.logIn({ email, password }));
+  //   setEmail('');
+  //   setPassword('');
+  // };
+
+  // console.log(email);
 
   return (
     <section className="section-test">
@@ -21,7 +58,7 @@ export default function AuthPage() {
           </p>
         </div>
         <div className="form__wrap">
-          <form className="form" onSubmit={name}>
+          <form className="form" onSubmit={handleSubmit}>
             <p className="form__text">
               You can use your Google Account to authorize:
             </p>
@@ -40,14 +77,35 @@ export default function AuthPage() {
               Or login to our app using e-mail and password:
             </p>
             <div className="input__inner">
-              <input type="email" id="email" placeholder="E-mail" />
-              <input type="password" id="pass" placeholder="Password" />
+              <input
+                name="email"
+                type="email"
+                id="email"
+                placeholder="E-mail"
+                onChange={handleChange}
+              />
+              <input
+                name="password"
+                type="password"
+                id="pass"
+                placeholder="Password"
+                onChange={handleChange}
+              />
             </div>
             <div className="btn">
-              <button type="button" className="btn__sign-in sign__hover">
+              <button
+                name="login"
+                type="submit"
+                className="btn__sign-in sign__hover"
+                onClick={loginBTN}
+              >
                 Sign in
               </button>
-              <button type="button" className="btn__sign-up sign__hover">
+              <button
+                name="register"
+                type="submit"
+                className="btn__sign-up sign__hover"
+              >
                 Sign up
               </button>
             </div>
