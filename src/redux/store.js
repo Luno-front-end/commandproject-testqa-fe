@@ -1,13 +1,5 @@
 // import { configureStore } from '@reduxjs/toolkit';
 
-// import testSlice from './testSlice';
-// import resultsTest from './testSlice';
-
-// export const store = configureStore({
-//   reducer: { allTestsR: testSlice, results: resultsTest },
-//   devTools: process.env.NODE_ENV !== 'production',
-// });
-
 // ///////////////////////////////////////////////
 
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
@@ -23,8 +15,10 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth';
-import testSlice from './testSlice';
-import resultsTest from './testSlice';
+// import resultsTest from './testSlice';
+import testSlice from './tests/testSlice';
+import resultsPage from './tests/resultsPageSlice';
+import results from './tests/resultsSlice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -43,7 +37,8 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     allTestsR: testSlice,
-    results: resultsTest,
+    testResults: resultsPage,
+    results: results,
     auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware,
