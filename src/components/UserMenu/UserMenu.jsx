@@ -6,12 +6,6 @@ const UserMenu = () => {
   const dispatch = useDispatch();
 
   const userName = useSelector(authSelectors.getUsername);
-  // console.log(userName);
-  // console.log(
-
-  //   userName,
-  // );
-
   return (
     <div className="container-user">
       <div className="avatar">
