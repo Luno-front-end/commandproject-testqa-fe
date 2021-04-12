@@ -9,7 +9,7 @@ import ResultsPage from './components/ResultsPage/ResultsPage';
 import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
 import Footer from './components/Footer/Footer';
 
-import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
+
 
 
 
