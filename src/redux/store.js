@@ -1,10 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import testSlice from './testSlice';
-import resultsTest from './testSlice';
+import testSlice from './tests/testSlice';
+import resultsPage from './tests/resultsPageSlice';
+import results from './tests/resultsSlice';
 
 export const store = configureStore({
-  reducer: { allTestsR: testSlice, results: resultsTest },
+  reducer: {
+    allTestsR: testSlice,
+    lolkek: resultsPage,
+    results: results,
+  },
   devTools: process.env.NODE_ENV !== 'production',
 });
 

@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, Link, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import { getAllTest } from '../../redux/tetstOperaion';
+import { getAllTest, getResults } from '../../redux/tests/testOperation';
+import { arrayResults } from '../../redux/tests/testActions';
 import sprite from '../../images/sprite.svg';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -12,15 +13,14 @@ function Test() {
   const history = useHistory();
   const dispatch = useDispatch();
   const allTests = useSelector(({ allTestsR }) => allTestsR);
+  const res = useSelector(state => state.lolkek);
+  // console.log(res);
 
   const query = new URLSearchParams(location.search).get('name');
 
   const [indexQuestion, setindexQuestion] = useState(0);
-  const [loadind, setLoadind] = useState(false);
-  const [value, setValue] = useState({
-    type: `${query}`,
-    answers: [{}],
-  });
+  // const [loadind, setLoadind] = useState(false);
+  // const [checkVelue, setCheckVelue] = useState('');
 
   useEffect(() => {
     if (!query || (query !== 'qa' && query !== 'testTheory')) {
@@ -29,9 +29,9 @@ function Test() {
   }, [history, query]);
 
   useEffect(() => {
-    setLoadind(true);
+    // setLoadind(true);
     dispatch(getAllTest(query));
-    setLoadind(false);
+    // setLoadind(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
@@ -40,6 +40,8 @@ function Test() {
       redirectResultsPage();
       dispatch(getAllTest([]));
     }
+
+    dispatch(getResults(res));
     setindexQuestion(prevState => prevState + 1);
   }
 
@@ -53,12 +55,30 @@ function Test() {
   function redirectResultsPage() {
     history.push(`/results?name=${query}`);
   }
+  const onSubmite = e => {
+    // console.log(e.target);
+  };
 
   function inputTestValue(e) {
-    setValue({ answers: e.target.nextSibling });
+    const answer = e.currentTarget.value;
+    const _id = allTests[indexQuestion]._id;
+    const type = allTests[indexQuestion].type;
 
-    console.log(value);
-    console.log(e.target.nextSibling);
+    // console.log(());
+
+    const testAnswers = {
+      type,
+      answers: { _id, answer },
+    };
+
+    dispatch(arrayResults(testAnswers));
+
+    // console.log();
+    // console.log();
+    // dispatch(getResults(id, type, answer));
+
+    // console.log(value);
+    // console.log(e.target.textContent);
   }
   return (
     <div className="container bgColorTest">
@@ -66,11 +86,15 @@ function Test() {
         <p className="nameOfTest">
           {query === 'qa' ? '[ QA technical training_]' : '[ Testing theory_]'}
         </p>
-        <Link to={`/`} className="btnThirdTest">
+        <Link
+          to={`/`}
+          className="btnThirdTest"
+          // onClick={dispatch(getAllTest([]))}
+        >
           Finish test
         </Link>
       </div>
-      <form className="formOfQuestionTest">
+      <form className="formOfQuestionTest" onSubmit={onSubmite}>
         {/* {loadind ?? <p>loading</p>}
          <p>{`Question ${indexQuestion + 1} / 12 `}</p>
          <p>{allTests[indexQuestion]?.question}</p>
@@ -92,19 +116,29 @@ function Test() {
         <hr className="hrLineTest"></hr>
 
         <ul className="groupOfAnswersTest">
-          {allTests[indexQuestion]?.answers.map(arrAnswers => (
-            <li className="flexInputAndTextTest" key={Math.random()}>
-              <label className="textOfAnswersTest">
+          {allTests[indexQuestion]?.answers.map(arrAnswers => {
+            const id = uuidv4();
+            return (
+              <li
+                className="flexInputAndTextTest"
+                key={id}
+                // onClick={inputTestValue}
+              >
                 <input
                   type="radio"
                   name="answer"
                   className="inputBtn"
+                  id={id}
+                  value={arrAnswers}
                   onChange={inputTestValue}
+                  // defaultChecked="false"
                 />
-                {arrAnswers}
-              </label>
-            </li>
-          ))}
+                <label className="textOfAnswersTest" htmlFor={id}>
+                  <span> {arrAnswers}</span>
+                </label>
+              </li>
+            );
+          })}
         </ul>
       </form>
       <div className="btnsBlockTest">
