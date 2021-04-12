@@ -7,7 +7,7 @@ import results from './tests/resultsSlice';
 export const store = configureStore({
   reducer: {
     allTestsR: testSlice,
-    lolkek: resultsPage,
+    testResults: resultsPage,
     results: results,
   },
   devTools: process.env.NODE_ENV !== 'production',

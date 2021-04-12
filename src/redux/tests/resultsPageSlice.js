@@ -8,12 +8,11 @@ const options = {
 };
 
 const resultsPage = createSlice({
-  name: 'lolkek',
+  name: 'testResults',
   initialState: options,
   extraReducers: {
     [arrayResults]: (state, { payload }) => {
       const id = payload.answers._id;
-
       const array = state.answers.filter(el => el._id !== id);
 
       return {

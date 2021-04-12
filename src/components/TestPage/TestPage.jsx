@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, Link, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
+import { getTestResults } from '../../redux/tests/test-selectors';
 import { getAllTest, getResults } from '../../redux/tests/testOperation';
 import { arrayResults } from '../../redux/tests/testActions';
 import sprite from '../../images/sprite.svg';
@@ -13,8 +13,8 @@ function Test() {
   const history = useHistory();
   const dispatch = useDispatch();
   const allTests = useSelector(({ allTestsR }) => allTestsR);
-  const res = useSelector(state => state.lolkek);
-  // console.log(res);
+  const res = useSelector(getTestResults);
+  console.log('res', res);
 
   const query = new URLSearchParams(location.search).get('name');
 

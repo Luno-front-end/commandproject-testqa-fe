@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
+// axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:3010';
 
 // const token = {
 //   set(token) {
@@ -12,7 +13,7 @@ axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 // },
 // };
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsInNlc3Npb25JZCI6IjYwNzQxMjFlZjU3NGI1MDA0ODM5Yzk3NiIsImlhdCI6MTYxODIxOTU1MSwiZXhwIjoxNjE4MjIzMTUxfQ.B2L8DZ-dNWkhgu50VU18VmAWNriJRrJcr1bE8OI6EVU';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNmExZjc4OTBiNzJhNGE5Y2MzZDc1NyIsInNlc3Npb25JZCI6IjYwNzQyYTkxYjg2M2NmM2M4NGYzNmE2MiIsImlhdCI6MTYxODIyNTgwOSwiZXhwIjoxNjE4MjI5NDA5fQ.y4wQuuOktIAKBebgFNY_lADhjk72ue7rfrZNyLX956Y';
 axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 export const getAllTest = createAsyncThunk(
@@ -28,12 +29,16 @@ export const getAllTest = createAsyncThunk(
 );
 
 export const getResults = createAsyncThunk(
-  'getResults',
+  'getTestResults',
 
   async (arrayTest, { rejectWithValue }) => {
-    console.log(arrayTest);
+    console.log('arrayTest', arrayTest);
+    const json = JSON.stringify(arrayTest);
+    console.log('json', json);
+    // console.log(json);
     try {
-      const { data } = await axios.post('/test/answers', arrayTest, {});
+      const { data } = await axios.post('/test/answers', arrayTest);
+      console.log(data);
       return data.data;
     } catch (err) {
       return rejectWithValue(err);
