@@ -463,3 +463,19 @@
   width: 18px;
   height: 18px;
 }
+
+.checkQ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  height: 17px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.active {
+  background-color: $decor-color;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}

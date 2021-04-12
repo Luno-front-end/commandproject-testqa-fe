@@ -19,7 +19,7 @@ function Test() {
   const dispatch = useDispatch();
   const allTests = useSelector(({ allTestsR }) => allTestsR);
   const res = useSelector(getTestResults);
-  console.log('res', res);
+  console.log(res);
 
   const query = new URLSearchParams(location.search).get('name');
 
@@ -42,7 +42,7 @@ function Test() {
       dispatch(getAllTest([]));
     }
 
-    dispatch(getResults(res));
+    // dispatch(getResults(res));
     setindexQuestion(prevState => prevState + 1);
   }
 

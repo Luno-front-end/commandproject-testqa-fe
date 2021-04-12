@@ -12,6 +12,10 @@ export default function List({ id, arrAnswers, inputTestValue }) {
       <label className="textOfAnswersTest" htmlFor={id}>
         <span> {arrAnswers}</span>
       </label>
+      {/* <div className="checkQ ">
+        <p className="active"></p>
+      </div>
+      <p>{arrAnswers}</p> */}
     </li>
   );
 }
