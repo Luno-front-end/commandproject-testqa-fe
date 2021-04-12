@@ -31,14 +31,11 @@ export const getResults = createAsyncThunk(
   'getTestResults',
 
   async (arrayTest, { rejectWithValue }) => {
-    console.log('arrayTest', arrayTest);
-    const json = JSON.stringify(arrayTest);
-    console.log('json', json);
-    // console.log(json);
     try {
-      const { data } = await axios.post('/test/answers', arrayTest);
-      console.log(data);
-      return data.data;
+      const {
+        data: { data },
+      } = await axios.post('/test/answers', arrayTest);
+      return data;
     } catch (err) {
       return rejectWithValue(err);
     }
