@@ -8,11 +8,6 @@ import TestPage from './components/TestPage/TestPage.jsx';
 import ResultsPage from './components/ResultsPage/ResultsPage';
 import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
 import Footer from './components/Footer/Footer';
-
-
-
-
-
 import NotFount from './components/NotFount/NotFound';
 
 // import TestSpriteSVG from './components/TestSpriteSVG.jsx';
