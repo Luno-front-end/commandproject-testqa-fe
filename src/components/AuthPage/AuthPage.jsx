@@ -37,9 +37,9 @@ export default function AuthPage() {
 
   return (
     <section className="section-test">
-      <div className="container">
+      <div className="container auth__test">
+        <AuthPhrase />
         <div className="form__wrap">
-          <AuthPhrase />
           <form className="form" onSubmit={handleSubmitLog}>
             <p className="form__text">
               You can use your Google Account to authorize:
@@ -62,12 +62,14 @@ export default function AuthPage() {
                 placeholder="E-mail"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                className="email"
               />
               <input
                 type="password"
                 value={password}
                 placeholder="Password"
                 onChange={e => setPassword(e.target.value)}
+                className="pass"
               />
             </div>
             <div className="btn">
