@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, Link, useHistory } from 'react-router-dom';
+import { useLocation, Link, NavLink, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { getTestResults } from '../../redux/tests/test-selectors';
@@ -75,13 +75,13 @@ function Test() {
         <p className="nameOfTest">
           {query === 'qa' ? '[ QA technical training_]' : '[ Testing theory_]'}
         </p>
-        <Link to={`/`} className="btnThirdTest">
+        <NavLink to={`/`} className="btnThirdTest textThirdBtnTest">
           Finish test
-        </Link>
+        </NavLink>
       </div>
       <form className="formOfQuestionTest">
         <p className="textOfQuestionTest">
-          Question
+          `Question `
           <span className="numberOfQuestionTest">{indexQuestion + 1}</span> / 12
         </p>
 
