@@ -19,7 +19,7 @@ function Test() {
   const dispatch = useDispatch();
   const allTests = useSelector(({ allTestsR }) => allTestsR);
   const res = useSelector(getTestResults);
-  console.log('res', res);
+  console.log(res);
 
   const query = new URLSearchParams(location.search).get('name');
 
@@ -33,8 +33,7 @@ function Test() {
 
   useEffect(() => {
     dispatch(getAllTest(query));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, query]);
 
   function nextQuestion() {
     if (indexQuestion >= 11) {
@@ -42,7 +41,7 @@ function Test() {
       dispatch(getAllTest([]));
     }
 
-    dispatch(getResults(res));
+    // dispatch(getResults(res));
     setindexQuestion(prevState => prevState + 1);
   }
 
