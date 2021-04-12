@@ -2,69 +2,50 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 import sprite from '../../images/sprite.svg';
-// import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import AuthPhrase from './AuthPhrase';
 export default function AuthPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [login, setLogin] = useState('');
+  const history = useHistory();
 
-  const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
-    }
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(e);
-    login === 'login'
-      ? dispatch(authOperations.logIn({ email, password }))
-      : dispatch(authOperations.register({ email, password }));
-
+  function restetForm() {
     setEmail('');
     setPassword('');
+  }
+
+  const isValidData = () => {
+    // Валидация данных
+    return email.length > 5 && password.length > 6;
   };
 
-  const loginBTN = () => {
-    setLogin('login');
+  const handleSubmitLog = e => {
+    e.preventDefault();
+    restetForm();
+    isValidData
+      ? dispatch(authOperations.logIn({ email, password }))
+      : console.log('Error');
+    // ==========================
+    // history.push('/');
   };
-  //   const handleSubmit = e => {
-  //   e.preventDefault();
-  //   dispatch(authOperations.logIn({ email, password }));
-  //   setEmail('');
-  //   setPassword('');
-  // };
 
-  // console.log(email);
+  const handleSubmitReg = e => {
+    restetForm();
+    dispatch(authOperations.register({ email, password }));
+  };
 
   return (
     <section className="section-test">
       <div className="container">
-        <div className="auth">
-          <h2 className="auth__title">Pro Test</h2>
-          <p className="auth__text" style={{ textAlign: 'center' }}>
-            <span className="auth__span" style={{ textAlign: 'center' }}>
-              {
-                '[ We will help you find weak points in knowledge so that you can strengthen it. We will show you what is relevant to know for a QA Engineer and will try to make the learning process more diverse_ ]'
-              }
-            </span>
-          </p>
-        </div>
         <div className="form__wrap">
-          <form className="form" onSubmit={handleSubmit}>
+          <AuthPhrase />
+          <form className="form" onSubmit={handleSubmitLog}>
             <p className="form__text">
               You can use your Google Account to authorize:
             </p>
             <a
-              rel="noreferrer"
               href="https://team-project-be.herokuapp.com/auth/google"
-              target="_blank"
               className="btn__google"
             >
               <svg className="btn__google-svg">
@@ -77,33 +58,30 @@ export default function AuthPage() {
             </p>
             <div className="input__inner">
               <input
-                name="email"
                 type="email"
-                id="email"
                 placeholder="E-mail"
-                onChange={handleChange}
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
               <input
-                name="password"
                 type="password"
-                id="pass"
+                value={password}
                 placeholder="Password"
-                onChange={handleChange}
+                onChange={e => setPassword(e.target.value)}
               />
             </div>
             <div className="btn">
               <button
-                name="login"
                 type="submit"
                 className="btn__sign-in sign__hover"
-                onClick={loginBTN}
+                onClick={e => handleSubmitLog(e)}
               >
                 Sign in
               </button>
               <button
-                name="register"
-                type="submit"
+                type="button"
                 className="btn__sign-up sign__hover"
+                onClick={e => handleSubmitReg(e)}
               >
                 Sign up
               </button>
