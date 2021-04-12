@@ -6,8 +6,6 @@
 
 html {
   box-sizing: border-box;
-  min-height: 100%;
-  position: relative;
 }
 
 body {
@@ -83,8 +81,8 @@ textarea {
 }
 
 .visually-hidden:not(:focus):not(:active),
-input[type='checkbox'].visually-hidden,
-input[type='radio'].visually-hidden {
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -99,7 +97,7 @@ input[type='radio'].visually-hidden {
 
 .clearfix::after {
   display: table;
-  content: '';
+  content: "";
   clear: both;
 }
 
