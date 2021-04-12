@@ -181,11 +181,12 @@
 
 .textThirdBtnTest {
   // height: 14px;
-  display: block;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 17px;
+  // padding-top: 17px;
 
   font-family: 'MontserratMedium';
   font-style: normal;
@@ -367,6 +368,9 @@
 
 .nameOfTest {
   // position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   top: 100px;
   font-family: 'MontserratMedium';
   font-style: normal;
@@ -375,21 +379,27 @@
   color: $main-text-color;
 
   @include for-size(mobile) {
-    width: 130px;
+    // width: 130px;
+    width: 110px;
+
     height: 36px;
     left: 20px;
     font-size: 14px;
     line-height: 17px;
   }
   @include for-size(tablet) {
-    width: 210px;
+    // width: 210px;
+    width: 170px;
+
     height: 54px;
     left: 58px;
     font-size: 22px;
     line-height: 27px;
   }
   @include for-size(desktop) {
-    width: 210px;
+    // width: 210px;
+    width: 170px;
+
     height: 50px;
     left: 230px;
     font-size: 22px;
@@ -398,6 +408,7 @@
 }
 
 .textOfAnswersTest {
+  display: flex;
   font-family: 'MontserratRegular';
   letter-spacing: 0.02em;
   color: #000000;
@@ -459,23 +470,25 @@
   }
 }
 
-.inputBtn {
+input.inputBtn {
   width: 18px;
   height: 18px;
 }
 
-.checkQ {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 17px;
-  height: 17px;
-  border: 1px solid black;
-  border-radius: 50%;
-}
-.active {
-  background-color: $decor-color;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+// .checkQ {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 17px;
+//   height: 17px;
+//   border: 1px solid black;
+//   border-radius: 50%;
+// }
+// .active {
+//   background-color: $decor-color;
+//   width: 10px;
+//   height: 10px;
+//   border-radius: 50%;
+.gapInputAndAnswer {
+  padding-left: 20px;
 }

@@ -12,9 +12,8 @@ import TestPage from './components/TestPage/TestPage.jsx';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import ResultsPage from './components/ResultsPage/ResultsPage';
+import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
 import Footer from './components/Footer/Footer';
-// import proTestUsefulInfo from './components/proTestUsefulInfo/proTestUsefulInfo';
-
 import NotFount from './components/NotFount/NotFound';
 
 // import TestSpriteSVG from './components/TestSpriteSVG.jsx';
@@ -34,25 +33,30 @@ function App() {
         <>
           <AppBar />
           <Switch>
-            <PrivateRoute path="/" exact>
-              <MainPage />
-            </PrivateRoute>
-            <PublicRoute path="/auth">
+            <PublicRoute exact path="/auth" redirectTo="/" restricted>
               <AuthPage />
             </PublicRoute>
+            <PrivateRoute path="/useful-info">
+              <ProTestUsefulInfo />
+            </PrivateRoute>
 
-            <PrivateRoute path="/test">
-              <TestPage />
-            </PrivateRoute>
-            <PrivateRoute path="/results" exact>
-              <ResultsPage />
-            </PrivateRoute>
-            <PublicRoute path="/team">
+            <PublicRoute exact path="/team">
               <TeamSection />
             </PublicRoute>
-            <PrivateRoute>
-              <NotFount />
+
+            <PrivateRoute exact path="/" redirectTo="/auth">
+              <MainPage />
             </PrivateRoute>
+
+            <PrivateRoute path="/test" redirectTo="/auth">
+              <TestPage />
+            </PrivateRoute>
+            <PrivateRoute exact path="/results" redirectTo="/auth">
+              <ResultsPage />
+            </PrivateRoute>
+            <PublicRoute>
+              <NotFount />
+            </PublicRoute>
             {/* <TestSpriteSVG />  */}
           </Switch>
           <Footer />

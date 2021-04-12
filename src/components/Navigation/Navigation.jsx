@@ -14,9 +14,6 @@ const Navigation = () => {
 
   const [menuActive, setMenuActive] = useState(false);
 
-  // const isLoggedIn = true; //// заглушка
-  // const logout = true; //// заглушка
-
   const onBurgerClick = () => {
     const el = document.querySelector('body');
     !menuActive ? disableBodyScroll(el) : enableBodyScroll(el);
@@ -33,32 +30,34 @@ const Navigation = () => {
         </NavLink>
         <div className="nav-and-burger">
           <div className="nav-menu">
-            {isLoggedIn && (
-              <>
-                <NavLink
-                  exact
-                  to={routes.homePage}
-                  className="navLink"
-                  activeClassName="navLink--active"
-                >
-                  Home
-                </NavLink>
-                <NavLink
-                  to={routes.materialsPage}
-                  className="navLink"
-                  activeClassName="navLink--active"
-                >
-                  Materials
-                </NavLink>
-              </>
-            )}
-            <NavLink
-              to={routes.contactsPage}
-              className="navLink"
-              activeClassName="navLink--active"
-            >
-              Contacts
-            </NavLink>
+            <div className="nav-menu-link">
+              {isLoggedIn && (
+                <>
+                  <NavLink
+                    exact
+                    to={routes.homePage}
+                    className="navLink"
+                    activeClassName="navLink--active"
+                  >
+                    Home
+                  </NavLink>
+                  <NavLink
+                    to={routes.materialsPage}
+                    className="navLink"
+                    activeClassName="navLink--active"
+                  >
+                    Materials
+                  </NavLink>
+                </>
+              )}
+              <NavLink
+                to={routes.contactsPage}
+                className="navLink"
+                activeClassName="navLink--active"
+              >
+                Contacts
+              </NavLink>
+            </div>
 
             {isLoggedIn && <UserMenu />}
           </div>
