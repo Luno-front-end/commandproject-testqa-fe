@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { arrayResults } from './testActions';
+import { arrayResults, addAnswer } from './testActions';
 
 const options = {
   type: '',
@@ -8,10 +8,19 @@ const options = {
 };
 
 const resultsPage = createSlice({
-  name: 'testResults',
+  name: 'results',
   initialState: options,
   extraReducers: {
-    [arrayResults]: (state, { payload }) => {
+    // [arrayResults]: (state, { payload }) => {
+    //   const id = payload.answers._id;
+    //   const array = state.answers.filter(el => el._id !== id);
+
+    //   return {
+    //     type: payload.type,
+    //     answers: [...array, payload.answers],
+    //   };
+    // },
+    [addAnswer]: (state, { payload }) => {
       const id = payload.answers._id;
       const array = state.answers.filter(el => el._id !== id);
 

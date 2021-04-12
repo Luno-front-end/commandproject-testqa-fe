@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, Link, NavLink, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { addAnswer } from '../../redux/tests/testActions';
 
 import { getTestResults } from '../../redux/tests/test-selectors';
 import { getAllTest, getResults } from '../../redux/tests/testOperation';
@@ -14,50 +15,69 @@ import sprite from '../../images/sprite.svg';
 import { v4 as uuidv4 } from 'uuid';
 
 function Test() {
+  const [indexQuestion, setindexQuestion] = useState(0);
+  const [answer, setAnswer] = useState('');
+
   const location = useLocation();
   const history = useHistory();
   const dispatch = useDispatch();
+
   const allTests = useSelector(({ allTestsR }) => allTestsR);
-  const res = useSelector(getTestResults);
-  console.log(res);
+
+  // dispatch('отправить результат');
+  // console.log('results', results);
 
   const query = new URLSearchParams(location.search).get('name');
 
-  const [indexQuestion, setindexQuestion] = useState(0);
-
-  useEffect(() => {
-    if (!query || (query !== 'qa' && query !== 'testTheory')) {
-      history.push(`/`);
-    }
-  }, [history, query]);
+  // useEffect(() => {
+  //   // if (!query || (query !== 'qa' && query !== 'testTheory')) {
+  //   //   history.push(`/`);
+  //   // }
+  // }, [history, query]);
 
   useEffect(() => {
     dispatch(getAllTest(query));
   }, [dispatch, query]);
 
   function nextQuestion() {
+    console.log('next q');
     if (indexQuestion >= 11) {
       redirectResultsPage();
       dispatch(getAllTest([]));
     }
-
-    // dispatch(getResults(res));
+    // // dispatch(getResults(res));
     setindexQuestion(prevState => prevState + 1);
+    dispatch(addAnswer);
   }
 
   function previousQuestion() {
-    if (indexQuestion <= 0) {
-      return;
-    }
-    setindexQuestion(prevState => prevState - 1);
+    console.log('prev q');
+    if (indexQuestion <= 0) return;
+
+    // setindexQuestion(indexQuestion + 1);
+    dispatch('action');
   }
 
   function redirectResultsPage() {
     history.push(`/results?name=${query}`);
   }
 
-  function inputTestValue(e) {
-    const answer = e.currentTarget.value;
+  // function inputTestValue(e) {
+  //   console.log(e.target);
+  //   const answer = e.currentTarget.value;
+  //   const _id = allTests[indexQuestion]._id;
+  //   const type = allTests[indexQuestion].type;
+
+  //   const testAnswers = {
+  //     type,
+  //     answers: { _id, answer },
+  //   };
+  //   console.log(testAnswers);
+  //   dispatch(addAnswer(testAnswers));
+  // }
+
+  function handleChange(e) {
+    setAnswer(e.target.value);
     const _id = allTests[indexQuestion]._id;
     const type = allTests[indexQuestion].type;
 
@@ -66,8 +86,9 @@ function Test() {
       answers: { _id, answer },
     };
 
-    dispatch(arrayResults(testAnswers));
+    dispatch(addAnswer(testAnswers));
   }
+
   return (
     <div className="container bgColorTest">
       <div className="flexContainer">
@@ -91,14 +112,15 @@ function Test() {
         <hr className="hrLineTest"></hr>
 
         <ul className="groupOfAnswersTest">
-          {allTests[indexQuestion]?.answers.map(arrAnswers => {
+          {allTests[indexQuestion]?.answers.map(el => {
             const id = uuidv4();
             return (
               <List
                 key={id}
                 id={id}
-                arrAnswers={arrAnswers}
-                inputTestValue={inputTestValue}
+                el={el}
+                onChange={handleChange}
+                answer={answer}
               />
             );
           })}
@@ -116,7 +138,10 @@ function Test() {
           <span className="textPrimaryBtnTest">Previous question</span>
         </Button>
 
-        <Button cssClass={'btnSecondaryTest'} onClick={nextQuestion}>
+        <Button
+          cssClass={'btnSecondaryTest'}
+          onClick={indexQuestion >= 10 ? nextQuestion : console.log('12')}
+        >
           <span className="textSecondaryBtnTest">
             {indexQuestion >= 11 ? 'finish' : 'Next question'}
           </span>

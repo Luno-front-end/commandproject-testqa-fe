@@ -41,3 +41,15 @@ export const getResults = createAsyncThunk(
     }
   },
 );
+export const getResults2 = createAsyncThunk(
+  'получить результат',
+  async (_, thunkApi) => {
+    try {
+      const state = thunkApi.getState();
+      const { data } = await axios.post('/test/answers', state.testResults);
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  },
+);
