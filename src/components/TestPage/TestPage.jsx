@@ -59,6 +59,9 @@ function Test() {
 
     console.log(value);
     console.log(e.target.nextSibling);
+        console.log("!!!e.target", e.target);
+        console.log("!!!e", e);
+
   }
   return (
     <div className="container bgColorTest">
@@ -85,14 +88,11 @@ function Test() {
         <ul className="groupOfAnswersTest">
           {allTests[indexQuestion]?.answers.map(arrAnswers => (
             <li className="flexInputAndTextTest" key={Math.random()}>
-              <label className="textOfAnswersTest">
-                <input
-                  type="radio"
-                  name="answer"
-                  className="inputBtn"
-                  onChange={inputTestValue}
-                />
-                {arrAnswers}
+              <label className="textOfAnswersTest" >
+                <input type="radio" name="answer" className="inputBtn" onChange={inputTestValue}/>
+                {/* <div className="gapInputAndAnswer" > */}
+                  {arrAnswers}
+                {/* </div> */}
               </label>
             </li>
           ))}
