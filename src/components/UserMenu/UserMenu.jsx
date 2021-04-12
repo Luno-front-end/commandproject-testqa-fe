@@ -1,33 +1,37 @@
-// import { useSelector, useDispatch } from 'react-redux';
-// import { useCallback } from 'react';
-// import { name, loading } from '../../redux/auth/auth-selectors';
-// import { logoutUser } from '../../redux/auth/auth-operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelectors, authOperations } from '../../redux/auth';
 import sprite from '../../images/sprite.svg';
 
 const UserMenu = () => {
-  // const dispatch = useDispatch();
-  // const userName = useSelector(name);
-  // const loadingAuth = useSelector(loading);
+  const dispatch = useDispatch();
 
-  // const logout = useCallback(() => dispatch(logoutUser()), [dispatch]);
-
-  const logout = true; //// заглушка
-  const loadingAuth = false; //// заглушка
+  const userName = useSelector(authSelectors.getUsername);
+  console.log(
+    '🚀 ~ file: UserMenu.jsx ~ line 9 ~ UserMenu ~ userName',
+    userName,
+  );
 
   return (
     <div className="container-user">
-      <div className="avatar">D{/* {userName.match(/[A-Z]/g).join('')}*/}</div>
-      {/* {userName} */}
-      <span className="userName">Dmitri</span>
-      {loadingAuth ? (
+      <div className="avatar">
+        {/* D */}
+        {userName && userName.slice(0, 1).toUpperCase()}
+      </div>
+
+      <span className="userName">{userName}</span>
+      {/* {loadingAuth ? (
         '...'
-      ) : (
-        <div className="sing-out">
-          <svg width="16" height="16" onClick={logout}>
-            <use href={sprite + '#signOut'}></use>
-          </svg>
-        </div>
-      )}
+      ) : ( */}
+      <div className="sing-out">
+        <svg
+          width="16"
+          height="16"
+          onClick={() => dispatch(authOperations.logOut())}
+        >
+          <use href={sprite + '#signOut'}></use>
+        </svg>
+      </div>
+      {/* )} */}
     </div>
   );
 };
