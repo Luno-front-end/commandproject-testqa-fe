@@ -10,14 +10,11 @@ const UserMenu = () => {
   return (
     <div className="container-user">
       <div className="avatar">
-        {/* D */}
         {userName && userName.slice(0, 1).toUpperCase()}
       </div>
 
       <span className="userName">{userName}</span>
-      {/* {loadingAuth ? (
-        '...'
-      ) : ( */}
+
       <div className="sing-out">
         <svg
           width="16"
