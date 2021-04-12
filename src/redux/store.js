@@ -15,7 +15,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth';
-import resultsTest from './testSlice';
+// import resultsTest from './testSlice';
 import testSlice from './tests/testSlice';
 import resultsPage from './tests/resultsPageSlice';
 import results from './tests/resultsSlice';
