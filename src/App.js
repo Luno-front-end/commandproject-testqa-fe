@@ -38,8 +38,8 @@ function App() {
             </PrivateRoute>
             <PublicRoute path="/auth">
               <AuthPage />
-              </PublicRoute>
-              <PrivateRoute path="/usefulinfo">
+            </PublicRoute>
+            <PrivateRoute path="/useful-info">
               <ProTestUsefulInfo />
             </PrivateRoute>
 
@@ -48,8 +48,8 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/results" exact>
               <ResultsPage />
-              </PrivateRoute>
-              
+            </PrivateRoute>
+
             <PublicRoute path="/team">
               <TeamSection />
             </PublicRoute>
