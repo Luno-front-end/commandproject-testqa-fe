@@ -151,7 +151,7 @@
     margin-bottom: 30px;
   }
   @include for-size(desktop) {
-    // width: 400px;
+    width: 400px;
     left: 230px;
     top: 468px;
   }
@@ -237,26 +237,29 @@
   font-weight: 800;
 
   @include for-size(mobile) {
-    // width: 177px;
+    width: 250px;
     height: 58px;
     left: 52px;
     text-align: center;
     font-size: 24px;
     line-height: 29px;
+    margin-bottom: 32px;
   }
   @include for-size(tablet) {
-    // width: 376px;
+    width: 300px;
     height: 78px;
     // left: 40px;
     font-size: 32px;
     line-height: 39px;
+    margin-bottom: 12px;
   }
   @include for-size(desktop) {
-    // width: 374px;
+    width: 300px;
     height: 78px;
     // left: 50px;
     font-size: 32px;
     line-height: 39px;
+    margin-bottom: 12px;
   }
 }
 
@@ -269,28 +272,31 @@
   color: $text-collor;
 
   @include for-size(mobile) {
-    // width: 105px;
+    width: 105px;
     height: 58px;
     left: 87px;
     top: 63px;
     font-size: 24px;
     line-height: 29px;
+    margin-bottom: 29px;
   }
   @include for-size(tablet) {
-    // width: 132px;
+    width: 132px;
     height: 74px;
     left: 134px;
     top: 60px;
     font-size: 30px;
     line-height: 37px;
+    margin-bottom: 16px;
   }
   @include for-size(desktop) {
-    // width: 132px;
+    width: 132px;
     height: 74px;
     left: 134px;
     top: 60px;
     font-size: 30px;
     line-height: 37px;
+    margin-bottom: 16px;
   }
 }
 
