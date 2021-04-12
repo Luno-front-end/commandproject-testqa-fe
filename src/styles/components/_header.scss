@@ -55,9 +55,11 @@ header {
   }
   @include for-size(tablet) {
     margin-right: 10px;
+    margin-left: 30px;
   }
   @include for-size(desktop) {
     margin-right: 30px;
+    margin-left: 30px;
   }
 }
 
@@ -158,15 +160,13 @@ header {
     display: none;
   }
   @include for-size(tablet) {
-    margin-right: 65px;
-    &:last-child {
-      margin-right: 30px;
+    &:not(:last-child) {
+      margin-right: 65px;
     }
   }
   @include for-size(desktop) {
-    margin-right: 85px;
-    &:last-child {
-      margin-right: 65px;
+    &:not(:last-child) {
+      margin-right: 85px;
     }
   }
 }
