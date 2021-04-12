@@ -14,9 +14,6 @@ const Navigation = () => {
 
   const [menuActive, setMenuActive] = useState(false);
 
-  // const isLoggedIn = true; //// заглушка
-  // const logout = true; //// заглушка
-
   const onBurgerClick = () => {
     const el = document.querySelector('body');
     !menuActive ? disableBodyScroll(el) : enableBodyScroll(el);
