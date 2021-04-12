@@ -6,10 +6,11 @@ const UserMenu = () => {
   const dispatch = useDispatch();
 
   const userName = useSelector(authSelectors.getUsername);
-  console.log(
-    '🚀 ~ file: UserMenu.jsx ~ line 9 ~ UserMenu ~ userName',
-    userName,
-  );
+  // console.log(userName);
+  // console.log(
+
+  //   userName,
+  // );
 
   return (
     <div className="container-user">
