@@ -21,7 +21,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await axios.post('/users/registration', credentials);
     token.set(data.data.token);
-    return data;
+    return data.data;
   } catch (error) {
     // TODO: Добавить обработку ошибки error.message
   }
@@ -40,7 +40,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
       '🚀 ~ file: auth-operations.js ~ line 39 ~ data.data.token',
       data.data.token,
     );
-    return data;
+    return data.data;
   } catch (error) {
     // TODO: Добавить обработку ошибки error.message
   }
