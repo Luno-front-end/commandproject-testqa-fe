@@ -107,12 +107,11 @@ const Navigation = () => {
               </div>
 
               {isLoggedIn && (
-                <div className="sing-out-burger">
-                  <svg
-                    width="16"
-                    height="16"
-                    onClick={() => dispatch(authOperations.logOut())}
-                  >
+                <div
+                  className="sing-out-burger"
+                  onClick={() => dispatch(authOperations.logOut())}
+                >
+                  <svg width="16" height="16">
                     <use href={sprite + '#signOut'}></use>
                   </svg>
                 </div>
