@@ -48,13 +48,12 @@ export default function AuthPage() {
       <div className="container">
         <div className="auth">
           <h2 className="auth__title">Pro Test</h2>
-          <p className="auth__text">
-            <span className="auth__span">[</span> We will help you find weak
-            points in knowledge so that you can strengthen it. We will show you
-            what is relevant to know for a{' '}
-            <span className="auth__span">QA Engineer</span> and will try to make
-            the learning process more diverse_{' '}
-            <span className="auth__span">]</span>
+          <p className="auth__text" style={{ textAlign: 'center' }}>
+            <span className="auth__span" style={{ textAlign: 'center' }}>
+              {
+                '[ We will help you find weak points in knowledge so that you can strengthen it. We will show you what is relevant to know for a QA Engineer and will try to make the learning process more diverse_ ]'
+              }
+            </span>
           </p>
         </div>
         <div className="form__wrap">

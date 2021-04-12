@@ -92,7 +92,7 @@ const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get('/users/current');
       return data.data;
     } catch (error) {
-      // TODO: Добавить обработку ошибки error.message
+      throw error;
     }
   },
 );
