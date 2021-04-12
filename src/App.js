@@ -12,9 +12,8 @@ import TestPage from './components/TestPage/TestPage.jsx';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import ResultsPage from './components/ResultsPage/ResultsPage';
+import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
 import Footer from './components/Footer/Footer';
-// import proTestUsefulInfo from './components/proTestUsefulInfo/proTestUsefulInfo';
-
 import NotFount from './components/NotFount/NotFound';
 
 // import TestSpriteSVG from './components/TestSpriteSVG.jsx';
@@ -37,6 +36,9 @@ function App() {
             <PublicRoute exact path="/auth" redirectTo="/" restricted>
               <AuthPage />
             </PublicRoute>
+            <PrivateRoute path="/useful-info">
+              <ProTestUsefulInfo />
+            </PrivateRoute>
 
             <PublicRoute exact path="/team">
               <TeamSection />

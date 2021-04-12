@@ -6,14 +6,10 @@
   width: 100%;
   text-align: center;
   display: block;
-  // position: absolute;
-  bottom: 0;
 
   @include for-size(tablet) {
     text-align: center;
     align-items: center;
-  }
-  @include for-size(desktop) {
   }
 }
 
