@@ -33,8 +33,7 @@ function Test() {
 
   useEffect(() => {
     dispatch(getAllTest(query));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, query]);
 
   function nextQuestion() {
     if (indexQuestion >= 11) {
