@@ -6,7 +6,6 @@ const UserMenu = () => {
   const dispatch = useDispatch();
 
   const userName = useSelector(authSelectors.getUsername);
-
   return (
     <div className="container-user">
       <div className="avatar">
