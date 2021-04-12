@@ -38,7 +38,7 @@ function App() {
               <AuthPage />
             </PublicRoute>
 
-            <PublicRoute exact path="/team" restricted>
+            <PublicRoute exact path="/team">
               <TeamSection />
             </PublicRoute>
 
@@ -52,9 +52,9 @@ function App() {
             <PrivateRoute exact path="/results" redirectTo="/auth">
               <ResultsPage />
             </PrivateRoute>
-            <PrivateRoute>
+            <PublicRoute>
               <NotFount />
-            </PrivateRoute>
+            </PublicRoute>
             {/* <TestSpriteSVG />  */}
           </Switch>
           <Footer />
