@@ -1,16 +1,16 @@
 import { Route, Switch } from 'react-router-dom';
 
-import TeamSection from './components/teamSection';
 import AppBar from './components/AppBar';
 import AuthPage from './components/AuthPage/AuthPage';
 import MainPage from './components/MainPage/MainPage.jsx';
 import TestPage from './components/TestPage/TestPage.jsx';
 import ResultsPage from './components/ResultsPage/ResultsPage';
+import TeamList from './components/TeamSection/TeamList';
 import Footer from './components/Footer/Footer';
 import proTestUsefulInfo from './components/proTestUsefulInfo/proTestUsefulInfo';
 
 import NotFount from './components/NotFount/NotFound';
-
+import teamMembers from './teamMembers.json';
 // import TestSpriteSVG from './components/TestSpriteSVG.jsx';
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
           <ResultsPage />
         </Route>
         <Route path="/team">
-          <TeamSection />
+          <TeamList teamMembers={teamMembers} />
         </Route>
         <Route>
           <NotFount />
@@ -40,7 +40,7 @@ function App() {
 
         {/* <TestSpriteSVG />  */}
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
