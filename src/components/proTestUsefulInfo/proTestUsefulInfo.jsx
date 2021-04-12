@@ -17,7 +17,7 @@ export default function ProTestUsefulInfo() {
           />
       </picture> */}
       <div className="containerinside">
-      <h2 className="listNameH">Useful literature</h2>
+      <h2 className="listNameH">Useful <br />literature</h2>
       <ol className="sectionList">
         <li>Testing dot.com Savin.</li>
         <li>
@@ -28,7 +28,7 @@ export default function ProTestUsefulInfo() {
         </ol>
       </div>
       <div className="containerinside">
-      <h2 className="listNameH vectorH">Useful<br />resources</h2>
+      <h2 className="listNameH vectorH">Useful <br />resources</h2>
       <ol className="sectionList">
         <li><a href="https://dou.ua/" className="linkOl">dou.ua</a></li>
         <li><a href="https://habr.com/ru/" className="linkOl">Habr</a></li>
