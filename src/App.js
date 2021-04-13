@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
 // eslint-disable-next-line no-unused-vars
 import { useEffect, Suspense, lazy } from 'react';
-import TeamSection from './components/teamSection';
-import AppBar from './components/AppBar';
+import Navigation from './components/Navigation';
 import AuthPage from './components/AuthPage/AuthPage';
 import MainPage from './components/MainPage/MainPage.jsx';
 import TestPage from './components/TestPage/TestPage.jsx';
@@ -12,11 +11,8 @@ import TestPage from './components/TestPage/TestPage.jsx';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import ResultsPage from './components/ResultsPage/ResultsPage';
-
 import TeamList from './components/TeamSection/TeamList';
-
 import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
-
 import Footer from './components/Footer/Footer';
 import NotFount from './components/NotFount/NotFound';
 import teamMembers from './teamMembers.json';
@@ -35,7 +31,7 @@ function App() {
         <h1>Показываем React Skeleton</h1>
       ) : (
         <>
-          <AppBar />
+          <Navigation />
           <Switch>
             <PublicRoute exact path="/auth" redirectTo="/" restricted>
               <AuthPage />
@@ -45,7 +41,7 @@ function App() {
             </PrivateRoute>
 
             <PublicRoute exact path="/team">
-              <TeamSection />
+              <TeamList teamMembers={teamMembers} />
             </PublicRoute>
 
             <PrivateRoute exact path="/" redirectTo="/auth">
