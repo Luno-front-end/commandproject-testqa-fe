@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { arrayResults, addAnswer } from './testActions';
+import { cleanAnswers, addAnswer } from './testActions';
 
-const options = {
+const initialState = {
   type: '',
   answers: [],
 };
 
 const resultsPage = createSlice({
-  name: 'results',
-  initialState: options,
+  name: 'CurrenstAnswers',
+  initialState,
   extraReducers: {
     // [arrayResults]: (state, { payload }) => {
     //   const id = payload.answers._id;
@@ -23,12 +23,12 @@ const resultsPage = createSlice({
     [addAnswer]: (state, { payload }) => {
       const id = payload.answers._id;
       const array = state.answers.filter(el => el._id !== id);
-
       return {
         type: payload.type,
         answers: [...array, payload.answers],
       };
     },
+    [cleanAnswers]: (state, action) => initialState,
   },
 });
 

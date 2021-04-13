@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import authOperations from '../auth/auth-operations';
 
 axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
@@ -15,7 +15,7 @@ axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 // };
 
 export const getAllTest = createAsyncThunk(
-  'getAllTest',
+  'getAllTest 111',
   async (value, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/test/?test=${value}`);
@@ -27,26 +27,19 @@ export const getAllTest = createAsyncThunk(
   },
 );
 
-export const getResults = createAsyncThunk(
-  'getTestResults',
-
-  async (arrayTest, { rejectWithValue }) => {
-    try {
-      const {
-        data: { data },
-      } = await axios.post('/test/answers', arrayTest);
-      return data;
-    } catch (err) {
-      return rejectWithValue(err);
-    }
-  },
-);
-export const getResults2 = createAsyncThunk(
-  'получить результат',
+export const fetchResults = createAsyncThunk(
+  'fetchTestResults',
   async (_, thunkApi) => {
     try {
+      console.log(1111);
       const state = thunkApi.getState();
-      const { data } = await axios.post('/test/answers', state.testResults);
+      const token = state.auth.token;
+      const { data } = await axios.post('/test/answers', state.testResults, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(data);
       return data;
     } catch (err) {
       throw err;
