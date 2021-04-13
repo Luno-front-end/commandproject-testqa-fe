@@ -31,7 +31,6 @@ export const fetchResults = createAsyncThunk(
   'fetchTestResults',
   async (_, thunkApi) => {
     try {
-      console.log(1111);
       const state = thunkApi.getState();
       const token = state.auth.token;
       const { data } = await axios.post('/test/answers', state.testResults, {

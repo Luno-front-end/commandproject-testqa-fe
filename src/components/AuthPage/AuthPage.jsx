@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { authOperations } from '../../redux/auth';
-import sprite from '../../images/sprite.svg';
 import { useHistory } from 'react-router-dom';
+import sprite from '../../images/sprite.svg';
+import { authOperations } from '../../redux/auth';
 import AuthPhrase from './AuthPhrase';
+
 export default function AuthPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
+  const notify = () => toast.error('Wow so easy !');
 
   function restetForm() {
     setEmail('');
@@ -16,23 +19,26 @@ export default function AuthPage() {
   }
 
   const isValidData = () => {
-    // Валидация данных
-    return email.length > 5 && password.length > 6;
+    return email.length > 6 && password.length > 8;
   };
 
   const handleSubmitLog = e => {
     e.preventDefault();
-    restetForm();
-    isValidData
-      ? dispatch(authOperations.logIn({ email, password }))
-      : console.log('Error');
-    // ==========================
-    // history.push('/');
+    if (isValidData()) {
+      dispatch(authOperations.logIn({ email, password }));
+      restetForm();
+      return;
+    }
+    toast.error('Credentials is not valid');
   };
 
   const handleSubmitReg = e => {
-    restetForm();
-    dispatch(authOperations.register({ email, password }));
+    if (isValidData()) {
+      dispatch(authOperations.register({ email, password }));
+      restetForm();
+      return;
+    }
+    toast.error('Credentials is not valid');
   };
 
   return (
@@ -91,6 +97,17 @@ export default function AuthPage() {
           </form>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </section>
   );
 }
