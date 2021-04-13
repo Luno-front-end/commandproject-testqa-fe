@@ -1,18 +1,10 @@
 import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
+import IconArroRight from './IconArroRight';
 
-// import { getAllTest } from '../../redux/tetstOperaion';
-
-import sprite from '../../images/sprite.svg';
-//  dispatch(getAllTest('testTheory'));
 function MainPage() {
-  // const dispatch = useDispatch();
-
-  
   return (
     <div className="container bgColorMain">
       <div>
-
         <h2 className="titleMain">
           “Regression testing. What is it? If the system compiles, that's good,
           if it boots, that's great!”
@@ -27,16 +19,12 @@ function MainPage() {
       <div className="btnsBlockMain">
         <Link to="/test?name=qa" className="btnPrimaryMain">
           <p className="textPrimaryBtnMain">QA technical training</p>
-          <svg className="markerMain">
-            <use href={sprite + '#arrowLeft'}></use>
-          </svg>
+          <IconArroRight />
         </Link>
 
         <Link to="/test?name=testTheory" className="btnSecondaryMain">
           <p className="textSecondaryBtnMain">Testing theory</p>
-          <svg className="markerMain">
-            <use href={sprite + '#arrowLeft'}></use>
-          </svg>
+          <IconArroRight />
         </Link>
       </div>
     </div>
