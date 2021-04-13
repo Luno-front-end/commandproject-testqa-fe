@@ -1,0 +1,494 @@
+.btnPrimaryTest {
+  // position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 34px;
+  background: $decor-color;
+
+  @include for-size(mobile) {
+    width: 55px;
+    left: 20px;
+    top: 638px;
+  }
+  @include for-size(tablet) {
+    width: 210px;
+    left: 58px;
+    top: 663px;
+  }
+  @include for-size(desktop) {
+    width: 210px;
+    left: 230px;
+    top: 663px;
+  }
+}
+
+.btnSecondaryTest {
+  // position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 34px;
+  background: $text-collor;
+
+  @include for-size(mobile) {
+    width: 55px;
+    left: 245px;
+    top: 638px;
+  }
+  @include for-size(tablet) {
+    width: 210px;
+    left: 500px;
+    top: 663px;
+  }
+  @include for-size(desktop) {
+    width: 210px;
+    left: 840px;
+    top: 663px;
+  }
+}
+
+.btnsBlockTest {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  @include for-size(mobile) {
+    margin-bottom: 20px;
+  }
+  @include for-size(tablet) {
+  }
+  @include for-size(desktop) {
+  }
+}
+
+.btnThirdTest {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  background: $decor-color;
+
+  @include for-size(mobile) {
+    width: 130px;
+    left: 170px;
+    top: 94px;
+  }
+  @include for-size(tablet) {
+    width: 190px;
+    left: 520px;
+    top: 111px;
+  }
+  @include for-size(desktop) {
+    height: 48px;
+
+    width: 190px;
+    left: 860px;
+    top: 111px;
+  }
+}
+
+.bgColorTest {
+  background: $main-bg-color;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.markerPrimaryTest {
+  // position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 15px;
+  top: 5px;
+  transform: rotate(-180deg);
+  fill: $text-collor;
+}
+
+.markerSecondaryTest {
+  // position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 5px;
+  fill: $main-text-color;
+
+  @include for-size(mobile) {
+    left: 16px;
+  }
+  @include for-size(tablet) {
+    left: 171px;
+  }
+  @include for-size(desktop) {
+    left: 171px;
+  }
+}
+
+.textPrimaryBtnTest {
+  // position: absolute;
+  // width: 140px;
+  height: 10px;
+  left: 50px;
+  top: 12px;
+  font-family: 'MontserratMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: $text-collor;
+
+  @include for-size(mobile) {
+    display: none;
+  }
+  @include for-size(tablet) {
+  }
+  @include for-size(desktop) {
+  }
+}
+
+.textSecondaryBtnTest {
+  // position: absolute;
+  // width: 140px;
+  height: 10px;
+  left: 50px;
+  top: 12px;
+  font-family: 'MontserratMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: $main-text-color;
+
+  @include for-size(mobile) {
+    display: none;
+  }
+  @include for-size(tablet) {
+  }
+  @include for-size(desktop) {
+  }
+}
+
+.textThirdBtnTest {
+  // height: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  // padding-top: 17px;
+
+  font-family: 'MontserratMedium';
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+
+  @include for-size(mobile) {
+    left: 184px;
+    top: 111px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+  @include for-size(tablet) {
+    left: 555px;
+    top: 128px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  @include for-size(desktop) {
+    left: 895px;
+    top: 128px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.formOfQuestionTest {
+  // position: absolute;
+  // height: 456px;
+  background: $text-collor;
+  box-shadow: 0px 4px 15px rgba (2,  23,  42,  0.1);
+
+  @include for-size(mobile) {
+    // width: 280px;
+    left: 20px;
+    top: 162px;
+  }
+  @include for-size(tablet) {
+    // width: 652px;
+    left: 58px;
+    top: 187px;
+  }
+  @include for-size(desktop) {
+    // width: 820px;
+    left: 230px;
+    top: 187px;
+  }
+}
+
+.textOfQuestionTest {
+  font-family: 'MontserratRegular';
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #555555;
+
+  @include for-size(mobile) {
+    // width: 240px;
+    // height: 12px;
+    left: 40px;
+    top: 202px;
+    font-size: 10px;
+    line-height: 12px;
+    padding-top: 40px;
+    text-transform: uppercase;
+  }
+  @include for-size(tablet) {
+    // width: 400px;
+    // height: 20px;
+    left: 184px;
+    top: 237px;
+    font-size: 14px;
+    line-height: 17px;
+    padding-top: 50px;
+  }
+  @include for-size(desktop) {
+    // width: 400px;
+    // height: 20px;
+    left: 440px;
+    top: 237px;
+    font-size: 14px;
+    line-height: 17px;
+    padding-top: 50px;
+  }
+}
+
+.numberOfQuestionTest {
+  color: $decor-color;
+}
+
+.nameOfQuestionTest {
+  font-family: 'MontserratSemiBold';
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #000000;
+
+  @include for-size(mobile) {
+    // width: 240px;
+    // height: 34px;
+    left: 40px;
+    top: 234px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  @include for-size(tablet) {
+    // width: 650px;
+    // height: 28px;
+    left: 59px;
+    top: 262px;
+    font-size: 22px;
+    line-height: 1.36;
+    margin-top: 5px;
+    margin-bottom: 30px;
+  }
+  @include for-size(desktop) {
+    // width: 650px;
+    // height: 28px;
+    left: 315px;
+    top: 262px;
+    font-size: 22px;
+    line-height: 1.36;
+    margin-top: 5px;
+    margin-bottom: 30px;
+  }
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+
+  flex-direction: row;
+  align-items: center;
+
+  // margin-top: 40px;
+  margin-bottom: 28px;
+}
+
+.groupOfAnswersTest {
+  @include for-size(mobile) {
+    // width: 240px;
+    // height: 237px;
+    left: 40px;
+    top: 316px;
+
+    // padding-top: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 28px;
+  }
+  @include for-size(tablet) {
+    // width: 558px;
+    // height: 235px;
+    left: 115px;
+    top: 350px;
+    padding-top: 30px;
+
+    // padding-top: 60px;
+    padding-left: 57px;
+    padding-right: 37px;
+  }
+  @include for-size(desktop) {
+    // width: 648px;
+    // height: 235px;
+    left: 315px;
+    top: 350px;
+
+    // padding-top: 60px;
+    padding-left: 85px;
+    padding-right: 87px;
+    padding-top: 30px;
+  }
+}
+
+.nameOfTest {
+  // position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 100px;
+  font-family: 'MontserratMedium';
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: $main-text-color;
+
+  @include for-size(mobile) {
+    // width: 130px;
+    width: 110px;
+
+    height: 36px;
+    left: 20px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  @include for-size(tablet) {
+    // width: 210px;
+    width: 170px;
+
+    height: 54px;
+    left: 58px;
+    font-size: 22px;
+    line-height: 27px;
+  }
+  @include for-size(desktop) {
+    // width: 210px;
+    width: 170px;
+
+    height: 50px;
+    left: 230px;
+    font-size: 22px;
+    line-height: 27px;
+  }
+}
+
+.textOfAnswersTest {
+  display: flex;
+  font-family: 'MontserratRegular';
+  letter-spacing: 0.02em;
+  color: #000000;
+  margin-left: 20px;
+
+  @include for-size(mobile) {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  @include for-size(tablet) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @include for-size(desktop) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.flexInputAndTextTest {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include for-size(mobile) {
+    padding-bottom: 12px;
+  }
+  @include for-size(tablet) {
+    padding-bottom: 15px;
+  }
+  @include for-size(desktop) {
+    padding-bottom: 15px;
+  }
+}
+
+.hrLineTest {
+  height: 0px;
+  opacity: 0.15;
+  border: 1px solid #00122F;
+  margin: 0px;
+  // text-align: center;
+  margin: auto;
+
+  @include for-size(mobile) {
+    width: 130px;
+    // padding-top: 20px;
+    // padding-bottom: 28px;
+  }
+  @include for-size(tablet) {
+    width: 321.5px;
+    // padding-top: 30px;
+    // padding-bottom: 30px;
+  }
+  @include for-size(desktop) {
+    width: 321.5px;
+    // padding-top: 30px;
+    // padding-bottom: 30px;
+  }
+}
+
+input.inputBtn {
+  width: 18px;
+  height: 18px;
+}
+
+// .checkQ {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 17px;
+//   height: 17px;
+//   border: 1px solid black;
+//   border-radius: 50%;
+// }
+// .active {
+//   background-color: $decor-color;
+//   width: 10px;
+//   height: 10px;
+//   border-radius: 50%;
+.gapInputAndAnswer {
+  padding-left: 20px;
+}
