@@ -1,20 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-import { getResults } from './testOperation';
+import { token } from '../auth/auth-operations';
+import { fetchResults } from './testOperation';
+import { cleanResults } from './testActions';
 
 const results = createSlice({
   name: 'results',
   initialState: {},
+  reducer: {},
   extraReducers: builder => {
     builder
-      .addCase(getResults.pending, (state, { payload }) => {
+      .addCase(cleanResults, (state, payload) => (state = {}))
+      .addCase(fetchResults.pending, (state, { payload }) => {
         return state;
       })
-      .addCase(getResults.fulfilled, (state, { payload }) => {
-        console.log('payload');
+      .addCase(fetchResults.fulfilled, (state, { payload }) => {
         return (state = payload);
       })
-      .addCase(getResults.rejected, (state, { payload }) => {
+      .addCase(fetchResults.rejected, (state, { payload }) => {
         return state;
       });
   },

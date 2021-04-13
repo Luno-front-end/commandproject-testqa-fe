@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
 // eslint-disable-next-line no-unused-vars
 import { useEffect, Suspense, lazy } from 'react';
-import AppBar from './components/AppBar';
+import Navigation from './components/Navigation';
 import AuthPage from './components/AuthPage/AuthPage';
 import MainPage from './components/MainPage/MainPage.jsx';
 import TestPage from './components/TestPage/TestPage.jsx';
@@ -31,7 +31,7 @@ function App() {
         <h1>Показываем React Skeleton</h1>
       ) : (
         <>
-          <AppBar />
+          <Navigation />
           <Switch>
             <PublicRoute exact path="/auth" redirectTo="/" restricted>
               <AuthPage />

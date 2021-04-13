@@ -8,11 +8,11 @@ import { authSelectors, authOperations } from '../../redux/auth';
 import routes from '../../routes';
 import UserMenu from '../UserMenu';
 
-const Navigation = () => {
+export default function Navigation() {
+  const [menuActive, setMenuActive] = useState(false);
+
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-
-  const [menuActive, setMenuActive] = useState(false);
 
   const onBurgerClick = () => {
     const el = document.querySelector('body');
@@ -121,6 +121,4 @@ const Navigation = () => {
       </div>
     </header>
   );
-};
-
-export default Navigation;
+}

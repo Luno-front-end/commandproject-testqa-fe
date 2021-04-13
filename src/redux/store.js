@@ -36,7 +36,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    allTestsR: testSlice,
+    allTests: testSlice,
     testResults: resultsPage,
     results: results,
     auth: persistReducer(authPersistConfig, authReducer),

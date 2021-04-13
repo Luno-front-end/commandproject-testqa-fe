@@ -1,4 +1,4 @@
-export default function List({ id, arrAnswers, inputTestValue }) {
+export default function List({ el, id, onChange, answer }) {
   return (
     <li className="flexInputAndTextTest">
       <input
@@ -6,11 +6,12 @@ export default function List({ id, arrAnswers, inputTestValue }) {
         name="answer"
         className="inputBtn"
         id={id}
-        value={arrAnswers}
-        onChange={inputTestValue}
+        value={el}
+        onChange={e => onChange(e)}
+        checked={answer === el}
       />
       <label className="textOfAnswersTest" htmlFor={id}>
-        <span> {arrAnswers}</span>
+        <span> {el}</span>
       </label>
     </li>
   );
