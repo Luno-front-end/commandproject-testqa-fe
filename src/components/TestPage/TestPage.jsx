@@ -58,8 +58,7 @@ function Test() {
 
   function inputTestValue(e) {
     const answer = e.currentTarget.value;
-    const _id = allTests[indexQuestion]._id;
-    const type = allTests[indexQuestion].type;
+    const { _id, type } = allTests[indexQuestion];
 
     const testAnswers = {
       type,
@@ -130,3 +129,5 @@ function Test() {
 }
 
 export default Test;
+
+// maxonishe3@gmail.com
