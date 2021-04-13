@@ -12,10 +12,9 @@ export default function List({ el, id, onChange, answer }) {
         checked={answer === el}
       />
 </div>
-      {/* <div className="activeCheckTestList"></div> */}
 
       <label className="textOfAnswersTest" htmlFor={id}>
-        <p> {el}</p>
+        <p className="gapInputAndAnswer"> {el}</p>
       </label>
     </li>
   );
