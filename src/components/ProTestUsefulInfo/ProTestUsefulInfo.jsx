@@ -1,19 +1,7 @@
 export default function ProTestUsefulInfo() {
   return (
-    <section className="container proTestUsefulInfo">
-      {/* <picture>
-         <source
-            srcset="
-              ../images/UsefulInfo/pic.jpg 1x,
-              
-              ../../images/UsefulInfo/pic@2.jpg 2x,
-              ../../images/UsefulInfo/pic@3.jpg 3x
-            "
-            media="(max-width: 1280px)"
-            type="image"
-          />
-      </picture> */}
-      <div className="containerinside">
+    <section className="proTestUsefulInfo">
+      <div className="container">
         <h2 className="listNameH">
           Useful <br />
           literature
@@ -26,8 +14,6 @@ export default function ProTestUsefulInfo() {
           </li>
           <li>Scrum. J. Sutherland.</li>
         </ol>
-      </div>
-      <div className="containerinside">
         <h2 className="listNameH vectorH">
           Useful <br />
           resources
