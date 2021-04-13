@@ -5,7 +5,10 @@ function TeamList({ teamMembers }) {
   return (
     <section className="section">
       <h2 className="teamTitle">Наша команда</h2>
-      <div className="container">
+      <div
+        className="container 
+container-teamList"
+      >
         <ul className="teamList">
           {teamMembers.map(teamMember => (
             <li classname="teamMember" key={teamMember.id}>
