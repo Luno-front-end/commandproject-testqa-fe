@@ -58,6 +58,7 @@ export default function AuthPage() {
             </p>
             <div className="input__inner">
               <input
+                name="email"
                 type="email"
                 placeholder="E-mail"
                 value={email}
@@ -65,6 +66,7 @@ export default function AuthPage() {
                 className="email"
               />
               <input
+                name="password"
                 type="password"
                 value={password}
                 placeholder="Password"
