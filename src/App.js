@@ -1,5 +1,9 @@
-import { Route, Switch } from 'react-router-dom';
-
+import { Switch } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations, authSelectors } from './redux/auth';
+// eslint-disable-next-line no-unused-vars
+import { useEffect, Suspense, lazy } from 'react';
+import TeamSection from './components/teamSection';
 import AppBar from './components/AppBar';
 import AuthPage from './components/AuthPage/AuthPage';
 import MainPage from './components/MainPage/MainPage.jsx';
@@ -8,42 +12,25 @@ import TestPage from './components/TestPage/TestPage.jsx';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import ResultsPage from './components/ResultsPage/ResultsPage';
+
 import TeamList from './components/TeamSection/TeamList';
+
+import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
+
 import Footer from './components/Footer/Footer';
 import NotFount from './components/NotFount/NotFound';
 import teamMembers from './teamMembers.json';
 // import TestSpriteSVG from './components/TestSpriteSVG.jsx';
+
 function App() {
+  const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
   return (
     <>
-      <AppBar />
-      <Switch>
-        <Route path="/" exact>
-          <MainPage />
-        </Route>
-        <Route path="/auth">
-          <AuthPage />
-        </Route>
-
-        <Route path="/test">
-          <TestPage />
-        </Route>
-        <Route path="/results" exact>
-          <ResultsPage />
-        </Route>
-        <Route path="/team">
-          <TeamList teamMembers={teamMembers} />
-        </Route>
-        <Route>
-          <NotFount />
-        </Route>
-
-        {/* <TestSpriteSVG />  */}
-      </Switch>
-      {/* <Footer /> */}
       {isFetchingCurrentUser ? (
         <h1>Показываем React Skeleton</h1>
       ) : (
@@ -58,7 +45,7 @@ function App() {
             </PrivateRoute>
 
             <PublicRoute exact path="/team">
-              <TeamList />
+              <TeamSection />
             </PublicRoute>
 
             <PrivateRoute exact path="/" redirectTo="/auth">
