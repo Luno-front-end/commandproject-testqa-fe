@@ -1,49 +1,54 @@
 .proTestUsefulInfo {
-  background-image: url(../../images/UsefulInfo/pic@mob.jpg);
+  background-image: url(../../images/UsefulInfo/pic1.jpg);
   background-repeat: no-repeat;
-  background-size: 100%;
-  width: 100%;
+  background-size: cover;
+  background-position: 60% 0;
+  width: 100vw;
+  height: 100vh;
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
-    background-image: url('../../images/UsefulInfo/pic@2xmob.jpg');
+    background-image: url('../../images/UsefulInfo/pic1@2x.jpg');
   }
   @media screen and (min-device-pixel-ratio: 3),
     screen and (min-resolution: 288dpi),
     screen and (min-resolution: 3dppx) {
-    background-image: url('../../images/UsefulInfo/pic@3xmob.jpg');
+    background-image: url('../../images/UsefulInfo/pic1@3x.jpg');
   }
   @include for-size(tablet) {
-    background-image: url(../../images/UsefulInfo/pic@tab.jpg);
+    background-image: url(../../images/UsefulInfo/pic1.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
-    width: 100%;
+    background-size: cover;
+    background-position: 60% 0;
+    width: 100vw;
+    height: 100vh;
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url('../../images/UsefulInfo/pic@2xtab.jpg');
+      background-image: url('../../images/UsefulInfo/pic1@2x.jpg');
     }
     @media screen and (min-device-pixel-ratio: 3),
       screen and (min-resolution: 288dpi),
       screen and (min-resolution: 3dppx) {
-      background-image: url('../../images/UsefulInfo/pic@3xtab.jpg');
+      background-image: url('../../images/UsefulInfo/pic1@3x.jpg');
     }
   }
   @include for-size(desktop) {
-    background-image: url(../../images/UsefulInfo/pic@dt.jpg);
+    background-image: url(../../images/UsefulInfo/pic1.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
-    width: 100%;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url('../../images/UsefulInfo/pic@2xdt.jpg');
+      background-image: url('../../images/UsefulInfo/pic1@2x.jpg');
     }
     @media screen and (min-device-pixel-ratio: 3),
       screen and (min-resolution: 288dpi),
       screen and (min-resolution: 3dppx) {
-      background-image: url('../../images/UsefulInfo/pic@3xdt.jpg');
+      background-image: url('../../images/UsefulInfo/pic1@3x.jpg');
     }
   }
 }
