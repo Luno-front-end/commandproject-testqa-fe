@@ -15,7 +15,7 @@ axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 // };
 
 export const getAllTest = createAsyncThunk(
-  'getAllTest 111',
+  'getAllTest',
   async (value, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/test/?test=${value}`);
