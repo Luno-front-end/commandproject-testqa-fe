@@ -25,6 +25,7 @@ function App() {
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
+
   return (
     <>
       {isFetchingCurrentUser ? (

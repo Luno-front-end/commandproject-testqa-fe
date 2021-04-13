@@ -4,7 +4,9 @@ import teamMembers from '../../teamMembers.json';
 function TeamList({ teamMembers }) {
   return (
     <section className="section">
-      <h2 className="teamTitle">Наша команда</h2>
+      <h2 className="teamTitle">
+        <span className="teamTitleAfter">Наша команда</span>
+      </h2>
       <div
         className="container 
 container-teamList"

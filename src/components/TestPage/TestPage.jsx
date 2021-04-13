@@ -1,7 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, Link, NavLink, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, NavLink, useHistory } from 'react-router-dom';
 import SpriteIcon from '../SpriteIcon/SpriteIcon';
+import { v4 as uuidv4 } from 'uuid';
+
 import { getAllTests } from '../../redux/tests/test-selectors';
 import { getAllTest, getResults } from '../../redux/tests/testOperation';
 import {
@@ -13,9 +15,7 @@ import {
 import List from './List/List';
 import Button from '../Button/Button';
 
-import { v4 as uuidv4 } from 'uuid';
-
-function Test() {
+export default function Test() {
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState('');
 
@@ -120,7 +120,3 @@ function Test() {
     </div>
   );
 }
-
-export default Test;
-
-// maxonishe3@gmail.com
