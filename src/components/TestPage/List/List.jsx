@@ -1,7 +1,8 @@
 export default function List({ el, id, onChange, answer }) {
   return (
     <li className="flexInputAndTextTest">
-      <input
+      <div className="activeCircleTestList">
+        <input
         type="radio"
         name="answer"
         className="inputBtn"
@@ -10,8 +11,11 @@ export default function List({ el, id, onChange, answer }) {
         onChange={e => onChange(e)}
         checked={answer === el}
       />
+</div>
+      {/* <div className="activeCheckTestList"></div> */}
+
       <label className="textOfAnswersTest" htmlFor={id}>
-        <span> {el}</span>
+        <p> {el}</p>
       </label>
     </li>
   );

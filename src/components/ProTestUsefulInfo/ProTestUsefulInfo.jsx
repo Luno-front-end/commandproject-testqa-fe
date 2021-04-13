@@ -1,7 +1,7 @@
 export default function ProTestUsefulInfo() {
   return (
-    <section className="container">
-      <div lassName="proTestUsefulInfo">
+    <section className="proTestUsefulInfo">
+      <div className="container">
         <h2 className="listNameH">
           Useful <br />
           literature
