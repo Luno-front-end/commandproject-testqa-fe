@@ -1,20 +1,9 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, Link, useHistory } from 'react-router-dom';
-import { fetchResults } from '../../redux/tests/testOperation';
-import { getTestResults } from '../../redux/tests/test-selectors';
 import Diagram from '../Diagram/Diagram';
 
 function Results() {
   const location = useLocation();
-
-  const results = useSelector(getTestResults);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log('results', results);
-    dispatch(fetchResults('adasdasd'));
-  }, [dispatch]);
 
   const query = new URLSearchParams(location.search).get('name');
 

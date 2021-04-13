@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getAllTest } from './testOperation';
 
 const testSlice = createSlice({
-  name: 'allTests',
+  name: 'allTestsR',
   initialState: [],
   extraReducers: builder => {
     builder

@@ -1,61 +1,91 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, Link, NavLink, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import SpriteIcon from '../SpriteIcon/SpriteIcon';
-import { getAllTests } from '../../redux/tests/test-selectors';
+import { addAnswer } from '../../redux/tests/testActions';
+
+import { getTestResults } from '../../redux/tests/test-selectors';
 import { getAllTest, getResults } from '../../redux/tests/testOperation';
-import {
-  addAnswer,
-  cleanResults,
-  cleanAnswers,
-} from '../../redux/tests/testActions';
+import { arrayResults } from '../../redux/tests/testActions';
 
 import List from './List/List';
 import Button from '../Button/Button';
 
+import sprite from '../../images/sprite.svg';
+
 import { v4 as uuidv4 } from 'uuid';
 
 function Test() {
-  const [index, setIndex] = useState(0);
+  const [indexQuestion, setindexQuestion] = useState(0);
   const [answer, setAnswer] = useState('');
 
   const location = useLocation();
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const allTests = useSelector(getAllTests);
+  const allTests = useSelector(({ allTestsR }) => allTestsR);
+
+  // dispatch('отправить результат');
+  // console.log('results', results);
 
   const query = new URLSearchParams(location.search).get('name');
 
-  useEffect(() => {
-    if (query !== 'qa' && query !== 'testTheory') history.push(`/`);
+  // useEffect(() => {
+  //   // if (!query || (query !== 'qa' && query !== 'testTheory')) {
+  //   //   history.push(`/`);
+  //   // }
+  // }, [history, query]);
 
+  useEffect(() => {
     dispatch(getAllTest(query));
-  }, [dispatch, history, query]);
+  }, [dispatch, query]);
 
-  useEffect(() => {
-    dispatch(cleanAnswers());
-    dispatch(cleanResults());
-  }, [dispatch]);
+  function nextQuestion() {
+    console.log('next q');
+    if (indexQuestion >= 11) {
+      redirectResultsPage();
+      dispatch(getAllTest([]));
+    }
+    // // dispatch(getResults(res));
+    setindexQuestion(prevState => prevState + 1);
+    dispatch(addAnswer);
+  }
+
+  function previousQuestion() {
+    console.log('prev q');
+    if (indexQuestion <= 0) return;
+
+    // setindexQuestion(indexQuestion + 1);
+    dispatch('action');
+  }
 
   function redirectResultsPage() {
     history.push(`/results?name=${query}`);
   }
 
-  function handleClick(mod) {
-    setAnswer('');
-    setIndex(mod);
-  }
+  // function inputTestValue(e) {
+  //   console.log(e.target);
+  //   const answer = e.currentTarget.value;
+  //   const _id = allTests[indexQuestion]._id;
+  //   const type = allTests[indexQuestion].type;
+
+  //   const testAnswers = {
+  //     type,
+  //     answers: { _id, answer },
+  //   };
+  //   console.log(testAnswers);
+  //   dispatch(addAnswer(testAnswers));
+  // }
 
   function handleChange(e) {
     setAnswer(e.target.value);
-    const _id = allTests[index]._id;
-    const type = allTests[index].type;
+    const _id = allTests[indexQuestion]._id;
+    const type = allTests[indexQuestion].type;
 
     const testAnswers = {
       type,
-      answers: { _id, answer: e.target.value },
+      answers: { _id, answer },
     };
+
     dispatch(addAnswer(testAnswers));
   }
 
@@ -71,16 +101,18 @@ function Test() {
       </div>
       <form className="formOfQuestionTest">
         <p className="textOfQuestionTest">
-          `Question `<span className="numberOfQuestionTest">{index + 1}</span> /
-          12
+          `Question `
+          <span className="numberOfQuestionTest">{indexQuestion + 1}</span> / 12
         </p>
 
-        <p className="nameOfQuestionTest">{allTests[index]?.question}</p>
+        <p className="nameOfQuestionTest">
+          {allTests[indexQuestion]?.question}
+        </p>
         {/* hr треба замінити на бордер і поставити як бефор чи афтер  */}
         <hr className="hrLineTest"></hr>
 
         <ul className="groupOfAnswersTest">
-          {allTests[index]?.answers.map(el => {
+          {allTests[indexQuestion]?.answers.map(el => {
             const id = uuidv4();
             return (
               <List
@@ -94,27 +126,28 @@ function Test() {
           })}
         </ul>
       </form>
-
       <div className="btnsBlockTest">
         <Button
-          className="btnPrimaryTest"
-          onClick={() => handleClick(index - 1)}
-          disabled={!index ? true : null}
+          cssClass={'btnPrimaryTest'}
+          onClick={previousQuestion}
+          disabledBtn={indexQuestion <= 0 ? true : false}
         >
-          <SpriteIcon className="markerPrimaryTest" svgId="#arrowLeft" />
+          <svg className="markerPrimaryTest">
+            <use href={sprite + '#arrowLeft'}></use>
+          </svg>
           <span className="textPrimaryBtnTest">Previous question</span>
         </Button>
 
         <Button
-          className="btnSecondaryTest"
-          onClick={
-            index <= 10 ? () => handleClick(index + 1) : redirectResultsPage
-          }
+          cssClass={'btnSecondaryTest'}
+          onClick={indexQuestion >= 10 ? nextQuestion : console.log('12')}
         >
           <span className="textSecondaryBtnTest">
-            {index >= 11 ? 'finish' : 'Next question'}
+            {indexQuestion >= 11 ? 'finish' : 'Next question'}
           </span>
-          <SpriteIcon className="markerSecondaryTest" svgId="#arrowLeft" />
+          <svg className="markerSecondaryTest">
+            <use href={sprite + '#arrowLeft'}></use>
+          </svg>
         </Button>
       </div>
     </div>

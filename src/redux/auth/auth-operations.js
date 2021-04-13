@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://team-project-be.herokuapp.com';
 
-export const token = {
+const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
@@ -98,7 +98,6 @@ const fetchCurrentUser = createAsyncThunk(
 );
 
 const operations = {
-  axios,
   register,
   logOut,
   logIn,
