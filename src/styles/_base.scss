@@ -12,6 +12,7 @@ body {
   background-color: $main-bg-color;
   padding: 0;
   margin: 0;
+  padding-bottom: 56px;
 }
 
 img,
@@ -28,6 +29,7 @@ iframe {
 a {
   display: block;
   text-decoration: none;
+  /*text-transform: uppercase;*/
 }
 
 ul,
