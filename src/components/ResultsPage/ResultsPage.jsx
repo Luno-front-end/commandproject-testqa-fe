@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, Link, useHistory } from 'react-router-dom';
 import { fetchResults } from '../../redux/tests/testOperation';
 import { getTestResults } from '../../redux/tests/test-selectors';
+import Message from '../Diagram/Message'
 import Diagram from '../Diagram/Diagram';
 
 function Results() {
@@ -12,7 +13,6 @@ function Results() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('results', results);
     dispatch(fetchResults('adasdasd'));
   }, [dispatch]);
 
@@ -24,21 +24,16 @@ function Results() {
       <p className="results_test">
         {query === 'qa' ? '[ QA technical training_]' : '[ Testing theory_]'}
       </p>
-      <Diagram />
+      <Diagram correctAnswers={results?.data?.amountOfRightAnswers ?? 0}/>
       <div className="results_flex">
         <p className="results_results">
-          Correct answers - <span>9</span>
+          Correct answers - <span>{results?.data?.amountOfRightAnswers ?? 0}</span>
         </p>
         <p className="results_results">
           Total questions - <span>12</span>
         </p>
       </div>
-      {console.log((<div>kl</div>).offsetWidth)}
-      <div className="results_img" />
-      <h2 className="results_appraisal">Not bad!</h2>
-      <p className="results_message">
-        Dut you still need to learn some materials
-      </p>
+      <Message correctAnswers={results?.data?.amountOfRightAnswers ?? 0}/>
       <Link to={`/test?name=${query}`} className="results_button">
         <p className="results_text">Try again</p>
       </Link>

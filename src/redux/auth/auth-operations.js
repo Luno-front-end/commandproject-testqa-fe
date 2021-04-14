@@ -62,8 +62,29 @@ const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
 
     try {
-      const { data } = await axios.get('/users/current');
-      return data.data;
+      const res = await axios.get('/users/current');
+      return res.data.data;
+    } catch (error) {
+      const { status, data } = error.response;
+      throw rejectWithValue({ status, data });
+    }
+  },
+);
+
+const fetchWithRefreshToken = createAsyncThunk(
+  'auth/refreshToken',
+  async (_, { getState, rejectWithValue }) => {
+    try {
+      const state = getState();
+      const refreshToken = state.auth.refreshToken;
+      const { data } = await axios.get('/auth/refresh', {
+        headers: {
+          Authorization: `Bearer ${refreshToken}`,
+        },
+      });
+      token.set(data.data.token);
+
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -71,6 +92,7 @@ const fetchCurrentUser = createAsyncThunk(
 );
 
 const operations = {
+  fetchWithRefreshToken,
   axios,
   register,
   logOut,

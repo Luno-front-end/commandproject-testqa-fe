@@ -1,19 +1,22 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, NavLink, useHistory } from 'react-router-dom';
-import SpriteIcon from '../SpriteIcon/SpriteIcon';
+import { useEffect, useState, Suspense, lazy } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import SpriteIcon from '../SpriteIcon/SpriteIcon';
+
 import { getAllTests } from '../../redux/tests/test-selectors';
-import { getAllTest, getResults } from '../../redux/tests/testOperation';
+import { getAllTest } from '../../redux/tests/testOperation';
 import {
   addAnswer,
   cleanResults,
   cleanAnswers,
 } from '../../redux/tests/testActions';
 
-import List from './List/List';
 import Button from '../Button/Button';
+import Loader from '../Loader/Loader';
+
+const Item = lazy(() => import('./Item/Item'));
 
 export default function Test() {
   const [index, setIndex] = useState(0);
@@ -69,54 +72,62 @@ export default function Test() {
           Finish test
         </NavLink>
       </div>
-      <form className="formOfQuestionTest">
-        <p className="textOfQuestionTest">
-          `Question `<span className="numberOfQuestionTest">{index + 1}</span> /
-          12
-        </p>
+      {allTests.length === 0 ? (
+        <Loader />
+      ) : (
+        <>
+          <form className="formOfQuestionTest">
+            <p className="textOfQuestionTest">
+              `Question `
+              <span className="numberOfQuestionTest">{index + 1}</span> / 12
+            </p>
 
-        <p className="nameOfQuestionTest">{allTests[index]?.question}</p>
-        {/* hr треба замінити на бордер і поставити як бефор чи афтер  */}
-        <hr className="hrLineTest"></hr>
+            <p className="nameOfQuestionTest">{allTests[index]?.question}</p>
+            {/* hr треба замінити на бордер і поставити як бефор чи афтер  */}
+            <hr className="hrLineTest"></hr>
 
-        <ul className="groupOfAnswersTest">
-          {allTests[index]?.answers.map(el => {
-            const id = uuidv4();
-            return (
-              <List
-                key={id}
-                id={id}
-                el={el}
-                onChange={handleChange}
-                answer={answer}
-              />
-            );
-          })}
-        </ul>
-      </form>
+            <ul className="groupOfAnswersTest">
+              {allTests[index]?.answers.map(el => {
+                const id = uuidv4();
+                return (
+                  <Suspense fallback={<Loader />}>
+                    <Item
+                      key={id}
+                      id={id}
+                      el={el}
+                      onChange={handleChange}
+                      answer={answer}
+                    />
+                  </Suspense>
+                );
+              })}
+            </ul>
+          </form>
 
-      <div className="btnsBlockTest">
-        <Button
-          className="btnPrimaryTest"
-          onClick={() => handleClick(index - 1)}
-          disabled={!index ? true : null}
-        >
-          <SpriteIcon className="markerPrimaryTest" svgId="#arrowLeft" />
-          <span className="textPrimaryBtnTest">Previous question</span>
-        </Button>
+          <div className="btnsBlockTest">
+            <Button
+              className="btnPrimaryTest"
+              onClick={() => handleClick(index - 1)}
+              disabled={!index ? true : null}
+            >
+              <SpriteIcon className="markerPrimaryTest" svgId="#arrowLeft" />
+              <span className="textPrimaryBtnTest">Previous question</span>
+            </Button>
 
-        <Button
-          className="btnSecondaryTest"
-          onClick={
-            index <= 10 ? () => handleClick(index + 1) : redirectResultsPage
-          }
-        >
-          <span className="textSecondaryBtnTest">
-            {index >= 11 ? 'finish' : 'Next question'}
-          </span>
-          <SpriteIcon className="markerSecondaryTest" svgId="#arrowLeft" />
-        </Button>
-      </div>
+            <Button
+              className="btnSecondaryTest"
+              onClick={
+                index <= 10 ? () => handleClick(index + 1) : redirectResultsPage
+              }
+            >
+              <span className="textSecondaryBtnTest">
+                {index >= 11 ? 'finish' : 'Next question'}
+              </span>
+              <SpriteIcon className="markerSecondaryTest" svgId="#arrowLeft" />
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
