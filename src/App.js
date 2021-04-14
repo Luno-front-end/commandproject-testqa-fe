@@ -1,24 +1,30 @@
 import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
-// eslint-disable-next-line no-unused-vars
-import queryString from 'query-string';
-import { useEffect, Suspense, lazy } from 'react';
-import Navigation from './components/Navigation';
-import AuthPage from './components/AuthPage/AuthPage';
-import MainPage from './components/MainPage/MainPage.jsx';
-import TestPage from './components/TestPage/TestPage.jsx';
 import { useLocation } from 'react-router-dom';
 import { saveUserData } from './redux/auth/auth-actions';
+import queryString from 'query-string';
+import { useEffect, Suspense, lazy } from 'react';
+
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
-import ResultsPage from './components/ResultsPage/ResultsPage';
-import TeamList from './components/TeamSection/TeamList';
-import UsefulInfo from './components/UsefulInfoPage/UsefulInfoPage';
-import Footer from './components/Footer/Footer';
-import NotFount from './components/NotFount/NotFound';
 import Loader from './components/Loader/Loader';
 import teamMembers from './teamMembers.json';
+
+import Navigation from './components/Navigation';
+import Footer from './components/Footer/Footer';
+import NotFount from './components/NotFount/NotFound';
+
+const AuthPage = lazy(() => import('./components/AuthPage/AuthPage'));
+const MainPage = lazy(() => import('./components/MainPage/MainPage.jsx'));
+const TestPage = lazy(() => import('./components/TestPage/TestPage.jsx'));
+const ResultsPage = lazy(() => import('./components/ResultsPage/ResultsPage'));
+const TeamListPage = lazy(() =>
+  import('./components/TeamSectionPage/TeamList'),
+);
+const UsefulInfoPage = lazy(() =>
+  import('./components/UsefulInfoPage/UsefulInfoPage'),
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -50,33 +56,35 @@ function App() {
       ) : (
         <>
           <div className="content">
-            <Navigation />
-            <Switch>
-              <PublicRoute exact path="/auth" redirectTo="/" restricted>
-                <AuthPage />
-              </PublicRoute>
-              <PrivateRoute path="/useful-info">
-                <UsefulInfo />
-              </PrivateRoute>
+            <Suspense fallback={<Loader />}>
+              <Navigation />
+              <Switch>
+                <PublicRoute exact path="/auth" redirectTo="/" restricted>
+                  <AuthPage />
+                </PublicRoute>
+                <PrivateRoute path="/useful-info">
+                  <UsefulInfoPage />
+                </PrivateRoute>
 
-              <PublicRoute exact path="/team">
-                <TeamList teamMembers={teamMembers} />
-              </PublicRoute>
+                <PublicRoute exact path="/team">
+                  <TeamListPage teamMembers={teamMembers} />
+                </PublicRoute>
 
-              <PrivateRoute exact path="/" redirectTo="/auth">
-                <MainPage />
-              </PrivateRoute>
+                <PrivateRoute exact path="/" redirectTo="/auth">
+                  <MainPage />
+                </PrivateRoute>
 
-              <PrivateRoute path="/test" redirectTo="/auth">
-                <TestPage />
-              </PrivateRoute>
-              <PrivateRoute exact path="/results" redirectTo="/auth">
-                <ResultsPage />
-              </PrivateRoute>
-              <PublicRoute>
-                <NotFount />
-              </PublicRoute>
-            </Switch>
+                <PrivateRoute path="/test" redirectTo="/auth">
+                  <TestPage />
+                </PrivateRoute>
+                <PrivateRoute exact path="/results" redirectTo="/auth">
+                  <ResultsPage />
+                </PrivateRoute>
+                <PublicRoute>
+                  <NotFount />
+                </PublicRoute>
+              </Switch>
+            </Suspense>
           </div>
           <Footer />
         </>

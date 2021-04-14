@@ -1,20 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, Link, NavLink, useHistory } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useLocation, NavLink, useHistory } from 'react-router-dom';
+import { useEffect, useState, Suspense, lazy } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
 import SpriteIcon from '../SpriteIcon/SpriteIcon';
 import { getAllTests } from '../../redux/tests/test-selectors';
-import { getAllTest, getResults } from '../../redux/tests/testOperation';
+import { getAllTest } from '../../redux/tests/testOperation';
 import {
   addAnswer,
   cleanResults,
   cleanAnswers,
 } from '../../redux/tests/testActions';
 
-import List from './List/List';
 import Button from '../Button/Button';
 import Loader from '../Loader/Loader';
 
-import { v4 as uuidv4 } from 'uuid';
+const Item = lazy(() => import('./Item/Item'));
 
 function Test() {
   const [index, setIndex] = useState(0);
@@ -88,13 +89,15 @@ function Test() {
               {allTests[index]?.answers.map(el => {
                 const id = uuidv4();
                 return (
-                  <List
-                    key={id}
-                    id={id}
-                    el={el}
-                    onChange={handleChange}
-                    answer={answer}
-                  />
+                  <Suspense fallback={<Loader />}>
+                    <Item
+                      key={id}
+                      id={id}
+                      el={el}
+                      onChange={handleChange}
+                      answer={answer}
+                    />
+                  </Suspense>
                 );
               })}
             </ul>
