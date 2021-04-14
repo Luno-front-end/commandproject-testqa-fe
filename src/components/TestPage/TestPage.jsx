@@ -52,8 +52,7 @@ export default function Test() {
 
   function handleChange(e) {
     setAnswer(e.target.value);
-    const _id = allTests[index]._id;
-    const type = allTests[index].type;
+    const { _id, type } = allTests[index];
 
     const testAnswers = {
       type,
@@ -121,7 +120,7 @@ export default function Test() {
               }
             >
               <span className="textSecondaryBtnTest">
-                {index >= 11 ? 'finish' : 'Next question'}
+                {index >= 11 ? 'Results test' : 'Next question'}
               </span>
               <SpriteIcon className="markerSecondaryTest" svgId="#arrowLeft" />
             </Button>
