@@ -1,29 +1,53 @@
 import { createSlice } from '@reduxjs/toolkit';
 import authOperations from './auth-operations';
+import { saveUserData } from './auth-actions';
 
 const initialState = {
   user: { email: null },
   token: null,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
+  refreshToken: null,
+  error: {
+    status: null,
+    data: null,
+  },
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    [saveUserData](state, { payload }) {
+      const { token, refreshToken, email } = payload;
+      state.token = token;
+      state.refreshToken = refreshToken;
+      state.user.email = email;
+    },
     [authOperations.register.fulfilled](state, { payload }) {
+      console.log('payload in reg', payload);
       state.user = payload.email;
       state.token = payload.token;
+      state.refreshToken = payload.refreshToken;
+    },
+    [authOperations.register.rejected](state, { payload }) {
+      console.log('payload in reg rejected', payload);
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
-      state.user = payload.email;
+      console.log('payload in log', payload);
+      state.user.email = payload.email;
       state.token = payload.token;
+      state.refreshToken = payload.refreshToken;
+      state.isLoggedIn = true;
+    },
+    [authOperations.logIn.rejected](state, { payload }) {
+      console.log('payload in log rejected', payload);
       state.isLoggedIn = true;
     },
     [authOperations.logOut.fulfilled](state) {
       state.user = { email: null };
       state.token = null;
+      state.refreshToken = null;
       state.isLoggedIn = false;
     },
     [authOperations.fetchCurrentUser.pending](state) {
@@ -34,7 +58,27 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
-    [authOperations.fetchCurrentUser.rejected](state) {
+    [authOperations.fetchCurrentUser.rejected](state, action) {
+      console.log('error payload', action);
+      state.error = { ...state.error, ...action.payload };
+      state.isFetchingCurrentUser = false;
+    },
+    [authOperations.fetchWithRefreshToken.pending](state, action) {
+      console.log('refresh pending', action);
+      state.isFetchingCurrentUser = true;
+    },
+    [authOperations.fetchWithRefreshToken.fulfilled](
+      state,
+      { payload: { data } },
+    ) {
+      console.log('refresh payload fullfilled');
+      state.user.email = data.email;
+      state.token = data.token;
+      state.refreshToken = data.refreshToken;
+      state.isLoggedIn = true;
+      state.isFetchingCurrentUser = false;
+    },
+    [authOperations.fetchWithRefreshToken.rejected](state, { payload }) {
       state.isFetchingCurrentUser = false;
     },
   },

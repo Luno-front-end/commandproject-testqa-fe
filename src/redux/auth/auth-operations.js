@@ -46,25 +46,45 @@ const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.post('/users/logout');
     token.unset();
-  } catch (error) {
-  }
+  } catch (error) {}
 });
 
 const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
+  async (_, thunkApi) => {
+    const state = thunkApi.getState();
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
       console.log('Токена нет, уходим из fetchCurrentUser');
-      return thunkAPI.rejectWithValue();
+      return thunkApi.rejectWithValue();
     }
 
     token.set(persistedToken);
     try {
-      const { data } = await axios.get('/users/current');
-      return data.data;
+      const res = await axios.get('/users/current');
+      return res.data.data;
+    } catch (error) {
+      const { status, data } = error.response;
+      throw thunkApi.rejectWithValue({ status, data });
+    }
+  },
+);
+
+const fetchWithRefreshToken = createAsyncThunk(
+  'auth/refreshToken',
+  async (_, thunkApi) => {
+    try {
+      const state = thunkApi.getState();
+      const refreshToken = state.auth.refreshToken;
+      const { data } = await axios.get('/auth/refresh', {
+        headers: {
+          Authorization: `Bearer ${refreshToken}`,
+        },
+      });
+      token.set(data.data.token);
+
+      return data;
     } catch (error) {
       throw error;
     }
@@ -72,6 +92,7 @@ const fetchCurrentUser = createAsyncThunk(
 );
 
 const operations = {
+  fetchWithRefreshToken,
   axios,
   register,
   logOut,
