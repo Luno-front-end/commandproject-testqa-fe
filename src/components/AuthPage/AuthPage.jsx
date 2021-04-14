@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import sprite from '../../images/sprite.svg';
 import { authOperations } from '../../redux/auth';
 import AuthPhrase from './AuthPhrase';
@@ -10,35 +9,30 @@ export default function AuthPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
-  const notify = () => toast.error('Wow so easy !');
 
   function restetForm() {
     setEmail('');
     setPassword('');
   }
 
-  const isValidData = () => {
-    return email.length > 6 && password.length > 8;
-  };
-
   const handleSubmitLog = e => {
     e.preventDefault();
-    if (isValidData()) {
-      dispatch(authOperations.logIn({ email, password }));
-      restetForm();
+    if (email.trim() === '' || password.trim() === '') {
+      toast.error('Please, enter email or password');
       return;
     }
-    toast.error('Credentials is not valid');
+    dispatch(authOperations.logIn({ email, password }));
+    restetForm();
   };
 
-  const handleSubmitReg = e => {
-    if (isValidData()) {
-      dispatch(authOperations.register({ email, password }));
-      restetForm();
+  const handleSubmitReg = async e => {
+    e.preventDefault();
+    if (email.trim() === '' || password.trim() === '') {
+      toast.error('Please, enter email or password');
       return;
     }
-    toast.error('Credentials is not valid');
+    dispatch(authOperations.register({ email, password }));
+    restetForm();
   };
 
   return (
