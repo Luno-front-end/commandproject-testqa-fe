@@ -1,23 +1,12 @@
+.content {
+  min-height: calc(100vh - 56px);
+}
+
 .containerFooter {
   font-family: 'MontserratRegular';
   background-color: #02172a;
   color: rgba(255, 255, 255, 0.4);
   height: 56px;
-
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-
-  @include for-size(mobile) {
-    // text-align: center;
-    // align-items: center;
-  }
-
-  @include for-size(tablet) {
-    // text-align: center;
-    // align-items: center;
-  }
 }
 .info-position-footer {
   display: flex;
@@ -102,63 +91,3 @@
   font-size: 15px;
   margin-right: 6.5px;
 }
-
-// .heartSvg {
-//   width: 16px;
-//   height: 16px;
-//   fill: #ff6b09;
-//   margin-left: 3px;
-//   margin-right: 3px;
-// }
-// .copyright {
-//   text-align: center;
-//   width: 18px;
-//   height: 18px;
-//   // margin-left: 18px;
-//   margin-right: 5px;
-// }
-
-// .footerText {
-//   font-family: 'MontserratRegular';
-//   letter-spacing: 0.03em;
-//   font-size: 10px;
-//   line-height: 12.19px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   // text-align: center;
-//   // padding-top: 10px;
-
-//   @include for-size(tablet) {
-//     font-size: 12px;
-//     line-height: 15px;
-//     // padding-top: 19px;
-//     // padding-bottom: 19px;
-//   }
-// }
-
-// .linkFooter {
-//   color: rgba(255, 255, 255, 0.4);
-//   width: 91px;
-//   height: 12px;
-//   display: inline-block;
-//   margin: 0px;
-//   text-decoration-line: underline;
-//   margin-top: 3px;
-// }
-// .decor::after {
-//   content: '';
-//   width: 0px;
-//   height: 13.49px;
-//   border: 0.5px solid rgba(255, 255, 255, 0.4);
-//   margin-left: 7px;
-//   margin-right: 7px;
-// }
-// .decor::before {
-//   content: '';
-//   width: 0px;
-//   height: 13.49px;
-//   border: 0.5px solid rgba(255, 255, 255, 0.4);
-//   margin-left: 7px;
-//   margin-right: 7px;
-// }
