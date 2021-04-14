@@ -20,7 +20,7 @@ const register = createAsyncThunk(
       token.set(data.data.token);
       return data.data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.response.data);
     }
   },
 );
@@ -31,51 +31,51 @@ const logIn = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/login', credentials);
       token.set(data.data.token);
-      console.log(
-        '🚀 ~ file: auth-operations.js ~ line 39 ~ data.data.token',
-        data.data.token,
-      );
       return data.data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.response.data);
     }
   },
 );
 
-const logOut = createAsyncThunk('auth/logout', async () => {
-  try {
-    await axios.post('/users/logout');
-    token.unset();
-  } catch (error) {}
-});
+const logOut = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      await axios.post('/users/logout');
+      token.unset();
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
 
 const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
-  async (_, thunkApi) => {
-    const state = thunkApi.getState();
+  async (_, { getState, rejectWithValue }) => {
+    const state = getState();
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      console.log('Токена нет, уходим из fetchCurrentUser');
-      return thunkApi.rejectWithValue();
+      return rejectWithValue();
     }
-
     token.set(persistedToken);
+
     try {
       const res = await axios.get('/users/current');
       return res.data.data;
     } catch (error) {
       const { status, data } = error.response;
-      throw thunkApi.rejectWithValue({ status, data });
+      throw rejectWithValue({ status, data });
     }
   },
 );
 
 const fetchWithRefreshToken = createAsyncThunk(
   'auth/refreshToken',
-  async (_, thunkApi) => {
+  async (_, { getState, rejectWithValue }) => {
     try {
-      const state = thunkApi.getState();
+      const state = getState();
       const refreshToken = state.auth.refreshToken;
       const { data } = await axios.get('/auth/refresh', {
         headers: {
@@ -86,7 +86,7 @@ const fetchWithRefreshToken = createAsyncThunk(
 
       return data;
     } catch (error) {
-      throw error;
+      return rejectWithValue(error.response.data);
     }
   },
 );

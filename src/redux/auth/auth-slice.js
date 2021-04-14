@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import authOperations from './auth-operations';
 import { saveUserData } from './auth-actions';
 
@@ -33,6 +34,10 @@ const authSlice = createSlice({
     [authOperations.register.rejected](state, { payload }) {
       console.log('payload in reg rejected', payload);
     },
+    [authOperations.register.rejected](state, { payload }) {
+      toast.error(payload.message);
+    },
+
     [authOperations.logIn.fulfilled](state, { payload }) {
       console.log('payload in log', payload);
       state.user.email = payload.email;
@@ -44,12 +49,20 @@ const authSlice = createSlice({
       console.log('payload in log rejected', payload);
       state.isLoggedIn = true;
     },
+    [authOperations.logIn.rejected](state, { payload }) {
+      toast.error(payload.message);
+    },
+
     [authOperations.logOut.fulfilled](state) {
       state.user = { email: null };
       state.token = null;
       state.refreshToken = null;
       state.isLoggedIn = false;
     },
+    [authOperations.logIn.rejected](state, { payload }) {
+      toast.error(payload.message);
+    },
+
     [authOperations.fetchCurrentUser.pending](state) {
       state.isFetchingCurrentUser = true;
     },
@@ -58,13 +71,12 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
-    [authOperations.fetchCurrentUser.rejected](state, action) {
-      console.log('error payload', action);
-      state.error = { ...state.error, ...action.payload };
+    [authOperations.fetchCurrentUser.rejected](state, { payload }) {
+      state.error = { ...state.error, ...payload };
       state.isFetchingCurrentUser = false;
     },
-    [authOperations.fetchWithRefreshToken.pending](state, action) {
-      console.log('refresh pending', action);
+
+    [authOperations.fetchWithRefreshToken.pending](state) {
       state.isFetchingCurrentUser = true;
     },
     [authOperations.fetchWithRefreshToken.fulfilled](
@@ -80,6 +92,7 @@ const authSlice = createSlice({
     },
     [authOperations.fetchWithRefreshToken.rejected](state, { payload }) {
       state.isFetchingCurrentUser = false;
+      toast.error(payload?.message);
     },
   },
 });

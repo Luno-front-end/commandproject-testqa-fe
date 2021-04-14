@@ -1,38 +1,38 @@
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { authOperations } from '../../redux/auth';
 import sprite from '../../images/sprite.svg';
-import { useHistory } from 'react-router-dom';
+import { authOperations } from '../../redux/auth';
 import AuthPhrase from './AuthPhrase';
+
 export default function AuthPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
 
   function restetForm() {
     setEmail('');
     setPassword('');
   }
 
-  const isValidData = () => {
-    // Валидация данных
-    return email.length > 5 && password.length > 6;
-  };
-
   const handleSubmitLog = e => {
     e.preventDefault();
+    if (email.trim() === '' || password.trim() === '') {
+      toast.error('Please, enter email or password');
+      return;
+    }
+    dispatch(authOperations.logIn({ email, password }));
     restetForm();
-    isValidData
-      ? dispatch(authOperations.logIn({ email, password }))
-      : console.log('Error');
-    // ==========================
-    // history.push('/');
   };
 
-  const handleSubmitReg = e => {
-    restetForm();
+  const handleSubmitReg = async e => {
+    e.preventDefault();
+    if (email.trim() === '' || password.trim() === '') {
+      toast.error('Please, enter email or password');
+      return;
+    }
     dispatch(authOperations.register({ email, password }));
+    restetForm();
   };
 
   return (
@@ -93,6 +93,17 @@ export default function AuthPage() {
           </form>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </section>
   );
 }
