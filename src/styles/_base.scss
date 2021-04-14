@@ -115,9 +115,6 @@ input[type='radio'].visually-hidden {
   margin: 0 auto;
   padding: 0 20px 0 20px;
 
-  @include for-size(mobile-sm) {
-    max-width: 280px;
-  }
   @include for-size(mobile) {
     max-width: 723px;
   }
@@ -127,8 +124,5 @@ input[type='radio'].visually-hidden {
   }
   @include for-size(desktop) {
     width: 1240px;
-  }
-  @include for-size(desktop-hd) {
-    width: 1640px;
   }
 }
