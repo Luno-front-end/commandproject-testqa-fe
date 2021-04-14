@@ -1,4 +1,4 @@
-export default function ProTestUsefulInfo() {
+export default function UsefulInfo() {
   return (
     <section className="proTestUsefulInfo">
       <div className="container  container-UsefulInfo">

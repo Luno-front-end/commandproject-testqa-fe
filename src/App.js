@@ -14,7 +14,7 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import ResultsPage from './components/ResultsPage/ResultsPage';
 import TeamList from './components/TeamSection/TeamList';
-import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo';
+import UsefulInfo from './components/UsefulInfoPage/UsefulInfoPage';
 import Footer from './components/Footer/Footer';
 import NotFount from './components/NotFount/NotFound';
 import teamMembers from './teamMembers.json';
@@ -52,7 +52,7 @@ function App() {
               <AuthPage />
             </PublicRoute>
             <PrivateRoute path="/useful-info">
-              <ProTestUsefulInfo />
+              <UsefulInfo />
             </PrivateRoute>
 
             <PublicRoute exact path="/team">
