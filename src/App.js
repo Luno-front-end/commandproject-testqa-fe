@@ -17,6 +17,7 @@ import TeamList from './components/TeamSection/TeamList';
 import UsefulInfo from './components/UsefulInfoPage/UsefulInfoPage';
 import Footer from './components/Footer/Footer';
 import NotFount from './components/NotFount/NotFound';
+import Loader from './components/Loader/Loader';
 import teamMembers from './teamMembers.json';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       dispatch(saveUserData({ ...query }));
     }
     dispatch(authOperations.fetchWithRefreshToken());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -43,37 +45,39 @@ function App() {
   return (
     <>
       {isFetchingCurrentUser ? (
-        <h1>Показываем React Skeleton</h1>
+        // <h1 className="container loadingPage">loading...</h1>
+        <Loader />
       ) : (
         <>
-          <Navigation />
-          <Switch>
-            <PublicRoute exact path="/auth" redirectTo="/" restricted>
-              <AuthPage />
-            </PublicRoute>
-            <PrivateRoute path="/useful-info">
-              <UsefulInfo />
-            </PrivateRoute>
+          <div className="content">
+            <Navigation />
+            <Switch>
+              <PublicRoute exact path="/auth" redirectTo="/" restricted>
+                <AuthPage />
+              </PublicRoute>
+              <PrivateRoute path="/useful-info">
+                <UsefulInfo />
+              </PrivateRoute>
 
-            <PublicRoute exact path="/team">
-              <TeamList teamMembers={teamMembers} />
-            </PublicRoute>
+              <PublicRoute exact path="/team">
+                <TeamList teamMembers={teamMembers} />
+              </PublicRoute>
 
-            <PrivateRoute exact path="/" redirectTo="/auth">
-              <MainPage />
-            </PrivateRoute>
+              <PrivateRoute exact path="/" redirectTo="/auth">
+                <MainPage />
+              </PrivateRoute>
 
-            <PrivateRoute path="/test" redirectTo="/auth">
-              <TestPage />
-            </PrivateRoute>
-            <PrivateRoute exact path="/results" redirectTo="/auth">
-              <ResultsPage />
-            </PrivateRoute>
-            <PublicRoute>
-              <NotFount />
-            </PublicRoute>
-            {/* <TestSpriteSVG />  */}
-          </Switch>
+              <PrivateRoute path="/test" redirectTo="/auth">
+                <TestPage />
+              </PrivateRoute>
+              <PrivateRoute exact path="/results" redirectTo="/auth">
+                <ResultsPage />
+              </PrivateRoute>
+              <PublicRoute>
+                <NotFount />
+              </PublicRoute>
+            </Switch>
+          </div>
           <Footer />
         </>
       )}

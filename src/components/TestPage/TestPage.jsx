@@ -12,6 +12,7 @@ import {
 
 import List from './List/List';
 import Button from '../Button/Button';
+import Loader from '../Loader/Loader';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -69,6 +70,7 @@ function Test() {
           Finish test
         </NavLink>
       </div>
+
       <form className="formOfQuestionTest">
         <p className="textOfQuestionTest">
           `Question `<span className="numberOfQuestionTest">{index + 1}</span> /
@@ -79,20 +81,25 @@ function Test() {
         {/* hr треба замінити на бордер і поставити як бефор чи афтер  */}
         <hr className="hrLineTest"></hr>
 
-        <ul className="groupOfAnswersTest">
-          {allTests[index]?.answers.map(el => {
-            const id = uuidv4();
-            return (
-              <List
-                key={id}
-                id={id}
-                el={el}
-                onChange={handleChange}
-                answer={answer}
-              />
-            );
-          })}
-        </ul>
+        {!allTests ? (
+          // <Loader />
+          <h1>kfajeuoifhsauoefjoise</h1>
+        ) : (
+          <ul className="groupOfAnswersTest">
+            {allTests[index]?.answers.map(el => {
+              const id = uuidv4();
+              return (
+                <List
+                  key={id}
+                  id={id}
+                  el={el}
+                  onChange={handleChange}
+                  answer={answer}
+                />
+              );
+            })}
+          </ul>
+        )}
       </form>
 
       <div className="btnsBlockTest">
