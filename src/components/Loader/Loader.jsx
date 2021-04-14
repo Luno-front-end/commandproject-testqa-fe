@@ -10,8 +10,8 @@ const override = css`
 
 export default function Loader() {
   return (
-    <div className="sweet-loading">
-      <ClipLoader color="#FF6B01" css={override} size={150} />
+    <div className="qweqwe">
+      <ClipLoader color="#FF6B01" css={override} size={100} />
     </div>
   );
 }

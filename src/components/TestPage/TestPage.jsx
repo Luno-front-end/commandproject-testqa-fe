@@ -70,60 +70,60 @@ function Test() {
           Finish test
         </NavLink>
       </div>
+      {allTests.length === 0 ? (
+        <Loader />
+      ) : (
+        <>
+          <form className="formOfQuestionTest">
+            <p className="textOfQuestionTest">
+              `Question `
+              <span className="numberOfQuestionTest">{index + 1}</span> / 12
+            </p>
 
-      <form className="formOfQuestionTest">
-        <p className="textOfQuestionTest">
-          `Question `<span className="numberOfQuestionTest">{index + 1}</span> /
-          12
-        </p>
+            <p className="nameOfQuestionTest">{allTests[index]?.question}</p>
+            {/* hr треба замінити на бордер і поставити як бефор чи афтер  */}
+            <hr className="hrLineTest"></hr>
 
-        <p className="nameOfQuestionTest">{allTests[index]?.question}</p>
-        {/* hr треба замінити на бордер і поставити як бефор чи афтер  */}
-        <hr className="hrLineTest"></hr>
+            <ul className="groupOfAnswersTest">
+              {allTests[index]?.answers.map(el => {
+                const id = uuidv4();
+                return (
+                  <List
+                    key={id}
+                    id={id}
+                    el={el}
+                    onChange={handleChange}
+                    answer={answer}
+                  />
+                );
+              })}
+            </ul>
+          </form>
 
-        {!allTests ? (
-          // <Loader />
-          <h1>kfajeuoifhsauoefjoise</h1>
-        ) : (
-          <ul className="groupOfAnswersTest">
-            {allTests[index]?.answers.map(el => {
-              const id = uuidv4();
-              return (
-                <List
-                  key={id}
-                  id={id}
-                  el={el}
-                  onChange={handleChange}
-                  answer={answer}
-                />
-              );
-            })}
-          </ul>
-        )}
-      </form>
+          <div className="btnsBlockTest">
+            <Button
+              className="btnPrimaryTest"
+              onClick={() => handleClick(index - 1)}
+              disabled={!index ? true : null}
+            >
+              <SpriteIcon className="markerPrimaryTest" svgId="#arrowLeft" />
+              <span className="textPrimaryBtnTest">Previous question</span>
+            </Button>
 
-      <div className="btnsBlockTest">
-        <Button
-          className="btnPrimaryTest"
-          onClick={() => handleClick(index - 1)}
-          disabled={!index ? true : null}
-        >
-          <SpriteIcon className="markerPrimaryTest" svgId="#arrowLeft" />
-          <span className="textPrimaryBtnTest">Previous question</span>
-        </Button>
-
-        <Button
-          className="btnSecondaryTest"
-          onClick={
-            index <= 10 ? () => handleClick(index + 1) : redirectResultsPage
-          }
-        >
-          <span className="textSecondaryBtnTest">
-            {index >= 11 ? 'finish' : 'Next question'}
-          </span>
-          <SpriteIcon className="markerSecondaryTest" svgId="#arrowLeft" />
-        </Button>
-      </div>
+            <Button
+              className="btnSecondaryTest"
+              onClick={
+                index <= 10 ? () => handleClick(index + 1) : redirectResultsPage
+              }
+            >
+              <span className="textSecondaryBtnTest">
+                {index >= 11 ? 'finish' : 'Next question'}
+              </span>
+              <SpriteIcon className="markerSecondaryTest" svgId="#arrowLeft" />
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
