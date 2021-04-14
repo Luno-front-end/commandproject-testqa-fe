@@ -13,7 +13,7 @@
     line-height: 1.67;
 
     margin-top: 30px;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
   }
   @include for-size(tablet) {
     display: block;
@@ -25,7 +25,7 @@
     line-height: 1.36;
 
     margin-top: 80px;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
   }
   @include for-size(desktop) {
     width: 650px;
@@ -36,7 +36,7 @@
     line-height: 1.36;
 
     margin-top: 122px;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
   }
 }
 
@@ -55,7 +55,7 @@
     font-size: 12px;
     line-height: 1.17;
 
-    margin-top: 20px;
+    // margin-top: 20px;
   }
   @include for-size(tablet) {
     width: 400px;
@@ -65,7 +65,7 @@
     font-size: 18px;
     line-height: 2;
 
-    margin-top: 13px;
+    // margin-top: 13px;
   }
   @include for-size(desktop) {
     width: 400px;
@@ -75,7 +75,7 @@
     font-size: 18px;
     line-height: 2;
 
-    margin-top: 13px;
+    // margin-top: 13px;
   }
 }
 
@@ -297,6 +297,34 @@
     font-size: 30px;
     line-height: 37px;
     margin-bottom: 16px;
+  }
+}
+
+.titleMain::after {
+  display: flex;
+  content: '';
+  opacity: 0.15;
+  border: 1px solid #00122f;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include for-size(mobile) {
+    width: 130px;
+
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  @include for-size(tablet) {
+    width: 321.5px;
+
+    margin-top: 30px;
+    margin-bottom: 13px;
+  }
+  @include for-size(desktop) {
+    width: 321.5px;
+
+    margin-top: 29px;
+    margin-bottom: 13px;
   }
 }
 
