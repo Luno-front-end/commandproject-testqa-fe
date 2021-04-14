@@ -211,12 +211,12 @@
   }
 }
 
-.btn{
+.btn {
   display: flex;
   flex-wrap: nowrap;
 }
 
-.btn__sign-in,.btn__sign-up{
+.btn__sign {
   font-family: 'MontserratBold';
   display: flex;
   justify-content: center;
@@ -229,24 +229,27 @@
   border: 1px solid #ced2d1;
   text-transform: uppercase;
   cursor: pointer;
-  &:not(:last-child){
+  transition: background-color 300ms linear, color 300ms linear;
+  &:hover {
+    background-color: $decor-color;
+    color: $text-collor;
+    transition: background-color 300ms linear, color 300ms linear;
+  }
+  &:focus {
+    background-color: $decor-color;
+    color: $text-collor;
+    transition: background-color 300ms linear, color 300ms linear;
+  }
+  &:not(:last-child) {
     margin-right: 20px;
   }
+
   @include for-size(mobile) {
     font-size: 10px;
     line-height: 12px;
   }
 }
 
-.sign__hover {
-  &:hover {
-    background-color: $decor-color;
-    color: $text-collor;
-    transition: all 0.3s;
-  }
-  &:focus {
-    background-color: $decor-color;
-    color: $text-collor;
-    transition: all 0.3s;
-  }
-}
+// .sign__hover {
+
+// }

@@ -77,14 +77,14 @@ export default function AuthPage() {
             <div className="btn">
               <button
                 type="submit"
-                className="btn__sign-in sign__hover"
+                className="btn__sign"
                 onClick={e => handleSubmitLog(e)}
               >
                 Sign in
               </button>
               <button
                 type="button"
-                className="btn__sign-up sign__hover"
+                className="btn__sign"
                 onClick={e => handleSubmitReg(e)}
               >
                 Sign up
