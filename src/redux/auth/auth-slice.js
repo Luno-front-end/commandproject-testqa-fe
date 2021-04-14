@@ -47,6 +47,7 @@ const authSlice = createSlice({
     [authOperations.logOut.fulfilled](state) {
       state.user = { email: null };
       state.token = null;
+      state.refreshToken = null;
       state.isLoggedIn = false;
     },
     [authOperations.fetchCurrentUser.pending](state) {
@@ -75,6 +76,9 @@ const authSlice = createSlice({
       state.token = data.token;
       state.refreshToken = data.refreshToken;
       state.isLoggedIn = true;
+      state.isFetchingCurrentUser = false;
+    },
+    [authOperations.fetchWithRefreshToken.rejected](state, { payload }) {
       state.isFetchingCurrentUser = false;
     },
   },
