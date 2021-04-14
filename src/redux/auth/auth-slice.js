@@ -35,7 +35,7 @@ const authSlice = createSlice({
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
       console.log('payload in log', payload);
-      state.user = payload.email;
+      state.user.email = payload.email;
       state.token = payload.token;
       state.refreshToken = payload.refreshToken;
       state.isLoggedIn = true;
