@@ -8,6 +8,10 @@ const initialState = {
   isLoggedIn: false,
   isFetchingCurrentUser: false,
   refreshToken: null,
+  error: {
+    status: null,
+    data: null,
+  },
 };
 
 const authSlice = createSlice({
@@ -21,12 +25,23 @@ const authSlice = createSlice({
       state.user.email = email;
     },
     [authOperations.register.fulfilled](state, { payload }) {
+      console.log('payload in reg', payload);
       state.user = payload.email;
       state.token = payload.token;
+      state.refreshToken = payload.refreshToken;
+    },
+    [authOperations.register.rejected](state, { payload }) {
+      console.log('payload in reg rejected', payload);
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
+      console.log('payload in log', payload);
       state.user = payload.email;
       state.token = payload.token;
+      state.refreshToken = payload.refreshToken;
+      state.isLoggedIn = true;
+    },
+    [authOperations.logIn.rejected](state, { payload }) {
+      console.log('payload in log rejected', payload);
       state.isLoggedIn = true;
     },
     [authOperations.logOut.fulfilled](state) {
@@ -42,7 +57,24 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
-    [authOperations.fetchCurrentUser.rejected](state) {
+    [authOperations.fetchCurrentUser.rejected](state, action) {
+      console.log('error payload', action);
+      state.error = { ...state.error, ...action.payload };
+      state.isFetchingCurrentUser = false;
+    },
+    [authOperations.fetchWithRefreshToken.pending](state, action) {
+      console.log('refresh pending', action);
+      state.isFetchingCurrentUser = true;
+    },
+    [authOperations.fetchWithRefreshToken.fulfilled](
+      state,
+      { payload: { data } },
+    ) {
+      console.log('refresh payload fullfilled');
+      state.user.email = data.email;
+      state.token = data.token;
+      state.refreshToken = data.refreshToken;
+      state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
   },
