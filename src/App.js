@@ -1,7 +1,7 @@
 import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
-// eslint-disable-next-line no-unused-vars
+import queryString from 'query-string';
 import { useEffect, Suspense, lazy } from 'react';
 import Navigation from './components/Navigation';
 import AuthPage from './components/AuthPage/AuthPage';
@@ -17,14 +17,24 @@ import Footer from './components/Footer/Footer';
 import NotFount from './components/NotFount/NotFound';
 import teamMembers from './teamMembers.json';
 // import TestSpriteSVG from './components/TestSpriteSVG.jsx';
+import { useLocation } from 'react-router-dom';
+import { saveUserData } from './redux/auth/auth-actions';
 
 function App() {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+  const location = useLocation();
+  const query = queryString.parse(location.search);
 
   useEffect(() => {
+    if (query.token) {
+      dispatch(saveUserData({ ...query }));
+    }
+
     dispatch(authOperations.fetchCurrentUser());
-  }, [dispatch]);
+    // Проверяем только при первом рендере страницы
+  }, []);
+
   return (
     <>
       {isFetchingCurrentUser ? (
