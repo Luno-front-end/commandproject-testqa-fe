@@ -18,39 +18,48 @@
 
 .teamTitle {
   display: block;
-  font-family: "MontserratBold";
+  font-family: 'MontserratBold';
   font-size: 18px;
   line-height: 30px;
-  letter-spacing: 0.002em;
+  letter-spacing: 0.02em;
   text-align: center;
-
-  margin-bottom: 10px;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  //   border-bottom: 1px solid #00122f;
-  //   border-bottom-width: 130 px;
-  //   align-items: center;
-  //   margin-bottom: 20px;
+
+  @include for-size(tablet) {
+    font-size: 22px;
+  }
+  @include for-size(desktop) {
+    font-size: 22px;
+  }
 }
 .teamTitleAfter {
   position: relative;
 }
 
 .teamTitleAfter::after {
-  content: "";
+  content: '';
   display: block;
-  // border-color: #00122f;
-  // border-style: solid;
-  // border-width: 1px;
+
   height: 1px;
-  background-color: #00122f;
+  background-color: rgba(0, 18, 46, 0.15);
   margin-top: 10px;
-  width: 300px;
-  // align-items: center;
-  // justify-content: space-between;
   margin-bottom: 20px;
+  width: 130px;
+
+  @include for-size(tablet) {
+    margin-top: 22px;
+    margin-bottom: 39px;
+    width: 321.5px;
+  }
+
+  @include for-size(desktop) {
+    margin-top: 22px;
+    margin-bottom: 39px;
+    width: 321.5px;
+  }
 }
 
 .teamList {
@@ -67,4 +76,9 @@
   @include for-size(desktop) {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.teamMember {
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
 }
