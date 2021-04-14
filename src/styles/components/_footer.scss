@@ -1,0 +1,92 @@
+.content {
+  min-height: calc(100vh - 56px);
+}
+.containerFooter {
+  font-family: 'MontserratRegular';
+  background-color: #02172a;
+  color: rgba(255, 255, 255, 0.4);
+  height: 56px;
+}
+.info-position-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerText {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  letter-spacing: 0.03em;
+  @include for-size(mobile) {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  @include for-size(tablet) {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  @include for-size(desktop) {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+.linkFooter {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+
+.heartSvg {
+  fill: $decor-color;
+  width: 16px;
+  height: 16px;
+  @include for-size(mobile) {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+  @include for-size(tablet) {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+  @include for-size(desktop) {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+}
+
+.linkFooterBy {
+  text-decoration-line: underline;
+}
+.group-text-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boarder-text-footer {
+  height: 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  @include for-size(mobile) {
+    margin-left: 7px;
+    margin-right: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  @include for-size(tablet) {
+    margin-left: 9px;
+    margin-right: 10px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  @include for-size(desktop) {
+    margin-left: 9px;
+    margin-right: 10px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+}
+.copyright {
+  font-size: 15px;
+  margin-right: 6.5px;
+}

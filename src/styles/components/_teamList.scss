@@ -1,0 +1,70 @@
+.section {
+  background-color: var(--main-bg-color);
+  padding-top: 40px;
+  padding-bottom: 56px;
+  @include for-size(tablet) {
+    padding-bottom: 76px;
+  }
+  @include for-size(desktop) {
+    padding-bottom: 65px;
+  }
+}
+
+.container-teamList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamTitle {
+  display: block;
+  font-family: "MontserratBold";
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 0.002em;
+  text-align: center;
+
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   border-bottom: 1px solid #00122f;
+  //   border-bottom-width: 130 px;
+  //   align-items: center;
+  //   margin-bottom: 20px;
+}
+.teamTitleAfter {
+  position: relative;
+}
+
+.teamTitleAfter::after {
+  content: "";
+  display: block;
+  // border-color: #00122f;
+  // border-style: solid;
+  // border-width: 1px;
+  height: 1px;
+  background-color: #00122f;
+  margin-top: 10px;
+  width: 300px;
+  // align-items: center;
+  // justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.teamList {
+  display: grid;
+  grid-gap: 20px;
+
+  @include for-size(mobile) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @include for-size(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include for-size(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
