@@ -31,37 +31,34 @@ function App() {
         <h1>Показываем React Skeleton</h1>
       ) : (
         <>
-          <div className="content">
-            <Navigation />
-            <Switch>
-              <PublicRoute exact path="/auth" redirectTo="/" restricted>
-                <AuthPage />
-              </PublicRoute>
-              <PrivateRoute path="/useful-info">
-                <ProTestUsefulInfo />
-              </PrivateRoute>
+          <Navigation />
+          <Switch>
+            <PublicRoute exact path="/auth" redirectTo="/" restricted>
+              <AuthPage />
+            </PublicRoute>
+            <PrivateRoute path="/useful-info">
+              <ProTestUsefulInfo />
+            </PrivateRoute>
 
-              <PublicRoute exact path="/team">
-                <TeamList teamMembers={teamMembers} />
-              </PublicRoute>
+            <PublicRoute exact path="/team">
+              <TeamList teamMembers={teamMembers} />
+            </PublicRoute>
 
-              <PrivateRoute exact path="/" redirectTo="/auth">
-                <MainPage />
-              </PrivateRoute>
+            <PrivateRoute exact path="/" redirectTo="/auth">
+              <MainPage />
+            </PrivateRoute>
 
-              <PrivateRoute path="/test" redirectTo="/auth">
-                <TestPage />
-              </PrivateRoute>
-              <PrivateRoute exact path="/results" redirectTo="/auth">
-                <ResultsPage />
-              </PrivateRoute>
-              <PublicRoute>
-                <NotFount />
-              </PublicRoute>
-              {/* <TestSpriteSVG />  */}
-            </Switch>
-          </div>
-
+            <PrivateRoute path="/test" redirectTo="/auth">
+              <TestPage />
+            </PrivateRoute>
+            <PrivateRoute exact path="/results" redirectTo="/auth">
+              <ResultsPage />
+            </PrivateRoute>
+            <PublicRoute>
+              <NotFount />
+            </PublicRoute>
+            {/* <TestSpriteSVG />  */}
+          </Switch>
           <Footer />
         </>
       )}
