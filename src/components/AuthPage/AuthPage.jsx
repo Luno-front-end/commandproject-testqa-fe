@@ -4,6 +4,8 @@ import { authOperations } from '../../redux/auth';
 import sprite from '../../images/sprite.svg';
 import { useHistory } from 'react-router-dom';
 import AuthPhrase from './AuthPhrase';
+import validation from '../Validation/Validation';
+console.log(validation);
 export default function AuthPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
@@ -16,14 +18,22 @@ export default function AuthPage() {
   }
 
   const isValidData = () => {
-    // Валидация данных
-    return email.length > 5 && password.length > 6;
+    try {
+      const a = validation.validate({ email, password })
+        if (a?.error) {
+        // неправильная форма
+        return false
+      }
+      return true
+    } catch (e) {
+      return false
+    }
   };
 
   const handleSubmitLog = e => {
     e.preventDefault();
     restetForm();
-    isValidData
+    isValidData()
       ? dispatch(authOperations.logIn({ email, password }))
       : console.log('Error');
     // ==========================
@@ -32,7 +42,9 @@ export default function AuthPage() {
 
   const handleSubmitReg = e => {
     restetForm();
-    dispatch(authOperations.register({ email, password }));
+    isValidData()
+      ? dispatch(authOperations.register({ email, password }))
+      : console.log('Error');
   };
 
   return (
