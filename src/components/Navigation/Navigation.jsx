@@ -4,7 +4,6 @@ import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { authSelectors, authOperations } from '../../redux/auth';
-
 import routes from '../../routes';
 import UserMenu from '../UserMenu';
 

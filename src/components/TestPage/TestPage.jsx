@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense, lazy } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import SpriteIcon from '../SpriteIcon/SpriteIcon';
+
 import { getAllTests } from '../../redux/tests/test-selectors';
 import { getAllTest } from '../../redux/tests/testOperation';
 import {
@@ -17,7 +18,7 @@ import Loader from '../Loader/Loader';
 
 const Item = lazy(() => import('./Item/Item'));
 
-function Test() {
+export default function Test() {
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState('');
 
@@ -129,7 +130,3 @@ function Test() {
     </div>
   );
 }
-
-export default Test;
-
-// maxonishe3@gmail.com

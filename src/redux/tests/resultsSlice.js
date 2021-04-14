@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { token } from '../auth/auth-operations';
 import { fetchResults } from './testOperation';
 import { cleanResults } from './testActions';
 
