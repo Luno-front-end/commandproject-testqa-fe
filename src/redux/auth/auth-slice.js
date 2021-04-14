@@ -92,7 +92,6 @@ const authSlice = createSlice({
     },
     [authOperations.fetchWithRefreshToken.rejected](state, { payload }) {
       state.isFetchingCurrentUser = false;
-      toast.error(payload?.message);
     },
   },
 });
