@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import sprite from '../../images/sprite.svg';
 import { authOperations } from '../../redux/auth';
+import sprite from '../../images/sprite.svg';
+import { useHistory } from 'react-router-dom';
 import AuthPhrase from './AuthPhrase';
 export default function AuthPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const history = useHistory();
+  const history = useHistory();
 
   function restetForm() {
     setEmail('');
