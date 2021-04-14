@@ -18,12 +18,11 @@ import ProTestUsefulInfo from './components/ProTestUsefulInfo/ProTestUsefulInfo'
 import Footer from './components/Footer/Footer';
 import NotFount from './components/NotFount/NotFound';
 import teamMembers from './teamMembers.json';
-// import TestSpriteSVG from './components/TestSpriteSVG.jsx';
 
 function App() {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
-
+  const errorStatus = useSelector(authSelectors.getErrorStatus);
   const location = useLocation();
   const query = queryString.parse(location.search);
 
@@ -31,9 +30,16 @@ function App() {
     if (query.token) {
       dispatch(saveUserData({ ...query }));
     }
-
-    dispatch(authOperations.fetchCurrentUser());
+    dispatch(authOperations.fetchWithRefreshToken());
   }, []);
+
+  useEffect(() => {
+    console.log(errorStatus);
+    if (errorStatus === 403) {
+      return dispatch(authOperations.fetchWithRefreshToken());
+    }
+  }, [dispatch, errorStatus]);
+
   return (
     <>
       {isFetchingCurrentUser ? (
