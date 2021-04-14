@@ -20,7 +20,8 @@ export default function AuthPage() {
     try {
       const a = validation.validate({ email, password });
       if (a?.error) {
-        // неправильная форма
+        toast.error(a.error.message);
+
         return false;
       }
       return true;
@@ -32,19 +33,22 @@ export default function AuthPage() {
   const handleSubmitLog = e => {
     e.preventDefault();
 
-    isValidData()
-      ? dispatch(authOperations.logIn({ email, password }))
-      : console.log('Error');
-    restetForm();
+    if (!isValidData()) {
+      restetForm();
+      return;
+    }
+    dispatch(authOperations.logIn({ email, password }));
   };
 
   const handleSubmitReg = async e => {
     e.preventDefault();
 
-    isValidData()
-      ? dispatch(authOperations.register({ email, password }))
-      : console.log('Error');
-    restetForm();
+    if (!isValidData()) {
+      restetForm();
+      return;
+    }
+
+    dispatch(authOperations.register({ email, password }));
   };
 
   return (
