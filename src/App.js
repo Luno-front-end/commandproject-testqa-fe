@@ -2,12 +2,14 @@ import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
 // eslint-disable-next-line no-unused-vars
+import queryString from 'query-string';
 import { useEffect, Suspense, lazy } from 'react';
 import Navigation from './components/Navigation';
 import AuthPage from './components/AuthPage/AuthPage';
 import MainPage from './components/MainPage/MainPage.jsx';
 import TestPage from './components/TestPage/TestPage.jsx';
-
+import { useLocation } from 'react-router-dom';
+import { saveUserData } from './redux/auth/auth-actions';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import ResultsPage from './components/ResultsPage/ResultsPage';
@@ -22,9 +24,16 @@ function App() {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
+  const location = useLocation();
+  const query = queryString.parse(location.search);
+
   useEffect(() => {
+    if (query.token) {
+      dispatch(saveUserData({ ...query }));
+    }
+
     dispatch(authOperations.fetchCurrentUser());
-  }, [dispatch]);
+  }, []);
   return (
     <>
       {isFetchingCurrentUser ? (
