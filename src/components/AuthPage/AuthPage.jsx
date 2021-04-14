@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import sprite from '../../images/sprite.svg';
 import { authOperations } from '../../redux/auth';
 import AuthPhrase from './AuthPhrase';
+import validation from '../Validation/Validation';
 
 export default function AuthPage() {
   const dispatch = useDispatch();
@@ -15,23 +16,34 @@ export default function AuthPage() {
     setPassword('');
   }
 
+  const isValidData = () => {
+    try {
+      const a = validation.validate({ email, password });
+      if (a?.error) {
+        // неправильная форма
+        return false;
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+
   const handleSubmitLog = e => {
     e.preventDefault();
-    if (email.trim() === '' || password.trim() === '') {
-      toast.error('Please, enter email or password');
-      return;
-    }
-    dispatch(authOperations.logIn({ email, password }));
+
+    isValidData()
+      ? dispatch(authOperations.logIn({ email, password }))
+      : console.log('Error');
     restetForm();
   };
 
   const handleSubmitReg = async e => {
     e.preventDefault();
-    if (email.trim() === '' || password.trim() === '') {
-      toast.error('Please, enter email or password');
-      return;
-    }
-    dispatch(authOperations.register({ email, password }));
+
+    isValidData()
+      ? dispatch(authOperations.register({ email, password }))
+      : console.log('Error');
     restetForm();
   };
 
