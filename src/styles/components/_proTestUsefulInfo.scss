@@ -45,108 +45,78 @@
     }
   }
 }
-ol {
-  list-style-type: decimal;
+
+.container-UsefulInfo {
+  & ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+  }
+  padding-top: 20px;
+  @include for-size(tablet) {
+    padding-top: 100px;
+  }
+  @include for-size(desktop) {
+    padding-top: 80px;
+  }
 }
+
+.listNameH {
+  font-family: 'MontserratSemiBold';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+
+  margin: 26px 0;
+
+  @include for-size(tablet) {
+    font-size: 22px;
+    line-height: 30px;
+    margin-left: 115px;
+    margin: 22px 0;
+    br {
+      display: none;
+    }
+  }
+
+  @include for-size(desktop) {
+    font-size: 22px;
+    line-height: 30px;
+    margin-left: 190px;
+    margin: 22px 0;
+    br {
+      display: none;
+    }
+  }
+}
+
 .sectionList {
   font-family: 'MontserratMedium';
   font-size: 10px;
   line-height: 16px;
   letter-spacing: 0.02em;
-  padding-left: 15px;
+
+  padding-top: 10px;
+
+  width: 200px;
+  border-top: 1px solid rgba(0, 18, 47, 0.2);
 
   @include for-size(tablet) {
     font-size: 14px;
     line-height: 22px;
-    margin-left: 155px;
+    padding-top: 25px;
+    padding-left: 50px;
+    width: 320px;
   }
   @include for-size(desktop) {
     font-size: 14px;
     line-height: 22px;
-    margin-left: 155px;
-  }
-}
-.listNameH {
-  font-family: 'MontserratSemiBold';
-  padding-top: 40px;
-  padding-bottom: 26px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  letter-spacing: 0.02em;
-  position: relative;
-
-  @include for-size(tablet) {
-    font-size: 22px;
-    line-height: 30px;
-    padding-top: 119px;
-    padding-left: 109px;
-    padding-bottom: 47px;
-    br {
-      display: none;
-    }
-  }
-
-  @include for-size(desktop) {
-    font-size: 22px;
-    line-height: 30px;
-    padding-top: 98px;
-    padding-left: 115px;
-    padding-bottom: 47px;
-    br {
-      display: none;
-    }
-  }
-}
-.listNameH::after {
-  content: '';
-  position: absolute;
-  width: 150px;
-  height: 0px;
-  top: 97px;
-  left: 0px;
-  opacity: 0.15;
-  border: 0.5px solid #00122f;
-  @include for-size(tablet) {
-    width: 321.5px;
-    top: 173px;
-    left: 109px;
-  }
-  @include for-size(desktop) {
-    width: 321.5px;
-    top: 150px;
-    left: 109px;
+    padding-top: 25px;
+    padding-left: 50px;
+    width: 320px;
   }
 }
 
-.vectorH {
-  position: relative;
-  @include for-size(tablet) {
-    margin-top: 50px;
-  }
-  @include for-size(desktop) {
-  }
-}
-.vectorH::after {
-  content: '';
-  position: absolute;
-  width: 150px;
-  height: 0px;
-  top: 97px;
-  left: 0px;
-  opacity: 0.15;
-  border: 0.5px solid #00122f;
-  @include for-size(tablet) {
-    width: 321.5px;
-    top: 173px;
-    left: 109px;
-  }
-  @include for-size(desktop) {
-    width: 321.5px;
-    top: 150px;
-    left: 109px;
-  }
-}
 .linkOl {
   text-decoration-line: underline;
   font-family: 'MontserratMedium';
