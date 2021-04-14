@@ -82,8 +82,6 @@ function Test() {
             </p>
 
             <p className="nameOfQuestionTest">{allTests[index]?.question}</p>
-            {/* hr треба замінити на бордер і поставити як бефор чи афтер  */}
-            <hr className="hrLineTest"></hr>
 
             <ul className="groupOfAnswersTest">
               {allTests[index]?.answers.map(el => {
