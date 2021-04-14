@@ -14,11 +14,9 @@ export default function Footer() {
           <svg className="heartSvg" width="16" height="16">
             <use href={sprite + '#heart'}></use>
           </svg>
-          {/* <span className="groupLink-footer"> */}
-          <Link to={routes.materialsPage} className="linkFooter">
+          <Link to={routes.contactsPage} className="linkFooter">
             by <span className="linkFooterBy">GoIT Students</span>
           </Link>
-          {/* </span> */}
         </p>
       </div>
     </footer>
