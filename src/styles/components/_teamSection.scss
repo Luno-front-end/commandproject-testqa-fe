@@ -1,23 +1,5 @@
 .teamItem {
   background-color: $text-collor;
-
-  align-items: center;
-  justify-content: center;
-
-  @include for-size(mobile) {
-    margin-bottom: 20px;
-    & :last-child {
-      margin-bottom: 0px;
-    }
-  }
-
-  // //   @include for-size(tablet) {
-  // //     width: calc((100% - 4 * 20px) / 2);
-
-  //     // & :not(:last-child) {
-  //     //   margin-bottom: 0px;
-  //     // }
-  //   }
 }
 
 .thumb img {
@@ -84,4 +66,8 @@
   @include for-size(desktop) {
     padding-left: 29px;
   }
+}
+
+.icon {
+  fill: black;
 }
