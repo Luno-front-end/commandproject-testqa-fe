@@ -89,9 +89,8 @@ export default function Test() {
               {allTests[index]?.answers.map(el => {
                 const id = uuidv4();
                 return (
-                  <Suspense fallback={<Loader />}>
+                  <Suspense fallback={<Loader />} key={id}>
                     <Item
-                      key={id}
                       id={id}
                       el={el}
                       onChange={handleChange}

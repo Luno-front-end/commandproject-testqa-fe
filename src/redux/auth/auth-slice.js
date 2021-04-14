@@ -26,40 +26,35 @@ const authSlice = createSlice({
       state.user.email = email;
     },
     [authOperations.register.fulfilled](state, { payload }) {
-      console.log('payload in reg', payload);
-      state.user = payload.email;
+      state.user.email = payload.email;
       state.token = payload.token;
       state.refreshToken = payload.refreshToken;
+      toast.success('User created');
     },
-    [authOperations.register.rejected](state, { payload }) {
-      console.log('payload in reg rejected', payload);
-    },
-    [authOperations.register.rejected](state, { payload }) {
+
+    [authOperations.register.rejected](_, { payload }) {
       toast.error(payload.message);
     },
 
     [authOperations.logIn.fulfilled](state, { payload }) {
-      console.log('payload in log', payload);
       state.user.email = payload.email;
       state.token = payload.token;
       state.refreshToken = payload.refreshToken;
       state.isLoggedIn = true;
     },
-    [authOperations.logIn.rejected](state, { payload }) {
-      console.log('payload in log rejected', payload);
-      state.isLoggedIn = true;
-    },
+
     [authOperations.logIn.rejected](state, { payload }) {
       toast.error(payload.message);
+      state.isLoggedIn = true;
     },
 
     [authOperations.logOut.fulfilled](state) {
-      state.user = { email: null };
+      state.user.email = null;
       state.token = null;
       state.refreshToken = null;
       state.isLoggedIn = false;
     },
-    [authOperations.logIn.rejected](state, { payload }) {
+    [authOperations.logIn.rejected](_, { payload }) {
       toast.error(payload.message);
     },
 
@@ -67,7 +62,7 @@ const authSlice = createSlice({
       state.isFetchingCurrentUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, { payload }) {
-      state.user = payload.email;
+      state.user.email = payload.email;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
@@ -89,7 +84,7 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
-    [authOperations.fetchWithRefreshToken.rejected](state, { payload }) {
+    [authOperations.fetchWithRefreshToken.rejected](state, _) {
       state.isFetchingCurrentUser = false;
     },
   },
