@@ -83,7 +83,6 @@ const authSlice = createSlice({
       state,
       { payload: { data } },
     ) {
-      console.log('refresh payload fullfilled');
       state.user.email = data.email;
       state.token = data.token;
       state.refreshToken = data.refreshToken;
