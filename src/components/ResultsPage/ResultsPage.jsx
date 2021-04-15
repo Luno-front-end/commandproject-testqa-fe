@@ -13,7 +13,7 @@ function Results() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchResults('adasdasd'));
+    dispatch(fetchResults());
   }, [dispatch]);
 
   const query = new URLSearchParams(location.search).get('name');
