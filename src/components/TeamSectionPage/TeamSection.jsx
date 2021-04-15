@@ -1,3 +1,5 @@
+import sprite from '../../images/sprite.svg';
+
 const TeamSection = ({ name, url, position, sociallinks }) => {
   return (
     <div className="teamItem">
@@ -6,11 +8,19 @@ const TeamSection = ({ name, url, position, sociallinks }) => {
       </div>
       <h3 className="teamName">{name}</h3>
       <p className="teamPosition">{position}</p>
-      <p>
-        <a className="socialLink" href={sociallinks}>
-          github
+      <div>
+        <a
+          className="socialLink"
+          href={sociallinks}
+          target="blank"
+          width="30"
+          height="30"
+        >
+          <svg className="githubIcon" width="24" height="24">
+            <use href={sprite + '#github'}></use>
+          </svg>
         </a>
-      </p>
+      </div>
     </div>
   );
 };
