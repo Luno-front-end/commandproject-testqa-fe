@@ -7,9 +7,9 @@ const initialState = {
 };
 
 const resultsPage = createSlice({
-  name: 'CurrenstAnswers',
+  name: 'testResults',
   initialState,
-  reducers: {
+  extraReducers: {
     [addAnswer]: (state, { payload }) => {
       const id = payload.answers._id;
       const array = state.answers.filter(el => el._id !== id);

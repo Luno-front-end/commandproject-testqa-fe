@@ -1,5 +1,4 @@
 import TeamSection from './TeamSection';
-import teamMembers from '../../teamMembers.json';
 
 function TeamList({ teamMembers }) {
   return (
