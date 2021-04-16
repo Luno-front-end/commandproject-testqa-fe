@@ -20,22 +20,42 @@ export default function UsefulInfo() {
         </h2>
         <ol className="sectionList">
           <li>
-            <a href="https://dou.ua/" className="linkOl">
+            <a
+              href="https://dou.ua/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="linkOl"
+            >
               dou.ua
             </a>
           </li>
           <li>
-            <a href="https://habr.com/ru/" className="linkOl">
+            <a
+              href="https://habr.com/ru/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="linkOl"
+            >
               Habr
             </a>
           </li>
           <li>
-            <a href="https://www.facebook.com/" className="linkOl">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="linkOl"
+            >
               facebook.com/QA
             </a>
           </li>
           <li>
-            <a href="https://goit.ua/" className="linkOl">
+            <a
+              href="https://goit.ua/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="linkOl"
+            >
               goit.ua
             </a>
           </li>

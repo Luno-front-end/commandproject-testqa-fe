@@ -27,7 +27,7 @@ function Results() {
       <Diagram correctAnswers={results?.data?.amountOfRightAnswers ?? 0} />
       <div className="results_flex">
         <p className="results_results">
-          Correct answers -
+          Correct answers -{' '}
           <span>{results?.data?.amountOfRightAnswers ?? 0}</span>
         </p>
         <p className="results_results">

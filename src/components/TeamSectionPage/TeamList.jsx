@@ -4,7 +4,7 @@ function TeamList({ teamMembers }) {
   return (
     <section className="section">
       <h2 className="teamTitle">
-        <span className="teamTitleAfter">Наша команда</span>
+        <span className="teamTitleAfter">Our team</span>
       </h2>
       <div
         className="container 

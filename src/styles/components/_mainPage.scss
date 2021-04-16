@@ -134,6 +134,16 @@
   align-items: center;
   height: 212px;
   background: $footer-bg-color;
+  transition: background-color 300ms linear;
+
+  &:hover {
+    background: #ff6b01;
+    transition: background-color 300ms linear;
+  }
+  &:focus {
+    background: #ff6b01;
+    transition: background-color 300ms linear;
+  }
 
   @include for-size(mobile) {
     width: 280px;
@@ -164,7 +174,19 @@
   align-items: center;
 
   height: 212px;
-  background: #ff6b01;
+
+  background: $footer-bg-color;
+
+  transition: background-color 300ms linear;
+
+  &:hover {
+    background: #ff6b01;
+    transition: background-color 300ms linear;
+  }
+  &:focus {
+    background: #ff6b01;
+    transition: background-color 300ms linear;
+  }
 
   @include for-size(mobile) {
     width: 280px;
